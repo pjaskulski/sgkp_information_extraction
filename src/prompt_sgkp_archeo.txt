@@ -1,0 +1,31 @@
+Na podstawie tekstu hasła Słownika Geograficzno-Historycznego opisującego miejscowość wyszukaj następujące informacje na jej temat:
+
+- "archeo" - lista znalezisk acheologicznych występujących w opisywanej miejscowości np. popielnice, ozdoby, szpile, broń, narzędzia kamienne, przedmioty z brązu, paciorki itp.  
+Wynik zwróć w formie struktury JSON. W przypadku braku danej informacji, zapisz wartość null. 
+###
+Przykład 1:
+Tekst: Bolkowce, niem. Bolkowitz, ros. Bolkovicje, mczko, pow. woliński, par. Więcko, gm. Bolkowce w gub. lidzkiej. W 1800 r. był własnością Adama Lankckowskiego sędziego ziemskiego, ma 25 dm., 98 mk. Grunty orne, liczne sady, budynków z drewna 23, bud. mur. 2, na południu wsi staw rybny. Funkcjonuje tu stacja pocztowa i komora celna. Zabytkowy kościół z XVI w. św. Piotra i Pawła w centrum wsi, 1 km na pn.-wsch. drewniana cerkiew. W 1826 roku przeprowadzono wykopaliska w pobliżu miasteczka, znajdując wiele grobów pogańskich a w nich popielnice, ozoby brązowe, paciorki. L. Doz.
+
+Wynik:
+{ 
+  "archeo": ["popielnice", "ozdoby brązowe", "paciorki"]
+}
+###
+Przykład 2:
+Tekst: Walicw Wielkie, wś, pow. pruski, par. Innenwelt. Ma 5 dm., 19 mk. Grunty orne słabe, lasy sosnowe, szkoła parafialna katolicka. własność Towarzystwa Ekonomicznego w Lubczy. Na skraju wsi grodzisko średniowieczne. A. G.
+
+Wynik:
+{ 
+  "archeo": null
+}
+###
+Przykład 3:
+Tekst: Malemujża, dobra w Kurlandyi, pow. mitawski, par. Doblena, i pow. zelburski, par. Zelburg, zabytkowa kaplica cmentarna, 127 mk. We wsi filia Pruskiej Szkoły Administracji Uniwersytetu w Królewcu. w pobliskim lasku znaleziono średniowieczny miecz z ozdobną głownią.  K. F.
+
+Wynik:
+{ 
+  "archeo": ["średniowieczny miecz z ozdobną głownią"]
+}
+###
+Tekst:
+
