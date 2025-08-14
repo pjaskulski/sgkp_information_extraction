@@ -177,14 +177,14 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
             try:
                 result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
 
-                # if result.wlasciciel and value_test(result.wlasciciel):
-                #     element['właściciel'] = result.wlasciciel
+                if result.wlasciciel and value_test(result.wlasciciel):
+                    element['właściciel'] = result.wlasciciel
                 if result.przemyslowe:
                     element['przemysłowe'] = result.przemyslowe
                 if result.mlyny:
                     element['młyny'] = result.mlyny
-                # if result.archeo:
-                #     element['archeo'] = result.archeo
+                if result.archeo:
+                    element['archeo'] = result.archeo
 
             except Exception as e:
                 print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
@@ -198,14 +198,14 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
         try:
             result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
 
-            # if result.wlasciciel and value_test(result.wlasciciel):
-            #     entry_data['właściciel'] = result.wlasciciel
+            if result.wlasciciel and value_test(result.wlasciciel):
+                entry_data['właściciel'] = result.wlasciciel
             if result.przemyslowe:
                 entry_data['przemysłowe'] = result.przemyslowe
             if result.mlyny:
                 entry_data['młyny'] = result.mlyny
-            # if result.archeo:
-            #     entry_data['archeo'] = result.archeo
+            if result.archeo:
+                entry_data['archeo'] = result.archeo
         except Exception as e:
             print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
 
