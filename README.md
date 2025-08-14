@@ -4,7 +4,9 @@ Skrypty i materiały związane z przetwarzaniem Słownika Geograficznego Króles
 Teksty poszczególnych tomów SGKP zostały podzielone na hasła i pod-hasła, następnie zapisane w plikach JSON.
 
 Pliki JSON są przetwarzane skryptami (Python) wykorzystującymi model LLM (gpt-4.1-mini) poprzez API OpenAI. Skrypty wyszukują oczekiwane informacje,
-zwracając je w formie stutur, które uzupełniają źródłowy plik JSON.
+zwracając je w formie stuktur, które uzupełniają źródłowy plik JSON.
+
+W folderze znajdują się dwa rodzaje skryptów, zależnie od sposobu przetwarzania:
 
 Skrypty concurrent*.py działają natychmiast, pliki JSON dla tom udzielone są na kilka-kilkadziesiąt części i przetwarzane równoległe. Czas przetwarzania jednego tomu to około 40-50 minut.
 
