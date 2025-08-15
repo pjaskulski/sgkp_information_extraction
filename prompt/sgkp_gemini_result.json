@@ -1,0 +1,420 @@
+[
+  {
+    "nazwa": "Malczyce",
+    "ID": "06-00001",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "węg.",
+        "wariant_nazwy": "Malcsa"
+      }
+    ],
+    "typ": "wieś",
+    "powiat": "ziemneński",
+    "parafia_katolicka": "Malczyce",
+    "parafia_inna": [
+      {
+        "wyznanie": "gr.-kat.",
+        "nazwa_parafii": "Malczyce"
+      }
+    ],
+    "autor": "H. M."
+  },
+  {
+    "nazwa": "Jarochowo",
+    "ID": "16-00024",
+    "rodzaj": "indywidualne",
+    "typ": "wieś",
+    "powiat": "łęczycki",
+    "parafia_katolicka": "Słaboszewo"
+  },
+  {
+    "nazwa": "Malechin",
+    "ID": "06-00016",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "nieokr.",
+        "wariant_nazwy": "Malechiny"
+      }
+    ],
+    "typ": "odsyłacz"
+  },
+  {
+    "nazwa": "Malechy",
+    "ID": "06-00020",
+    "rodzaj": "indywidualne",
+    "typ": "wieś",
+    "powiat": "makowski",
+    "gmina": "Karniewo",
+    "parafia_katolicka": "Karniewo"
+  },
+  {
+    "nazwa": "Małecki potok",
+    "ID": "06-00023",
+    "rodzaj": "indywidualne",
+    "typ": "potok",
+    "powiat": "bielski",
+    "gmina": "Witkowie",
+    "autor": "Br. G."
+  },
+  {
+    "nazwa": "Malejowce",
+    "ID": "06-00034",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "nieokr.",
+        "wariant_nazwy": "Malijowce"
+      }
+    ],
+    "typ": "wieś",
+    "powiat": "uszycki",
+    "gmina": "Mukarów",
+    "parafia_katolicka": "Mukarów",
+    "parafia_inna": [
+      {
+        "wyznanie": "praw.",
+        "nazwa_parafii": "Malejowce"
+      }
+    ],
+    "autor": "Dr. M."
+  },
+  {
+    "nazwa": "Malice",
+    "ID": "06-00097",
+    "rodzaj": "zbiorcze",
+    "elementy": [
+      {
+        "ID": "06-00097-001",
+        "rodzaj": "element",
+        "typ": "kolonia",
+        "powiat": "częstochowski",
+        "gmina": "Dzbów",
+        "parafia_katolicka": "Konopiska"
+      },
+      {
+        "ID": "06-00097-002",
+        "rodzaj": "element",
+        "typ": "wieś",
+        "powiat": "łódzki",
+        "gmina": "Dzierzązna",
+        "parafia_katolicka": "Zgierz"
+      },
+      {
+        "ID": "06-00097-003",
+        "rodzaj": "element",
+        "typ": "wieś",
+        "powiat": "sandomierski",
+        "gmina": "Samborzec",
+        "parafia_katolicka": "Obrazów"
+      },
+      {
+        "ID": "06-00097-004",
+        "rodzaj": "element",
+        "typ": "wieś, folwark",
+        "powiat": "sandomierski",
+        "gmina": "Lipnik",
+        "parafia_katolicka": "Malice"
+      },
+      {
+        "ID": "06-00097-005",
+        "rodzaj": "element",
+        "typ": "wieś",
+        "powiat": "hrubieszowski",
+        "gmina": "Werbkowice",
+        "parafia_katolicka": "Tyszowce"
+      }
+    ],
+    "autor": "Br. Ch."
+  },
+  {
+    "nazwa": "Marcinkowo",
+    "ID": "16-06613",
+    "rodzaj": "indywidualne",
+    "typ": "wieś",
+    "powiat": "wałecki",
+    "parafia_katolicka": "Marcinkowo",
+    "autor": "Kś. Fr."
+  },
+  {
+    "nazwa": "Akerman",
+    "ID": "01-00147",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "nieokr.",
+        "wariant_nazwy": "Akierman"
+      },
+      {
+        "lang": "nieokr.",
+        "wariant_nazwy": "Akkerman"
+      },
+      {
+        "lang": "łac.",
+        "wariant_nazwy": "Alba Julia"
+      },
+      {
+        "lang": "nieokr.",
+        "wariant_nazwy": "Białogród"
+      },
+      {
+        "lang": "nieokr.",
+        "wariant_nazwy": "Białłogród"
+      },
+      {
+        "lang": "woł.",
+        "wariant_nazwy": "Citate-Alba"
+      }
+    ],
+    "typ": "miasto powiatowe",
+    "powiat": "Akerman",
+    "gubernia": "besarabskiej",
+    "parafia_katolicka": "Krasna",
+    "autor": "F. S."
+  },
+  {
+    "nazwa": "Andrejówka",
+    "ID": "01-00451",
+    "rodzaj": "indywidualne",
+    "typ": "wieś",
+    "powiat": "jampolski"
+  },
+  {
+    "nazwa": "Annenburg",
+    "ID": "01-00545",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "łotew.",
+        "wariant_nazwy": "Amburga"
+      }
+    ],
+    "typ": "wieś",
+    "gubernia": "kurlandzka",
+    "parafia_katolicka": "mitawska"
+  },
+  {
+    "nazwa": "Annopol",
+    "ID": "01-00553",
+    "rodzaj": "zbiorcze",
+    "elementy": [
+      {
+        "ID": "01-00553-001",
+        "rodzaj": "element",
+        "typ": "osada",
+        "powiat": "janowski",
+        "gmina": "Annopol",
+        "parafia_katolicka": "Świeciechów"
+      },
+      {
+        "ID": "01-00553-002",
+        "rodzaj": "element",
+        "typ": "gmina",
+        "powiat": "janowski",
+        "gubernia": "lubelska"
+      },
+      {
+        "ID": "01-00553-003",
+        "rodzaj": "element",
+        "typ": "dobra",
+        "powiat": "janowski"
+      },
+      {
+        "ID": "01-00553-004",
+        "rodzaj": "element",
+        "typ": "folwark",
+        "powiat": "turecki",
+        "gmina": "Strzałków"
+      }
+    ],
+    "autor": "Br. Ch."
+  },
+  {
+    "nazwa": "Dereczanka",
+    "ID": "01-10561",
+    "rodzaj": "indywidualne",
+    "typ": "wieś, folwark",
+    "powiat": "bialski",
+    "gmina": "Dobryń",
+    "parafia_katolicka": "Piszczac"
+  },
+  {
+    "nazwa": "Denysów",
+    "ID": "01-10537",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "nieokr.",
+        "wariant_nazwy": "Denysów wielki i mały"
+      }
+    ],
+    "typ": "wieś",
+    "powiat": "tarnopolski",
+    "parafia_katolicka": "Rosochowaćec",
+    "parafia_inna": [
+      {
+        "wyznanie": "gr.-kat.",
+        "nazwa_parafii": "Denysów"
+      }
+    ],
+    "autor": "B. R."
+  },
+  {
+    "nazwa": "Denków",
+    "ID": "01-10529",
+    "rodzaj": "indywidualne",
+    "typ": "osada",
+    "powiat": "opatowski",
+    "gmina": "Częstocice",
+    "parafia_katolicka": "Denków",
+    "autor": "Dr. Ch."
+  },
+  {
+    "nazwa": "Worowo",
+    "ID": "14-00001",
+    "rodzaj": "indywidualne",
+    "typ": "folwark",
+    "powiat": "obornicki",
+    "parafia_katolicka": "Długa Goślina",
+    "autor": "W. Ł."
+  },
+  {
+    "nazwa": "Worowo",
+    "ID": "14-00002",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "niem.",
+        "wariant_nazwy": "Neu Wuhrow"
+      },
+      {
+        "lang": "dok.",
+        "wariant_nazwy": "Warrow"
+      },
+      {
+        "lang": "dok.",
+        "wariant_nazwy": "Wuro"
+      },
+      {
+        "lang": "dok.",
+        "wariant_nazwy": "Wurow"
+      }
+    ],
+    "typ": "wieś kościelna, dobra",
+    "powiat": "szczecinkowski",
+    "gubernia": "pomorska",
+    "parafia_katolicka": "Czaplinek",
+    "autor": "Kś. Fr."
+  },
+  {
+    "nazwa": "Wydrne",
+    "ID": "14-00658",
+    "rodzaj": "indywidualne",
+    "typ": "wieś",
+    "powiat": "liski",
+    "parafia_katolicka": "Polana",
+    "parafia_inna": [
+      {
+        "wyznanie": "gr.-kat.",
+        "nazwa_parafii": "Polana"
+      }
+    ],
+    "autor": "Mac."
+  },
+  {
+    "nazwa": "Wydrzno",
+    "ID": "14-00669",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "niem.",
+        "wariant_nazwy": "Widersse"
+      },
+      {
+        "lang": "dok.",
+        "wariant_nazwy": "Widern"
+      },
+      {
+        "lang": "dok.",
+        "wariant_nazwy": "Widerne"
+      }
+    ],
+    "typ": "dobra rycerskie",
+    "powiat": "grudziądzki",
+    "parafia_katolicka": "Szynwałd",
+    "autor": "Kś. Fr."
+  },
+  {
+    "nazwa": "Wymysł",
+    "ID": "14-00847",
+    "rodzaj": "indywidualne",
+    "typ": "wieś, folwark",
+    "powiat": "radomski",
+    "gmina": "Wielogóra",
+    "parafia_katolicka": "Radom"
+  },
+  {
+    "nazwa": "Żyżmory",
+    "ID": "14-08457",
+    "rodzaj": "indywidualne",
+    "typ": "miasteczko, dobra",
+    "powiat": "trocki",
+    "gmina": "Żyżmory",
+    "parafia_katolicka": "Żyżmory",
+    "autor": "M. R. Witan."
+  },
+  {
+    "nazwa": "Szłajtyniszki",
+    "ID": "12-00006",
+    "rodzaj": "indywidualne",
+    "warianty_nazw": [
+      {
+        "lang": "nieokr.",
+        "wariant_nazwy": "Słajtyszki"
+      }
+    ],
+    "typ": "osada",
+    "powiat": "maryampolski",
+    "gmina": "Balwierzyszki",
+    "parafia_katolicka": "Gudele"
+  },
+  {
+    "nazwa": "Szmata",
+    "ID": "12-00044",
+    "rodzaj": "indywidualne",
+    "typ": "leśniczówka",
+    "powiat": "odolanowski",
+    "parafia_katolicka": "Odolanów"
+  },
+  {
+    "nazwa": "Tonież",
+    "ID": "12-03362",
+    "rodzaj": "indywidualne",
+    "typ": "wieś skarbowa",
+    "powiat": "mozyrski",
+    "gmina": "Tonież",
+    "parafia_inna": [
+      {
+        "wyznanie": "praw.",
+        "nazwa_parafii": "Tonież"
+      }
+    ],
+    "autor": "A. Jel."
+  },
+  {
+    "nazwa": "Ubieszyn",
+    "ID": "12-05732",
+    "rodzaj": "indywidualne",
+    "typ": "wieś",
+    "powiat": "łańcucki",
+    "parafia_katolicka": "Gniewczyna",
+    "parafia_inna": [
+      {
+        "wyznanie": "gr.-kat.",
+        "nazwa_parafii": "Gorzyce"
+      }
+    ],
+    "autor": "Mac."
+  }
+]
