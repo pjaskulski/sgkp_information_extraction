@@ -11,3 +11,7 @@ W folderze znajdują się dwa rodzaje skryptów, zależnie od sposobu przetwarza
 Skrypty concurrent*.py działają natychmiast, pliki JSON dla tom udzielone są na kilka-kilkadziesiąt części i przetwarzane równoległe. Czas przetwarzania jednego tomu to około 40-50 minut.
 
 Skrypty batch*.py korzystają z Batch API, czyli zadania przetwarzania są przygotowywane i wgrywane na serwery OpenAI i przetwarzane w ciąg u 24 godzin (często wcześniej), następnie można pobrać wyniki. Zaletą przetwarzania w tym trybie jest koszt niższy o 50%. 
+
+W folderze OCR - pomocnicze skrypty do OCR
+
+W folderze PROMPT - przykład przetwarzania treści SGKP bezpośrednio w aistudio z użyciem Gemini Pro: prompt, plik z danymi (treścią haseł) do załączenia, przykład wyniku w formacie JSON. 
