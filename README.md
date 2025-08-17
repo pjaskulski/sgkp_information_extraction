@@ -14,4 +14,4 @@ Skrypty batch*.py korzystają z Batch API, czyli zadania przetwarzania są przyg
 
 W folderze OCR - pomocnicze skrypty do OCR
 
-W folderze PROMPT - przykład przetwarzania treści SGKP bezpośrednio w aistudio z użyciem Gemini Pro: prompt, plik z danymi (treścią haseł) do załączenia, przykład wyniku w formacie JSON. 
+W folderze PROMPT - przykład przetwarzania treści SGKP bezpośrednio w aistudio z użyciem Gemini Pro: prompt, plik z danymi (treścią haseł) do załączenia, przykład wyniku w formacie JSON oraz w pliku 'przygotowywanie_promptow_wskazowki.docx' - poradnik ze wskazówkami jak przygotowywać prompty do ekstrakcji danych.
