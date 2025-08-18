@@ -83,6 +83,9 @@ def prepare_prompt() -> str:
     **14. Wojsko ('wojsko')**
     *   poszukiwane obiekty: koszary, fort, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica.
 
+    **15. Obiekty sakralne ('obiekty_sakralne')**
+    *   obiekty sakralne (budowle): kościół, meczet, kaplica, synagoga, cerkiew, klasztor, dom modlitwy, sobór, katedra (jeżeli podano to cała nazwa, wezwanie itp.).
+
 
     **INFORMACJE POMOCNICZE:**
     *   W tekście mogą występować skróty. Oto lista najczęstszych: {lista_skrotow}.
@@ -113,7 +116,8 @@ def prepare_prompt() -> str:
         "11. Badam czy tekst wspomina o leśniczówkach lub podobnych obiektach, ale nie znajduję, pomijam więc pole w strukturze json",
         "12. Szukam budynków pałacowych, dworów, znajduję wzmiankę 'wybudował na skraju wsi drewniany dwór', informacja dotyczy XIX wieku (1820), zapisuję w polu wartość 'drewniany dwór'",
         "13. Szukam informacji o magazynowanach i spichlerzach, brak takich danych, pomijam pole w strukturze json",
-        "14. Przeszukanie tekstu w zakresie obiektów związanych z wojskowością nie dało żadnych rezultatów, pomijam więc pole w strukturze json"
+        "14. Przeszukanie tekstu w zakresie obiektów związanych z wojskowością nie dało żadnych rezultatów, pomijam więc pole w strukturze json",
+        "15. Szukam obiektów sakralnych w tekście, lecz nie dało to żadnych rezultatów, pomijam więc pole w strukturze json"
     ],
     "właściciel": "Adam Lankckowski",
     "przemysłowe": ["huta szkła"],
@@ -127,7 +131,7 @@ def prepare_prompt() -> str:
 
     **Hasło:** Wielkowice
     **Tekst hasła:** Wielkowice albo Wielkowiec, wś i folw., pow. pruski, gm. Hotków. Cerkiew par. i szkoła religijna,
-    parafia kat. w Hotkowie, 115 dm., 456 mk. W 1560 roku król Zygmunt August nadał wieś Janowi Potockiemu za zasługi.
+    parafia kat. w Hotkowie, na skraju wsi kaplica pod wezw. św. Michała. W 1879 r. 115 dm., 456 mk. W 1560 roku król Zygmunt August nadał wieś Janowi Potockiemu za zasługi.
     We wsi 2 młyny i wiatrak, obszerny drewniany spichlerz. Na płn od wsi znaleziono urny i starożytne siekierki z brązu. Obecnie własność skarbowa. K. Prz.
 
     **Wynik w formie struktury JSON:**
@@ -139,7 +143,7 @@ def prepare_prompt() -> str:
         "2. Wyszukuję obiekty przemysłowe, w tekście tylko wzmianki o młynach i wiatrakach, które nie należą do kategorii obiektów przemysłowych, zapisuję więc wartość 'null'",
         "3. Wyszukuję młyny i wiatraki. W tekście znaduję 'We wsi 2 młyny i wiatrak' - zapisuję '2 młyny', 'wiatrak'",
         "4. Szukam znalezisk archeologicznych, w tekście występuje wzmianka o starożytnych siekierkach i urnach, które można zakwaifikować jako znaleziska archeologiczne.",
-        "5. Analizuję tekst pod względem występowania informacji o zabytkach,brak takich danych, pomijam pole w strukturze json",
+        "5. Analizuję tekst pod względem występowania informacji o zabytkach, brak takich danych, pomijam pole w strukturze json",
         "6. Szukam obiektów pasujących do kategorii architektura krajobrazu, brak takich danych, pomijam pole w strukturze json",
         "7. Wyszukuję zbiory i kolekcje, brak takich danych, pomijam pole w strukturze json",
         "8. Analizuję tekst w zakresie występowania muzeów, gabinetów ze zbiorami, brak takich danych, pomijam pole w strukturze json",
@@ -148,13 +152,15 @@ def prepare_prompt() -> str:
         "11. Badam czy tekst wspomina o leśniczówkach lub podobnych obiektach, ale nie znajduję, pomijam więc pole w strukturze json",
         "12. Szukam budynków pałacowych, dworów, zbrak takich danych, pomijam pole w strukturze json",
         "13. Szukam informacji o magazynowanach i spichlerzach, tekst wspomina 'obszerny drewniany spichlerz', zapisuję 'spichlerz'",
-        "14. Przeszukanie tekstu w zakresie obiektów związanych z wojskowością nie dało żadnych rezultatów, pomijam więc pole w strukturze json"
+        "14. Przeszukanie tekstu w zakresie obiektów związanych z wojskowością nie dało żadnych rezultatów, pomijam więc pole w strukturze json",
+        "15. Szukam obiektów sakralnych, znajduję wzmiankę 'Cerkiew par.' oraz 'kaplica pod wezw. św. Michała', więc zapisuję w polu 'cerkiew parafialna' i 'kaplica św. Michała'"
     ],
     "właściciel": "własność skarbowa",
     "przemysłowe": null,
     "młyny": ["2 młyny", "wiatrak"],
     "archeo": ["urny", "starożytne siekierki z brązu"],
-    "magazyny": ['spichlerz']
+    "magazyny": ['spichlerz'],
+    "obiekty_sakralne": ['cerkiew parafalna', 'kaplica św. Michała']
     }}
     ---
     """
