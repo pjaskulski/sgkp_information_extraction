@@ -1,4 +1,20 @@
-""" openai gpt - właściciel oraz obiekty przemysłowe, młyny i znaleziska archeologiczne dla hasła SGKP, przetwarzanie wielowątkowe """
+""" ekstrakcja danych z hasła SGKP, przetwarzanie  wielowątkowe:
+- właściciel,
+- obiekty przemysłowe,
+- młyny,
+- znaleziska archeologiczne,
+- zabytki – bez świątyń czynnych
+- architektura_krajobrazu – park, ogród, oranżeria, mała architektura ogrodowa
+- kolekcjonerstwo
+- muzealnictwo
+- nekropolie – nie archeologiczne
+- rzemioslo – nie przemysł
+- lesniczowki – tylko leśniczówka/nadleśnictwo/gajówka
+- mlyny: młyn/wiatrak
+- budownictwo pałacowe, dworskie
+- magazynowanie: magazyny, spichlerze
+- wojsko: koszary, fort, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica
+"""
 import os
 import sys
 import time
@@ -12,14 +28,15 @@ from dotenv import load_dotenv
 import openai
 from openai import OpenAI
 from pydantic import BaseModel, Field
+from prompt_wlasnosc_przemysl_zabytki import prepare_prompt
 
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 50
+NUM_THREADS = 5
 
 # numer tomu
-VOLUME = '16'
+VOLUME = 'test'
 
 # API-KEY
 env_path = Path(".") / ".env"
@@ -31,98 +48,13 @@ openai.api_key = OPENAI_API_KEY
 # Model
 MODEL = "gpt-4.1-mini"
 
-# lista skrótów z SGKP
-with open('prompt_sgkp_skroty.txt', 'r', encoding='utf-8') as f:
-    lines = f.readlines()
-    skroty = [x.strip() for x in lines]
-
-lista_skrotow = ', '.join(skroty)
-
 system_prompt = """
 Jesteś asystentem historyka, specjalizującym się w badaniach historyczno - geograficznych,
 ekspertem w analizie tekstów haseł Słownika Geograficznego Królestwa Polskiego (SGKP).
 """
 
-user_prompt = f"""
-Twoim zadaniem jest precyzyjna ekstrakcja danych z podanego hasła.
-Przeanalizuj poniższy tekst i wypełnij strukturę JSON zgodnie z podanymi polami i regułami.
+user_prompt = prepare_prompt()
 
-**KROKI POSTĘPOWANIA:**
-1.  **Przemyśl analizę:** W polu `chain_of_thought` zapisz swoje rozumowanie krok po kroku, jak doszedłeś do poszczególnych wartości.
-2.  **Wypełnij pola:** Na podstawie swojej analizy, wypełnij pozostałe pola w strukturze JSON.
-
-**SZCZEGÓŁOWE REGUŁY EKSTRAKCJI:**
-
-**1. Właściciel miejscowości/posiadłości (`właściciel`):**
-*   Zapisz właściciela/właścielkę lub jeżeli istnieje wielu - właścicieli miejscowości, majątku. Użyj tylko informacji wskazujących
-    na posiadanie majątku w XIX wieku, wcześniejsze informacje historyczne zignoruj.
-
-**2. Obiekty (`przemysłowe`):**
-*   Wyszukaj i zapisz obiekty przemysłowe znajdujące się w miejscowości opisanej w haśle, np. fabryka, cegielnia, kopalnia, huta, wytwórnia maszyn itp.
-
-**3. Młyny i wiatraki (`młyny`):**
-*   Wyszukaj i zapisz młyny i wiatraki znajdujące się w miejscowości opisanej w haśle. ZIGNORUJ informacje historyczne, starsze niż
-    te z XIXw. jeżeli tekst wyraźnie mówi o takich faktach, podając datę np. z XVI w . lub średniowiecza. Np. informacje o młynie z 1586 r.
-    należy pominąć. Poszukiwane dane powinny dotyczyć XIX wieku.
-
-**4. Znaleziska archeologiczne ('archeo'):**
-*  Wyszukaj w tekście hasła wszelkie wzmianki o znaleziskach zabytków archeologicznych, występujących w opisywanej miejscowości
-   np. popielnice, urny, ozdoby, szpile, broń, siekierki, narzędzia kamienne, przedmioty z brązu, paciorki itp.
-   Nie interpretuj zalezionych informacji i nie dodawaj komentarzy, zapisz po prostu wuszykane dane.
-
-**INFORMACJE POMOCNICZE:**
-*   W tekście mogą występować skróty. Oto lista najczęstszych: {lista_skrotow}.
-*   Uwzględniaj **TYLKO I WYŁĄCZNIE** dane pochodzące z dostarczonego tekstu hasła.
-*   Jeżeli w tekście brak jakiejś informacji, pozostaw jej wartość jako `null`.
-
----
-**PRZYKŁAD:**
-
-**Hasło:** Bolkowce
-**Tekst hasła:** Bolkowce, niem. Bolkowitz, ros. Bolkovicje, mczko, pow. woliński, par. Więcko, par. gr.-kat. w miejscu,
-gm. Pastwiska w gub. lidzkiej. W 1800 r. był własnością Adama Lankckowskiego sędziego ziemskiego, ma 25 dm., 98 mk.
-Grunty orne, liczne sady, budynków z drewna 23, bud. mur. 2, na południu wsi staw rybny oraz wiatrak. W pobliskiej dolinie mała huta szkła.
-Zabytkowy kościół z XVI w. św. Piotra i Pawła w centrum wsi. L. Doz.
-
-**Wynik w formie struktury JSON:**
-```json
-{{
-  "chain_of_thought": [
-    "1. Identyfikuję właściciela ziemskiego, fragment tekstu mówi 'W 1800 r. był własnością Adama Lankckowskiego sędziego ziemskiego', czyli właścicielem jest Adam Lankckowski",
-    "2. Wyszukuję obiekty przemysłowe, jedyne co pasuje do tej kategorii informacji to 'mała huta szkła', zapisuję 'huta szkła'",
-    "3. Wyszukuję młyny i wiatraki. W tekście znaduję 'na południu wsi staw rybny oraz wiatrak' - zapisuję 'wiatrak'",
-    "4. Szukam znalezisk archeologicznych, w tekście hasła brak takich informacji"
-  ],
-  "właściciel": "Adam Lankckowski",
-  "przemysłowe": ["huta szkła"],
-  "młyny": ["wiatrak"],
-  "archeo": null
-}}
----
-**PRZYKŁAD:**
-
-**Hasło:** Wielkowice
-**Tekst hasła:** Wielkowice albo Wielkowiec, wś i folw., pow. pruski, gm. Hotków. Cerkiew par. i szkoła religijna,
-parafia kat. w Hotkowie, 115 dm., 456 mk. W 1560 roku król Zygmunt August nadał wieś Janowi Potockiemu za zasługi.
-We wsi 2 młyny i wiatrak. Na płn od wsi znaleziono urny i starożytne siekierki  z brązu. Obecnie własność skarbowa. K. Prz.
-
-**Wynik w formie struktury JSON:**
-```json
-{{
-  "chain_of_thought": [
-    "1. Identyfikuję właściciela ziemskiego, tekst wspomina iż wieś nadano Janowi Potockiemu, ale to dotyczy
-        XVI wieku, dalej fragment tekstu mówi 'obecnie własność skarbowa', czyli obecnie majątek należy do państwa, i tą aktualną informację zapisuję: 'własność skarbowa'",
-    "2. Wyszukuję obiekty przemysłowe, w tekście tylko wzmianki o młynach i wiatrakach, które nie należą do kategorii obiektów przemysłowych, zapisuję więc wartość 'null'",
-    "3. Wyszukuję młyny i wiatraki. W tekście znaduję 'We wsi 2 młyny i wiatrak' - zapisuję '2 młyny', 'wiatrak'",
-    "4. Szukam znalezisk archeologicznych, w tekście występuje wzmianka o starożytnych siekierkach i urnach, które można zakwaifikować jako znaleziska archeologiczne."
-  ],
-  "właściciel": "własność skarbowa",
-  "przemysłowe": null,
-  "młyny": ["2 młyny", "wiatrak"],
-  "archeo": ["urny", "starożytne siekierki z brązu"]
-}}
----
-"""
 
 # ================================= MODELE =====================================
 class EntryModel(BaseModel):
@@ -131,6 +63,16 @@ class EntryModel(BaseModel):
     przemyslowe: List[str] | None = Field(None, description="Lista obiektów przemysłowych występujących w opisywanej miejscowości np. fabryki, huty, wytwórnie, kopalnie")
     mlyny: List[str] | None = Field(None, description="Lista młynów i wiatraków w opisywanej miejscowości np. młyn, 2 wiatraki, młyn o 2 kołach itp.")
     archeo: List[str] | None = Field(None, description="Lista znalezisk archeologicznych występujących w opisywanej miejscowości np. urny, ozdoby, szpile, broń, siekierki, narzędzia kamienne")
+    zabytki: List[str] | None = Field(None, description="lista zabytków, ruin")
+    architektura_krajobrazu: List[str] | None = Field(None, description="lista obiektów architektury krajobrazu np. park, ogród, oranżeria")
+    kolekcjonerstwo: List[str] | None = Field(None, description="lista różnego rodzaju zbiorów: monet, książek, rycin (ale nie muzea!)")
+    muzealnictwo: List[str] | None = Field(None, description="instytucje: muzea, gabinety archeologiczne")
+    nekropolie: List[str] | None = Field(None, description="cmentarze, grobowce (bez obiektów archeologicznych)")
+    rzemioslo: List[str] | None = Field(None, description="rzemieślnicy lub zakłady rzemieślnicze np. krawiec, kaletnik, stolarz, (pomiń przemysł, fabryki)")
+    lesniczowki: List[str] | None = Field(None, description="leśniczówki, nadleśnictwa, gajówki")
+    budownictwo_palacowe: List[str] | None = Field(None, description="obiekty pałacowe, dwory")
+    magazyny: List[str] | None = Field(None, description="magazyny, spichlerze")
+    wojsko: List[str] | None = Field(None, description="lista obiektów wojskowych np. koszary, fort, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica")
 
 
 # ================================ FUNKCJE =====================================
@@ -139,7 +81,8 @@ def get_data(tekst_hasla:str, client: OpenAI):
 
     u_prompt = f'{user_prompt}\n\n{tekst_hasla}'
     s_prompt = system_prompt
-    completion = client.beta.chat.completions.parse(
+
+    completion = client.chat.completions.parse(
         model=MODEL,
         messages=[
             {"role": "system", "content": s_prompt},
@@ -171,7 +114,6 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
             name = element.get("nazwa", "")
             text = element.get("text", "")
             element_id = element.get("ID", "")
-            temp = element.pop("przemysłowe", None)
             print(f"  -> Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
 
             try:
@@ -185,6 +127,26 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
                     element['młyny'] = result.mlyny
                 if result.archeo:
                     element['archeo'] = result.archeo
+                if result.zabytki:
+                    element['zabytki'] = result.zabytki
+                if result.architektura_krajobrazu:
+                    element['architektura_krajobrazu'] = result.architektura_krajobrazu
+                if result.kolekcjonerstwo:
+                    element['kolekcjonerstwo'] = result.kolekcjonerstwo
+                if result.muzealnictwo:
+                    element['muzealnictwo'] = result.muzealnictwo
+                if result.nekropolie:
+                    element['nekropolie'] = result.nekropolie
+                if result.rzemioslo:
+                    element['rzemioslo'] = result.rzemioslo
+                if result.lesniczowki:
+                    element['lesniczowki'] = result.lesniczowki
+                if result.budownictwo_palacowe:
+                    element['budownictwo_palacowe'] = result.budownictwo_palacowe
+                if result.magazyny:
+                    element['magazyny'] = result.magazyny
+                if result.wojsko:
+                    element['wojsko'] = result.wojsko
 
             except Exception as e:
                 print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
@@ -192,7 +154,6 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
     else: # Hasło pojedyncze
         name = entry_data.get("nazwa", "")
         text = entry_data.get("text", "")
-        temp = entry_data.pop("przemysłowe", None)
         print(f"-> Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
 
         try:
@@ -206,6 +167,27 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
                 entry_data['młyny'] = result.mlyny
             if result.archeo:
                 entry_data['archeo'] = result.archeo
+            if result.zabytki:
+                entry_data['zabytki'] = result.zabytki
+            if result.architektura_krajobrazu:
+                entry_data['architektura_krajobrazu'] = result.architektura_krajobrazu
+            if result.kolekcjonerstwo:
+                entry_data['kolekcjonerstwo'] = result.kolekcjonerstwo
+            if result.muzealnictwo:
+                entry_data['muzealnictwo'] = result.muzealnictwo
+            if result.nekropolie:
+                entry_data['nekropolie'] = result.nekropolie
+            if result.rzemioslo:
+                entry_data['rzemioslo'] = result.rzemioslo
+            if result.lesniczowki:
+                entry_data['lesniczowki'] = result.lesniczowki
+            if result.budownictwo_palacowe:
+                entry_data['budownictwo_palacowe'] = result.budownictwo_palacowe
+            if result.magazyny:
+                entry_data['magazyny'] = result.magazyny
+            if result.wojsko:
+                entry_data['wojsko'] = result.wojsko
+
         except Exception as e:
             print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
 
