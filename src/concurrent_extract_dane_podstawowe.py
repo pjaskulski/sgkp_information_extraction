@@ -48,6 +48,12 @@ class NameVarModel(BaseModel):
     wariant_nazwy: str | None = Field(None,
                                       description="wariant nazwy hasła (alias, nazwa w innym języku, nazwa występująca w dokumentach itp.)")
 
+class ParafiaInnaModel(BaseModel):
+    wyznanie: str | None = Field(None,
+                             description="nazwa wyznania parafii np. ew., gr.-kat. itp.")
+    nazwa_parafii: str | None = Field(None,
+                                      description="nazwa parafii")
+
 class EntryModel(BaseModel):
     chain_of_thought: List[str] | None = Field(None,
                                                description="Kroki wyjaśniające prowadzące do ustalenia danych podstawowych dla hasła")
@@ -61,8 +67,8 @@ class EntryModel(BaseModel):
                                  description="Nazwa guberni, do której należy miejscowość")
     parafia_katolicka: str | None = Field(None,
                                           description="Nazwa parafii katolickiej (rzymsko-katolickiej)")
-    parafia_inna: str | None = Field(None,
-                                     description="Nazwa parafii nie katolickiej (prawosławnej, greko-katolickiej, ewangelickiej)")
+    parafia_inna: List[ParafiaInnaModel] | None = Field(None,
+                                     description="Lista parafii nie katolickich (np. prawosławnych, greko-katolickich, ewangelickich)")
     autor: str | None = Field(None,
                               description="Inicjały lub nazwisko autora hasła, występuje na końcu hasła, część haseł nie ma podanego autora.")
     warianty_nazw: List[NameVarModel] | None = Field(None,
@@ -122,7 +128,8 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
                 if result.gmina and value_test(result.gmina): element['gmina'] = result.gmina
                 if result.gubernia and value_test(result.gubernia): element['gubernia'] = result.gubernia
                 if result.parafia_katolicka and value_test(result.parafia_katolicka): element['parafia_katolicka'] = result.parafia_katolicka
-                if result.parafia_inna and value_test(result.parafia_inna): element['parafia_inna'] = result.parafia_inna
+                if result.parafia_inna:
+                    element['parafia_inna'] = [item.model_dump() for item in result.parafia_inna]
                 if result.warianty_nazw:
                     element['warianty_nazw'] = [item.model_dump() for item in result.warianty_nazw]
             except Exception as e:
@@ -141,7 +148,8 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
             if result.gmina and value_test(result.gmina): entry_data['gmina'] = result.gmina
             if result.gubernia and value_test(result.gubernia): entry_data['gubernia'] = result.gubernia
             if result.parafia_katolicka and value_test(result.parafia_katolicka): entry_data['parafia_katolicka'] = result.parafia_katolicka
-            if result.parafia_inna and value_test(result.parafia_inna): entry_data['parafia_inna'] = result.parafia_inna
+            if result.parafia_inna:
+                entry_data['parafia_inna'] = [item.model_dump() for item in result.parafia_inna]
             if result.autor and value_test(result.autor): entry_data['autor'] = result.autor
             if result.warianty_nazw:
                 entry_data['warianty_nazw'] = [item.model_dump() for item in result.warianty_nazw]
@@ -178,11 +186,6 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
 if __name__ == "__main__":
     start_time = time.time()
 
-    schema = EntryModel.model_json_schema()
-    print(json.dumps(schema, indent=2, ensure_ascii=False))
-    sys.exit()
-
-
     # ścieżki
     data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
     output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}'
@@ -191,10 +194,9 @@ if __name__ == "__main__":
     output_dir.mkdir(exist_ok=True)
 
     print(f"Ładowanie danych z: {data_path}")
+    data_to_process = None
     with open(data_path, "r", encoding='utf-8') as f:
-        all_json_data = json.load(f)
-
-    data_to_process = all_json_data
+        data_to_process = json.load(f)
 
     if not data_to_process:
         print("Brak danych do przetworzenia. Zakończono.")

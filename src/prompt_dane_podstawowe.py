@@ -41,7 +41,7 @@ def prepare_prompt() -> str:
                         Jeśli tak, oznacza to, że parafia (odpowiednio katolicka lub inna) znajduje się w opisywanej miejscowości. Zapisz wówczas jako parafię nazwę miejscowości.
                         Uwaga: Zwykła wzmianka o kościele lub cerkwi (bez słowa "parafialny", "par.") NIE JEST wystarczająca do ustalenia siedziby parafii.
         * Nazwę parafii katolickiej zapisz w polu 'parafia_katolicka', jeżeli w tekście znajdzie się parafia dla
-        innego wyzania zapisz ją w polu 'parafia_inna' jako element listy w formie struktury np. [{ "wyznanie": "nazwa wyznania", "nazwa_parafii": "nazwa miejscowości" }] - zob.
+        innego wyzania zapisz ją w polu 'parafia_inna' jako element listy w formie struktury np. [{{ "wyznanie": "nazwa wyznania", "nazwa_parafii": "nazwa miejscowości" }}] - zob.
         też przykłady niżej.
 
     **5. Autor (`autor`):**
@@ -82,7 +82,7 @@ def prepare_prompt() -> str:
     "parafia_katolicka": "Więcko",
     "parafia_inna":
             [
-                { "wyznanie": "gr.-kat.", "nazwa_parafii": "Bolkowce" }
+                {{ "wyznanie": "gr.-kat.", "nazwa_parafii": "Bolkowce" }}
     ],
     "autor": "L. Doz."
     }}
@@ -111,7 +111,7 @@ def prepare_prompt() -> str:
     "gubernia": null,
     "parafia_katolicka": "Hotków",
     "parafia_inna": [
-        { "wyznanie": "praw.", "nazwa_parafii": "Wielkowice" }
+        {{ "wyznanie": "praw.", "nazwa_parafii": "Wielkowice" }}
     ],
     "autor": "K. Prz."
     }}

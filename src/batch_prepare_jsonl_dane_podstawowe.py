@@ -20,6 +20,12 @@ class NameVarModel(BaseModel):
     wariant_nazwy: str | None = Field(None,
                                       description="wariant nazwy hasła (alias, nazwa w innym języku, nazwa występująca w dokumentach itp.)")
 
+class ParafiaInnaModel(BaseModel):
+    wyznanie: str | None = Field(None,
+                             description="nazwa wyznania parafii np. ew., gr.-kat. itp.")
+    nazwa_parafii: str | None = Field(None,
+                                      description="nazwa parafii")
+
 class EntryModel(BaseModel):
     chain_of_thought: List[str] | None = Field(None,
                                                description="Kroki wyjaśniające prowadzące do ustalenia danych podstawowych dla hasła")
@@ -33,8 +39,8 @@ class EntryModel(BaseModel):
                                  description="Nazwa guberni, do której należy miejscowość")
     parafia_katolicka: str | None = Field(None,
                                           description="Nazwa parafii katolickiej (rzymsko-katolickiej)")
-    parafia_inna: str | None = Field(None,
-                                     description="Nazwa parafii nie katolickiej (prawosławnej, greko-katolickiej, ewangelickiej)")
+    parafia_inna: List[ParafiaInnaModel] | None = Field(None,
+                                     description="Lista parafii nie katolickich (np. prawosławnych, greko-katolickich, ewangelickich)")
     autor: str | None = Field(None,
                               description="Inicjały lub nazwisko autora hasła, występuje na końcu hasła, część haseł nie ma podanego autora.")
     warianty_nazw: List[NameVarModel] | None = Field(None,
