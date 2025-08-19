@@ -23,6 +23,12 @@ Ze względu na dużą liczbę różnego rodzaju danych, które należy wyszukać
 
 Skrypty batch*.py korzystają z Batch API, czyli zadania przetwarzania są przygotowywane i wgrywane na serwery OpenAI i przetwarzane w ciąg u 24 godzin (często wcześniej), następnie można pobrać wyniki. Zaletą przetwarzania w tym trybie jest koszt niższy o 50%. 
 
+W folderze **TESTY** - wyniki testów różnych modeli na serii testowej (ekstrakcja danych podstawowych)
+
+W folderze **EXAMPLES** - przykłady wyników dla różnych kategorii informacji (dla serii testowej)
+
+W folderze **DICTIONARY** - dodatkowe słowniki (powiaty ujednolicone, typy punktów osadniczych)
+
 W folderze **OCR** - pomocnicze skrypty do OCR
 
 W folderze **PROMPT** - przykład przetwarzania treści SGKP bezpośrednio w aistudio z użyciem Gemini Pro: prompt, plik z danymi (treścią haseł) do załączenia, przykład wyniku w formacie JSON oraz w pliku 'przygotowywanie_promptow_wskazowki.docx' - **poradnik** ze wskazówkami jak przygotowywać prompty do ekstrakcji danych.
