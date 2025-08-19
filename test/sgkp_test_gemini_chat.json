@@ -1,0 +1,516 @@
+[
+    {
+        "nazwa": "Malczyce",
+        "text": "Malczyce, węg. Malcsa, wś w hr. ziemneńskiem (Zemplin, Węg.), kościół paraf. katol. i gr.-katol., uprawa roli, et. p., 696 mk. H. M.",
+        "tom": "6",
+        "strona": 5,
+        "rodzaj": "indywidualne",
+        "ID": "06-00001",
+        "typ": "wieś",
+        "warianty_nazw": [
+            {
+                "lang": "węg.",
+                "wariant_nazwy": "Malcsa"
+            }
+        ],
+        "powiat_ocr": "ziemneński",
+        "parafia_katolicka": "Malczyce",
+        "parafia_inna": [
+            {
+                "wyznanie": "gr.-kat.",
+                "nazwa_parafii": "Malczyce"
+            }
+        ],
+        "autor": "H. M."
+    },
+    {
+        "nazwa": "Jarochowo",
+        "text": "Jarochowo, wś, pow. łęczycki, par. Mazew. Według dok. z r. 1318, Simon, dawny opat wąchocki, zamienił kiedyś wieś klasztorną Smolice na Jarochowo, własność Allexiusza „milesać (Kod. mał., II, 241, K. W., n. 999). W roku 1576 istnieje J. major i J. minor dicta Raffaelis (Rafałowe). Ws należy do par. Słaboszewo. Siedzą tu na drobnych działkach Jarochowscy i Iwiecy.",
+        "tom": "16",
+        "strona": 6,
+        "rodzaj": "indywidualne",
+        "ID": "16-00024",
+        "typ": "wieś",
+        "powiat_ocr": "łęczycki",
+        "parafia_katolicka": "Słaboszewo"
+    },
+    {
+        "nazwa": "Malechin",
+        "text": "Malechin, Malechiny, ob. Malachin.",
+        "tom": "6",
+        "strona": 6,
+        "rodzaj": "indywidualne",
+        "ID": "06-00016",
+        "typ": "odsyłacz",
+        "warianty_nazw": [
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Malechiny"
+            }
+        ]
+    },
+    {
+        "nazwa": "Malechy",
+        "text": "Malechy, wś, pow. makowski, gm. i par. Karniewo. W 1827 r. własność funduszu edukacyjnego, ma 14 dm., 82 mk. Według Tow. Kred. Ziems, dobra M. składają się z folw. M. i Rutki. Bozi, wynosi mr. 487; folw. M.: grunta orne i ogr. mr. 229, łąk mr. 31, lasu mr. 47, nieuż. i place mr. 15, razem mr. 322, bud. mur. 1, z drzewa 5; płodozmian 7-polowy; folwark Butki: grunta orne i ogr. mr. 150, łąk mr. 4, wody mr. 2, nieuż. i place mr. 9, razem mr. 165; bud. z drzewa 7; płodozmian 8-polowy; rzeczka Pełta przepływa stroną południową.",
+        "tom": "6",
+        "strona": 8,
+        "rodzaj": "indywidualne",
+        "ID": "06-00020",
+        "typ": "wieś",
+        "powiat_ocr": "makowski",
+        "gmina": "Karniewo",
+        "parafia_katolicka": "Karniewo"
+    },
+    {
+        "nazwa": "Małecki potok",
+        "text": "Małecki potok, potok, nastaje w obrębie gminy Witkowie, w pow. bielskim, z połączenia dwóch potoków Małego Małeckiego i Wielkiego Małeckiego. Pierwszy, t. j. Mały M. bierze początek w Bulowicach (pow. bielski), po północno-wschodniej stronie wzgórza Bukowej Niwy; płynie na północny zachód u stóp tego wzgórza przez obszar bulowicki i przechodzi na obszar Witkowie, gdzie od prawego brz. łączy się z Wielkim Małeckim. Ten zaś potok nastaje na obszarze gm. Wieprza, w pow. wadowickim, przepływa kilka stawków, przechodzi w płn. zach. kierunku na obszar Bulowic, następnie Witkowie. Od połączenia się obu tych strumieni, powstała rzeczka płynie w tymże samym kierunku przez zachodni obszar Witkowie, już to przez stawy, już też obok stawów, następnie przepływa wś Malec, zasila tutaj znaczny staw, a opuściwszy go, poniżej chat maleckich, tworzy granicę Kańczugi i Osieka i zlewa swe wody do Roczynki, dopływu Soły. Długość biegu 11 kil. (od źródeł W. Małeckiego) a 10 kil. (od źródeł M. Małeckiego), Br. G.",
+        "tom": "6",
+        "strona": 8,
+        "rodzaj": "indywidualne",
+        "ID": "06-00023",
+        "typ": "potok",
+        "powiat_ocr": "bielski",
+        "gmina": "Witkowie",
+        "autor": "Br. G."
+    },
+    {
+        "nazwa": "Malejowce",
+        "text": "Malejowce, Malijowce, wś nad rz. Uszką, pow. uszycki, o 35 w. od Uszycy, o 25 od Jarmoliniec, gm. i par. Mukarów. Mieszk. wraz ze słobódką Malejowiecką 1100, w tej liczbie 79 jednodworców, ziemi włość. 687 dz., dwor. 588 dz., cerkiewnej 42 dz. Cerkiew pod wez. ś. Krzyża, do której należy 868 paraf., kilka młynów, kamień ciosowy do budowy i na nagrobki, także kamień litograficzny, fosforyty (Słobódka Malejowiecka) ziemia glinkowata, lasów dosyć. M. posiadają piękny pałac, doryckiego porządku, o 2 piętrach, cały z miejscowego ciosowego kamienia. Pałac stoi nad pochyłością góry, nad skalistym jarem, którym płynie rz. Uszka, zamienionym przez sztukę i naturę w jeden z najpiękniejszych ogrodów na Podolu. Część pałacu od ogrodu wspiera się na 4 kolumnach, z jednostajnego ciosu, w pałacu mieści się kaplica, filia mukarowskiego kościoła, od lat jednak kilkunastu z rozporządzenia rządu zamknięta; biblioteka liczy 7,600 dzieł, gabinet numizmatyczny, jeden z większych w kraju, szczególnie piękny zbiór medali greckich, monet półwyspu hiszpańskiego, olbijskiego i rzymskich kolonialnych. Gabinet ten, początkowo zbierany przez ks. Ignacego Krasickiego arcybisk. gnieźnieńskiego, znacznie powiększony został przez jego synowca hr. Ignacego Krasickiego i przez tegoż darowany wnukowi swemu, teraźniejszemu właścicielowi Ignacemu Orłowskiemu. Pałac zbudowany w końcu zeszłego stulecia przez Jana Onufrego Orłowskiego, przez niego też założony ogród, chociaż głównie do upiększenia go przyczyniła się Róża z hr. Krasickich Orłowska (+ 1880), która, pomimo późnej swej starości, z zamiłowaniem ciągle się nim zajmowała. Są tu obszerne oranżerye, figarnie, duża kaskada z wysokości 48 stóp spadająca, pod którą w skale wykute jaskinie z ołtarzami i posągami świętych, ozdobne łazienki, ptaszarnia i t. p. Na drugiej stronie jaru, naprzeciwko pałacu wznoszą się ruiny opuszczonego bazyliańskiego klasztoru, fundowanego przez Wawrzyńca Pepłowskiego, sędziego podols., podstarościca łuckiego (Rolle). Fundator w akcie erekcyjnym wydanym w 1708 r. pisze: „Do należytego porządku, pod dyspozycye JW. Episkopa Podolskiego, wielebnego Ojca Janiszkiewicza za humena (ihumena) postanawiam i wszelki rząd zakonny zlecam, ofiaruję 3 kawałki pola, młynek najbliżej położony, prawo zrębu w lesie i t. p.“ Mieściło się tu 7 zakonników i opat. Klasztor został zniszczony przez hajdamaków, według miejscowego podania pod wodzą jakiegoś Kanibala. O pałacu malejowskim pisał poeta Rajmund Korsak: „O aedes! fausta es nato, charissima amicis,“ a także Przeździecki w Podróżach swoich po Wołyniu, Podolu i Ukrainie. Była tu dawniej szkoła męska i żeńska, dobrze urządzony szpital dla włościan, utrzymywany przez zmarłą Różę Orłowską; wszystko to jednak dziś z rozporządzenia rządu zamknięte. Malejowce (daw. Milówce?), zdaje się założone przez Malejowieckich, należały jakiś czas do Kawieckich, Pepłowskich, Turkułów i Marchockich. Jan Onufry Orłowski, łowczy koronny, nabył je od Wojciecha Marchockiego, kaszt, kam., i odtąd ciągle należą do rodziny Orłowskich, którzy troskliwie podtrzymują pamiątki po swych przodkach. Obok M. leży Słobódka Malejowiecka, nad Uszycą, o 67 osadach, po większej części jednodworców. Jest tu młyn i nie eksploatowane dotąd pokłady fosforytów. Dr. M.",
+        "tom": "6",
+        "strona": 8,
+        "rodzaj": "indywidualne",
+        "ID": "06-00034",
+        "typ": "wieś",
+        "warianty_nazw": [
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Malijowce"
+            }
+        ],
+        "powiat_ocr": "uszycki",
+        "gmina": "Mukarów",
+        "parafia_katolicka": "Mukarów",
+        "parafia_inna": [
+            {
+                "wyznanie": "praw.",
+                "nazwa_parafii": "Malejowce"
+            }
+        ],
+        "autor": "Dr. M."
+    },
+    {
+        "nazwa": "Malice",
+        "text": "Malice 1.) kol., pow. częstochowski, gm. Dzbów, par. Konopiska. Ma 10 dm, 69 mk., 111 mr. obszaru. 2.) M.-Dąbrówka, wś nad rz. Swinną, pow. łódzki, gm. Dzierzązna, par. Zgierz. Wś ma 3 dm., 27 mk., 103 mr., cztery osady częściowych właścicieli, 10 dm., 45 mk., 241 mr. obszaru. Wieś i osady stanowią część obszerniejszej całości, objętej ogólną nazwą Dąbrówka (ob. Sawice, Strumiany, Luimierz). 3.) M., wś nad rz. Żurawką, pow. sandomierski, gm. Samborzec, par. Obrazów; odl. 7 w. od Sandomierza; ma 38 dm., 250 mk., 546 mr. obszaru. W XV w. własność biskupów krakowskich, ma 9 łanów kmiecych (Dług. II, 317). 4.) M.-Kościelne, wś i folw. nad rz. Opatówką, pow. sandomierski, gmina Lipnik, par. Malice, odl. 17 w. od Sandomierza. Mają 24 dm. (7 mur.), 426 mk., 697 mr. ziemi dwors., 360 mr. włość. Młyn wodny. W 1827 r. 32 dm., 167 mk. Jest tu kościół par. drewniany, istniejący już w XV wieku. W XVI w. dziedzice wsi, Maliccy h. Junosza, przyjąwszy kalwinizm, zamienili tutejszy kościół paraf, na zbór, który istniał do 1635 r. Zmuszeni wyrokiem trybunału do zwrócenia katolikom zabranego kościoła, wybudowali nowy, który po długich sporach i procesach zburzony został w 1702 r. Sama egzekucya wyroku w 1635 r. miała forme zajazdu, wykonanego przez gromadę zbrojnego ludu z proboszczem na czele. Stawiający opór kalwini zostali pokonani i potracili poczęści życie w bójce. Dotąd miejscowość ta nosi nazwę: Szubienica, a osada: Męczennice. ,Opis M. i samego wypadku podała „Księga Świata“ z 1860 r., t. V. Par. M. dek. sandomierski: dusz 2211. Według Tow. Kred. Ziems, folw. M. i Adamów rozległy mr. 934; grunta orne i ogr. mr. 686, łąk mr. 48, pastw, mr. 64, lasu mr» 98, nieuż. i place mr. 43. Wś M. os. 16, z grun. mr. 93. 5.) M., wś nad Huczwą, pow. hrubieszowski, gm. Werbkowice, par. Tyszowce. W 1827 r. 28 dm., 306 mk. Według Tow. Kred. Ziems, dobra M. składają się z folw. M. i Łysa Góra, wsi M. Rozl. wynosi mr. 1170: folw. M.: grunta orne i ogr. mr. 218, łąk mr. 102, lasu mr. 433, nieuż. i place mr. 16, razem mr. 769; bud. mur. 5, z drzewa 16; płodozmian 10-polowy; folw. Łysa Góra: grunta orne i ogr. mr. 331, łąk mr. 64, nieuż. i place mr. 6, razem mr. 401; bud. z drzewa 3; płodozmian 7-polowy. Młyn wodny, cegielnia, pokłady torfu. Wś M. os. 54, z grun. mr. 549. Br. Ch.",
+        "tom": "6",
+        "strona": 11,
+        "rodzaj": "zbiorcze",
+        "ID": "06-00097",
+        "elementy": [
+            {
+                "nr": "1",
+                "text": "kol., pow. częstochowski, gm. Dzbów, par. Konopiska. Ma 10 dm, 69 mk., 111 mr. obszaru.",
+                "nazwa": "Malice",
+                "rodzaj": "element",
+                "ID": "06-00097-001",
+                "typ": "kolonia",
+                "powiat_ocr": "częstochowski",
+                "gmina": "Dzbów",
+                "parafia_katolicka": "Konopiska"
+            },
+            {
+                "nr": "2",
+                "text": "M.-Dąbrówka, wś nad rz. Swinną, pow. łódzki, gm. Dzierzązna, par. Zgierz. Wś ma 3 dm., 27 mk., 103 mr., cztery osady częściowych właścicieli, 10 dm., 45 mk., 241 mr. obszaru. Wieś i osady stanowią część obszerniejszej całości, objętej ogólną nazwą Dąbrówka (ob. Sawice, Strumiany, Luimierz).",
+                "nazwa": "Malice-Dąbrówka",
+                "rodzaj": "element",
+                "ID": "06-00097-002",
+                "typ": "wieś",
+                "powiat_ocr": "łódzki",
+                "gmina": "Dzierzązna",
+                "parafia_katolicka": "Zgierz"
+            },
+            {
+                "nr": "3",
+                "text": "M., wś nad rz. Żurawką, pow. sandomierski, gm. Samborzec, par. Obrazów; odl. 7 w. od Sandomierza; ma 38 dm., 250 mk., 546 mr. obszaru. W XV w. własność biskupów krakowskich, ma 9 łanów kmiecych (Dług. II, 317).",
+                "nazwa": "Malice",
+                "rodzaj": "element",
+                "ID": "06-00097-003",
+                "typ": "wieś",
+                "powiat_ocr": "sandomierski",
+                "gmina": "Samborzec",
+                "parafia_katolicka": "Obrazów"
+            },
+            {
+                "nr": "4",
+                "text": "M.-Kościelne, wś i folw. nad rz. Opatówką, pow. sandomierski, gmina Lipnik, par. Malice, odl. 17 w. od Sandomierza. Mają 24 dm. (7 mur.), 426 mk., 697 mr. ziemi dwors., 360 mr. włość. Młyn wodny. W 1827 r. 32 dm., 167 mk. Jest tu kościół par. drewniany, istniejący już w XV wieku. W XVI w. dziedzice wsi, Maliccy h. Junosza, przyjąwszy kalwinizm, zamienili tutejszy kościół paraf, na zbór, który istniał do 1635 r. Zmuszeni wyrokiem trybunału do zwrócenia katolikom zabranego kościoła, wybudowali nowy, który po długich sporach i procesach zburzony został w 1702 r. Sama egzekucya wyroku w 1635 r. miała forme zajazdu, wykonanego przez gromadę zbrojnego ludu z proboszczem na czele. Stawiający opór kalwini zostali pokonani i potracili poczęści życie w bójce. Dotąd miejscowość ta nosi nazwę: Szubienica, a osada: Męczennice. ,Opis M. i samego wypadku podała „Księga Świata“ z 1860 r., t. V. Par. M. dek. sandomierski: dusz 2211. Według Tow. Kred. Ziems, folw. M. i Adamów rozległy mr. 934; grunta orne i ogr. mr. 686, łąk mr. 48, pastw, mr. 64, lasu mr» 98, nieuż. i place mr. 43. Wś M. os. 16, z grun. mr. 93.",
+                "nazwa": "Malice-Kościelne",
+                "rodzaj": "element",
+                "ID": "06-00097-004",
+                "typ": "wieś, folwark",
+                "powiat_ocr": "sandomierski",
+                "gmina": "Lipnik",
+                "parafia_katolicka": "Malice"
+            },
+            {
+                "nr": "5",
+                "text": "M., wś nad Huczwą, pow. hrubieszowski, gm. Werbkowice, par. Tyszowce. W 1827 r. 28 dm., 306 mk. Według Tow. Kred. Ziems, dobra M. składają się z folw. M. i Łysa Góra, wsi M. Rozl. wynosi mr. 1170: folw. M.: grunta orne i ogr. mr. 218, łąk mr. 102, lasu mr. 433, nieuż. i place mr. 16, razem mr. 769; bud. mur. 5, z drzewa 16; płodozmian 10-polowy; folw. Łysa Góra: grunta orne i ogr. mr. 331, łąk mr. 64, nieuż. i place mr. 6, razem mr. 401; bud. z drzewa 3; płodozmian 7-polowy. Młyn wodny, cegielnia, pokłady torfu. Wś M. os. 54, z grun. mr. 549. Br. Ch.",
+                "nazwa": "Malice",
+                "rodzaj": "element",
+                "ID": "06-00097-005",
+                "typ": "wieś",
+                "powiat_ocr": "hrubieszowski",
+                "gmina": "Werbkowice",
+                "parafia_katolicka": "Tyszowce"
+            }
+        ]
+    },
+    {
+        "nazwa": "Marcinkowo",
+        "text": "Marcinkowo, wś, pow. wałecki. Według wizyty z r. 1640 istniał tu kościół murowany p. w. św. Katarzyny Panny, filalny do Tuczna, wystawiony nowo przez Krzysztofa de Wedel Tuczyńskiego, poświęcony r. 1660. Obecnie jest parafialnym.",
+        "tom": "16",
+        "strona": 301,
+        "rodzaj": "indywidualne",
+        "ID": "16-06613",
+        "typ": "wieś",
+        "powiat_ocr": "wałecki",
+        "parafia_katolicka": "Marcinkowo",
+        "autor": "Kś. Fr."
+    },
+    {
+        "nazwa": "Akerman",
+        "text": "Akerman, Akierman, Akkerman, łac. Alba Julia, od 1818 r. m. pow. gub. besarabskiej, 46° 12' sz. g. płn., 48° 24‘ dł. wsch., na praw, str. limanu Dniestrowego (Echard pisze: „nad morzem i jez. Widowo, o 11 m. od Oczakowa“), o 18 w. od morza Czarnego, o 1723 od Petersburga, 39201 mk. Dawniej zwał się Białogrodem, Białłogrodem (Wołosi zowią go Citate- Alba). R. 1479 zdobyty przez Turków, pozostawał w ich ręku z niewielkiemi przerwami do 1812 i wtedy ustaliła się dzisiejsza tatarska nazwa A. Białogrodu. Była to stolica Tatarów budziackich i miała garnizon turecki. Dziś składa się z właściwego miasta i 3 przedmieść: Szaba, Turlaki i Papuszkoi. Posiada fabryki łoju, świec i ma w grudniu walny jarmark na sól, wełnę, ryby, tłuszcze i wino. St. p. i st. tel. międzynarodowa. Po limanie krążą statki parowe. Większość mk. prawosławnego wyznania. Potem idą żydzi, Ormianie, raskolnicy; katolików około 50. Są w A. 3 cerkwie, 1 ormiańska i bożnica. O wspomnieniach hist. A.czyt. rzecz J. I. Kraszewskiego p. t.: „Owidyopol, Dniestr i A.“ w Bibl. Warsz. 1847,“ III. 75. — A. powiat ma 7283 w. kw., powierzchnia stepowa, bezleśna, w wodę nieobfitująca; ogólnej ludn. 111,520 (kat. w 1859 r. 233), zatrudnionych rolnictwem, które kwitnie, zwłaszcza też w koloniach bułgarskich i niemieckich, dosyć tutaj licznych. Powiat posiada jednę tylko par. katol. w Krasnej, należącą do dyec.tyraspolskiej. Główne rzeki: Dniestr, Kahilnik, Jałpusz. Główny przedmiot handlu bydło; soli wydobywa się w pow. 4 miliony pudów rocznie. F. S.",
+        "tom": "01",
+        "strona": 24,
+        "rodzaj": "indywidualne",
+        "ID": "01-00147",
+        "typ": "miasto powiatowe",
+        "warianty_nazw": [
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Akierman"
+            },
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Akkerman"
+            },
+            {
+                "lang": "łac.",
+                "wariant_nazwy": "Alba Julia"
+            },
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Białogród"
+            },
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Białłogród"
+            },
+            {
+                "lang": "woł.",
+                "wariant_nazwy": "Citate-Alba"
+            }
+        ],
+        "powiat_ocr": "Akerman",
+        "gubernia": "besarabskiej",
+        "parafia_katolicka": "Krasna",
+        "autor": "F. S."
+    },
+    {
+        "nazwa": "Andrejówka",
+        "text": "Andrejówka, wś, pow jampolski, mk. 426, ziemi włość. 437 dz., dwór. 404 dz. Należy do Juniewicza i Nebelskiego.",
+        "tom": "01",
+        "strona": 35,
+        "rodzaj": "indywidualne",
+        "ID": "01-00451",
+        "typ": "wieś",
+        "powiat_ocr": "jampolski"
+    },
+    {
+        "nazwa": "Annenburg",
+        "text": "Annenburg, po łotew. Amburga, wś w Kurlandyi, parafii mitawskiej, między Mitawą a Bowskiem, nad rz. Aa. Ślady zamku już w XVIII w. zatarte, St. p.",
+        "tom": "01",
+        "strona": 39,
+        "rodzaj": "indywidualne",
+        "ID": "01-00545",
+        "typ": "wieś",
+        "warianty_nazw": [
+            {
+                "lang": "łotew.",
+                "wariant_nazwy": "Amburga"
+            }
+        ],
+        "gubernia": "kurlandzka",
+        "parafia_katolicka": "mitawska"
+    },
+    {
+        "nazwa": "Annopol",
+        "text": "Annopol, 1) A., osada, dawniej mko, w gm. t. n., pow. janowski, należy do sądu gminnego okr. I w Gościeradowie,odległe odm.pow. 45 w., od Lublina 73 w., od Warszawy 225 w., leży niedaleko Wisły i połączone jest z Józefowem drogą bitą drugiego rzędu. A. założony został na gruntach wsi Rachów (ob.) i pod tą nazwą najwięcej znany, ponieważ cały ruch handlowy i przemysłowy skoncentrował się w położonym nad Wisłą Rachowie. A. należy do parafiii w Świeciechowie i posiada tylko kaplicę murowaną z XVII wieku. Ludność osady wynosi około 1,000 dusz. 2) A. gm., pow. janowski, gub.z lubelska, posiada 3 szk. pocz. w Rachowie, Świeciechowie i Grabówce. Z fahr, zakładów istnieją tu huta szklanna, gorzelnia parowa, browar, smolarnia. Ludność obecna gm. A. wynosi 4,595, rozległość 18,225 morgów. Ziemia na powiślu bardzo dobra. Obficie rodzi się rzepak i jęczmień; na wzgórzach ziemia pomięszana z krzemionką. Wzorowego gospodarstwa gmina ta nie ma. Lasów jest 5,600 morgów, w opłakanym stanie. 3.) A., dobra, pow. janowski; w skład ich wchodzi: A. osada, Rachów wś i folwark, Jakóbowice wś, Chamówki wś, tudzież Łąg wś nad Wisłą w pow. sandomierskim. 4.) A. folw. dóbr Zakrzyn, pow. turecki, gm. Strzałków. Br. Ch.",
+        "tom": "01",
+        "strona": 39,
+        "rodzaj": "zbiorcze",
+        "ID": "01-00553",
+        "elementy": [
+            {
+                "nr": "1",
+                "nazwa": "Annopol",
+                "text": "1) A., osada, dawniej mko, w gm. t. n., pow. janowski, należy do sądu gminnego okr. I w Gościeradowie,odległe odm.pow. 45 w., od Lublina 73 w., od Warszawy 225 w., leży niedaleko Wisły i połączone jest z Józefowem drogą bitą drugiego rzędu. A. założony został na gruntach wsi Rachów (ob.) i pod tą nazwą najwięcej znany, ponieważ cały ruch handlowy i przemysłowy skoncentrował się w położonym nad Wisłą Rachowie. A. należy do parafii w Świeciechowie i posiada tylko kaplicę murowaną z XVII wieku. Ludność osady wynosi około 1,000 dusz.",
+                "ID": "01-00553-001",
+                "typ": "osada",
+                "powiat_ocr": "janowski",
+                "gmina": "Annopol",
+                "parafia_katolicka": "Świeciechów"
+            },
+            {
+                "nr": "2",
+                "nazwa": "Annopol",
+                "text": "2) A. gm., pow. janowski, gub.z lubelska, posiada 3 szk. pocz. w Rachowie, Świeciechowie i Grabówce. Z fahr, zakładów istnieją tu huta szklanna, gorzelnia parowa, browar, smolarnia. Ludność obecna gm. A. wynosi 4,595, rozległość 18,225 morgów. Ziemia na powiślu bardzo dobra. Obficie rodzi się rzepak i jęczmień; na wzgórzach ziemia pomięszana z krzemionką. Wzorowego gospodarstwa gmina ta nie ma. Lasów jest 5,600 morgów, w opłakanym stanie.",
+                "ID": "01-00553-002",
+                "typ": "gmina",
+                "powiat_ocr": "janowski",
+                "gubernia": "lubelska"
+            },
+            {
+                "nr": "3",
+                "nazwa": "Annopol",
+                "text": "3.) A., dobra, pow. janowski; w skład ich wchodzi: A. osada, Rachów wś i folwark, Jakóbowice wś, Chamówki wś, tudzież Łąg wś nad Wisłą w pow. sandomierskim.",
+                "ID": "01-00553-003",
+                "typ": "dobra",
+                "powiat_ocr": "janowski"
+            },
+            {
+                "nr": "4",
+                "nazwa": "Annopol",
+                "text": "4.) A. folw. dóbr Zakrzyn, pow. turecki, gm. Strzałków. Br. Ch.",
+                "ID": "01-00553-004",
+                "typ": "folwark",
+                "powiat_ocr": "turecki",
+                "gmina": "Strzałków"
+            }
+        ]
+    },
+    {
+        "nazwa": "Dereczanka",
+        "text": "Dereczanka, wś i folw., pow. bialski, gm. Dobryń, par. Piszczac. R. 1827 było tu 16 dm., 100 mk.; obecnie liczy 37 dm., 240 mk. i 715 morg obszaru.",
+        "tom": "01",
+        "strona": 960,
+        "rodzaj": "indywidualne",
+        "ID": "01-10561",
+        "typ": "wieś, folwark",
+        "powiat_ocr": "bialski",
+        "gmina": "Dobryń",
+        "parafia_katolicka": "Piszczac"
+    },
+    {
+        "nazwa": "Denysów",
+        "text": "Denysów, wielki i mały, wieś, pow. tarnopolski, o 27 kil. na połud. zachód od tego miasta, na prawym brzegu rzeki Strypy, oddalona od Ohodaczkowa wielkiego na poł. zaeh.o 9.1 kil., od Rosochowaćca na północ o 5 kil., leży już w urodzajnem choć jeszcze zimnem Podolu galicyjskiem. Przestrzeń pos. większej roli orn. 1433, łąk i ogr. 133, past. 102, lasu 63; pos. mniej, roli orn. 3113, łąk i ogr. 205, past. 35 mórg. Ludność rzym. kat. 189, gr. kat. 1302, izrael. 33: razem 1524. Należy do rzym. parafii w Rosochowaćcu. gr. kat. ma w miejscu, należącą do dekanatu tarnopolskiego. W tej wsi znajduje się szkoła etatowa 2-klasowa i kasa pożyczkowa z funduszem zakładowym 68 złr. Majątek ten był przedtem własnością rodziny Domaradzkich, teraz Franciszki Ujejskiej.\tB. R.",
+        "tom": "01",
+        "strona": 957,
+        "rodzaj": "indywidualne",
+        "ID": "01-10537",
+        "typ": "wieś",
+        "warianty_nazw": [
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Denysów wielki i mały"
+            }
+        ],
+        "powiat_ocr": "tarnopolski",
+        "parafia_katolicka": "Rosochowaćec",
+        "parafia_inna": [
+            {
+                "wyznanie": "gr.-kat.",
+                "nazwa_parafii": "Denysów"
+            }
+        ],
+        "autor": "B. R."
+    },
+    {
+        "nazwa": "Denków",
+        "text": "Denków, os., przedtem mko, nad rz.Kamienną, pow. opatowski, gm. Częstocice, par. Denków, odl. 18 w. od Opatowa, na płd.-wsch. od os. Ostrowiec. Posiada kościół par. murowany; erygował go 1581 r. dziedzic D. Stanisław Miechowski. Tenże Stanisław Miechowski dziedzic D. i Bodzechowa uzyskał w 1564 r. przywilej na założenie miasta, które od swego nazwiska Miechowem wielkim nazwał. Syn jego Kalikst, skupiwszy od nielicznych osadników ich prawa, miasto przez ojca założone przeniósł nad rzekę, gdzie istniała wieś D., którą na miasto zamienił i prawem niemieckiem obdarzył. W 17 w. nabyli D. Siemianowscy, którzy zbudowali tu murowany kościół parafialny; od nich nabyli D. Małachowscy i wreszcie Kotkowscy. W 1827 r. było tu 114 dm. i 625 mk., obecnie liczy 98 dm., 659 mk. i 1826 mórg, ziemi do mieszczan należącej. Mieszkańcy zdawna trudnią się garncarstwem i wyrobem kafli; wyroby swe spławiali Wisłą do Gdańska. R. 1851 założono tu fabrykę naczyń kamiennych, fajansowych oraz kafli porcelanowych. Dziś mieszkańcy trudnią się przeważnie wyrobem kafli piecowych do kuchni angielskich, oraz garnków, z których lepsze gatunki w odleglejsze rozchodzą się okolice. W podglebiu osady Denków znajduje się glinka ogniotrwała, której używają do zakładów fabrycznych żelaznych w osadzie Ostrowiec. Par. D. dek. opatowskiego, dawniej kunowskiego, liczy dusz 2682.\tDr. Ch.",
+        "tom": "01",
+        "strona": 301,
+        "rodzaj": "indywidualne",
+        "ID": "01-10529",
+        "typ": "osada",
+        "powiat_ocr": "opatowski",
+        "gmina": "Częstocice",
+        "parafia_katolicka": "Denków",
+        "autor": "Dr. Ch."
+    },
+    {
+        "nazwa": "Worowo",
+        "text": "Worowo, folw., pow. obornicki, urz. okr. i poczt. w Murowanej Goślinie, urz. stan. cywil. i par. kat. w Długiej Goślinie, sąd okr. i st. kol. w Rogoźnie, szkoły w Łopuchowie, ma 5 dm., 42 mk., 487 ha. Należy do dom. Orowa (Marienrade), które powstało na polach W., gdzie dawniej była os. Syberya. W r. 1385 występuje Jan z W., kan. pozn. R. 1391 Mroczko z Kleszczewa uslal na nim rok o 3 grzyw. W r. 1393 świadczy w sprawie bisk. pozn. przeciw Piotraszowi z Czapur, w r. 1394 przy rozgraniczeniu Czapur, Babek i Głuszyny. R. 1580 ma tu Jan Paprocki 3 zag. os., 1 pust., 1 rzem. W. Ł.",
+        "tom": "14",
+        "strona": 5,
+        "rodzaj": "indywidualne",
+        "ID": "14-00001",
+        "typ": "folwark",
+        "powiat_ocr": "obornicki",
+        "parafia_katolicka": "Długa Goślina",
+        "autor": "W. Ł."
+    },
+    {
+        "nazwa": "Worowo",
+        "text": "Worowo, niem. Neu Wuhrow, dok. Warrow, Wuro, Wurow, wś kośc. i dobra, w Pomeranii, pow. szczecinkowski, par. kat. Czaplinek, st. p. Claushagen; 1885 r. liczyła wś 1073 mk. ew. i 6 żyd., dobra zaś 8 ew., 5 kat. Nowe Worowo należało do starostwa drahimskiego (ob. „Pow. wałecki\" przez Calliera, str. 55). Kś. Fr.",
+        "tom": "14",
+        "strona": 5,
+        "rodzaj": "indywidualne",
+        "ID": "14-00002",
+        "typ": "wieś kościelna, dobra",
+        "warianty_nazw": [
+            {
+                "lang": "niem.",
+                "wariant_nazwy": "Neu Wuhrow"
+            },
+            {
+                "lang": "dok.",
+                "wariant_nazwy": "Warrow"
+            },
+            {
+                "lang": "dok.",
+                "wariant_nazwy": "Wuro"
+            },
+            {
+                "lang": "dok.",
+                "wariant_nazwy": "Wurow"
+            }
+        ],
+        "powiat_ocr": "szczecinkowski",
+        "gubernia": "pomorska",
+        "parafia_katolicka": "Czaplinek",
+        "autor": "Kś. Fr."
+    },
+    {
+        "nazwa": "Wydrne",
+        "text": "Wydrne, wś, w pow. liskim, w okolicy górskiej, nad Czarną rzeką, dopł. Sanu z prawego brzegu. Należy do parafii rzym.-kat. i gr.-kat. w Polanie. Liczy wraz z obszarem tabularnym 28 dm. i 181 mk. (152 gr.-kat., 5 rz.-kat., 2 akat. i 22 izrl.). Obszar tabularny (izraelity Naftalego Birnkrauta) ma ogółem 245 mr., pos. mniejsza 366 mr. Graniczy na płn. z Panisurowem, na zach. z Chrewtem, na płd. z Seredniem Małem, na wsch. z Polaną. Mac.",
+        "tom": "14",
+        "strona": 78,
+        "rodzaj": "indywidualne",
+        "ID": "14-00658",
+        "typ": "wieś",
+        "powiat_ocr": "liski",
+        "parafia_katolicka": "Polana",
+        "parafia_inna": [
+            {
+                "wyznanie": "gr.-kat.",
+                "nazwa_parafii": "Polana"
+            }
+        ],
+        "autor": "Mac."
+    },
+    {
+        "nazwa": "Wydrzno",
+        "text": "Wydrzno, niem. Widersse, dobra ryc., pow. grudziądzki, st. p. Szembruk, par. kat. Szynwałd, w miejscu jest przystanek kolei z Łasina do Gardeja wiodącej; do Szenwałdu zaś prowadzi droga brukowana. Wś ma 748 ha (603 roli orn., 66 łąk, 1 lasu); 1885 r. 16 dm., 42 dym., 266 mk., 135 kat., 130 ew., 1 dyssyd. (fol. Gordonshof 3 dm., 47 mk.), cegielnię; dziedzie v. Katzler. Jest to stara osada, r. 1886 wykopano tu dużo popielnie i różne ozdoby bronzowe. W dok. pojawia się już 1302, p. n. „Widern“, później „Widerne*. R. 1404 nadaje w. m. Konrad v. Jungingen Michałowi Hofemann, Jakubowi Zimke, Mikołajowi Maciejowi (Nicklos Matthis), Michałowi Sponhauer, Janowi (Hans), Piotrowi, Andrzejowi i Janowi Wuestehube dobra Wydrzno, Duże i Małe, wraz z jez. przy wsi, razem 39 włók, na prawie chełm., wolne od tłoki, co do jurydykcyi podległe wójtowi w Rogoźnie, z wolną rybitwą w jez. Nogackiem. Za to mają dawać od każdej włóki po 1 grzywnie i od każdego pługa po 1 korcu pszenicy i żyta, a na uznanie zwierzchnictwa po 1 funcie wosku i 1 kolońskim feniku, nadto zobowiązani są do jednej służby konnej w lekkiej zbroi. Dan w Malborku. Księgi szkodowe z r. 1414 podają stratę tutejszych mieszk., poniesioną w budynkach, zbożu i bydle na 660 gr. R. 1435 liczono tu 8 pustych włók, roku 1442 zaś 9. W wojnie 13- letniej została os. tutejsza całkiem spustoszona i przeszła na rzecz skarbu państwowego, który ją za opłatą kwarty puścił w dzierżawę. Wizyta Strzesza z r. 1667 —72 opiewa, że we wsi było 13 włościan i karczmarz, na folw. zaś siedzieli arendarze z Pomeranii. R. 1682 płaciło W. według taryfy poborowej na symplę 8 gr. Od r. 1734 należy W. do dóbr szyn wałdzkieh i przypadło r. 1774 generał-majorowi Gruszczyńskiemu; obejmowało wówczas 34 włók, które były wydane włościanom, czynszującym po 12 tal. od włóki. Translokacya tych włościan do N. Blonowa nastąpiła między r. 1821—27. R. 1838 nabył W. Edward Mehl (ob. Gesch. d. Graudenzer Kr. v. Froehlih, str. 344). Kś. Fr.",
+        "tom": "14",
+        "strona": 79,
+        "rodzaj": "indywidualne",
+        "ID": "14-00669",
+        "typ": "dobra rycerskie",
+        "warianty_nazw": [
+            {
+                "lang": "niem.",
+                "wariant_nazwy": "Widersse"
+            },
+            {
+                "lang": "dok.",
+                "wariant_nazwy": "Widern"
+            },
+            {
+                "lang": "dok.",
+                "wariant_nazwy": "Widerne"
+            }
+        ],
+        "powiat_ocr": "grudziądzki",
+        "parafia_katolicka": "Szynwałd",
+        "autor": "Kś. Fr."
+    },
+    {
+        "nazwa": "Wymysł",
+        "text": "Wymysł, wś i fol. nad rzką Mleczną, pow. radomski, gm. Wielogóra, par. Radom (odl. 5 w.), ma 8 dm., 58 mk. W 1827 r. było 3 dm., 15 mk. Fol. Wymysł w r. 1877 oddzielony od dóbr Klwatka Szlachecka, rozl. mr. 284: gr. or. i ogr. mr. 124, łąk mr. 32, lasu mr. 123, nieuż. mr. 6; bud. drew. 5; pokłady torfu.",
+        "tom": "14",
+        "strona": 97,
+        "rodzaj": "indywidualne",
+        "ID": "14-00847",
+        "typ": "wieś, folwark",
+        "powiat_ocr": "radomski",
+        "gmina": "Wielogóra",
+        "parafia_katolicka": "Radom"
+    },
+    {
+        "nazwa": "Żyżmory",
+        "text": "Żyżmory, mstko i dobra nad rz. Strawa i przy dawnym trakcie wileńsko-kowieńskim, pow. trocki, w 2 okr. pol., gm. i okr. wiejski Żyżmory, leży pod 54° 48’ płn. szer. a 42? 6’ wschod. dług., odl. o 14 w. od Niemna (w Rumszyszkach), 42 w. na płn.-zach. od Trok, 70 w. od Wilna, 35 w. od Kowna i 7 w. od st. dr. żel, Koszedary. Obecnie mstko, nawiedzone w ostatnich czasach dwoma pożarami, zaczyna się podnosić. Posiada pod placami miejskiemi około 100 dzies., do włościan miasteczkowych należy 420 dzies. i 507 sążni, z tego trzecia część pod łąkami, 14 dzies. pastwisk oraz 60 serwitutowych, 24 dzies. i 1300 sąż. nieużytków; lasu nie ma. Jest tu 8 dm. murow., z tych dwa piętrowe i kryte blacha, 271 drewnianych, przeważnie pod słomą lub gątem, które formują rynek oraz ulice: Kowieńską, Wileńską, Dworną, Zosielską, wszystkie brukowane, pozostałe uliczki stanowią zaułki bez bruku i nazwy. Najokazalszym gmachem w mstku był dawniej pałac z kaplicą, zbudowany przez sstę Pocieja, zburzony około r. 1841 z powodu jakoby słabych fundamentów. Okazały się one jednak tak mocne, że na nich wystawiono dwór murowany, Z gruzów Zaś wzniesiono gorzelnię i karczmę; tę ostatnią po ogromnym pożarze, który zniszczył osadę w d. 9 września 1895 r., przerobiono na dom mieszkalny, w którym obecnie mieści się apteka. Według wykazów z r. 1880 było w Ż. 3500 mk., obecnie liczba ta zmiejszyła się znacznie w skutek emigracyi włościan i żydów do Ameryki. Według wyznania jest tu: 23 prawosł., 849 katol., 22 starow., 1310 żydów. W mstku znajduje się kościół paraf. katol., dwie synagogi, szkółka elementarna o jednym nauczycielu (do 50 chłopców i 6 do 8 dziewcząt), lekarz wolnopraktykujący, apteka, sędzia pokoju i sędzia śledczy, zarząd włościański i mieszczański (członkami tego ostatniego są przeważnie żydzi), st. pocztowa z kasą oszczędności. Przemysł i handel słabo rozwinięte, znajdują się przeważnie w ręku żydów. Duży młyn walcowy na Strawie (hr. Tyszkiewicza), młynek gospodarski nad strum. Gulszy, 4 garbarnie żydowskie, 6 karczem, 2 sklepy chrześcijańskie spożywcze i 30 żydowskich. Targi we czwartki. Łaźnia z dobrą wodą. Rzemiosła licho reprezentują: 3 stolarzy (chrześcian) i po paru murarzy, cieśli, rymarzy etc. Ze stowarzyszeń istnieje straż ogniowa. Kościół paraf., według aktów miejscowych, fundował w r. 1512 Zygmunt Stary; z rozkazu tego monarchy wzniósł drewnianą świątynię, p. w. św. Jakuba i Zygmunta, ssta miejscowy Bohusz Bohowitynowicz, marszałek i sekretarz królewski. Tegoż roku, przywilejem datowanym w Brześciu d. 3 sierpnia, fundusze na utrzymanie księdza umiejącego po litewsku oraz na bakałarza przeznaczył. W r. 1530 Mikołaj Iwaszkowiez z żoną swą Anna zbudował w tym kościele nowy ołtarz i altaryą nadaniem z d. 29 stycznia 1531 r. uposażył. Gdy w r. 1620 świątynia zgorzała, dobra nadane przez fundatora ówczesny ssta żyżmorski Krzysztof ks. Radziwiłł, hetman w. ks. litew., do dworu przyłączył. Wynikla z tego sprawa, którą dopiero komisya zesłana na grunt, pod przewodnictwem bisk. Abrachama Wojny, ostatecznie na korzyść kościoła rozstrzygła, a Zygmunt III w r. 1625 zatwierdził. Odzyskawszy uposażenie, pleban miejscowy ks. Marek Intok własnem staraniem wybudował nową świątynię której fundusze Jan ks. Drucki i Sokolińsk928 Żyż z żoną pomnożył 1651 r. Wkrótce potem podczas wojny z carem Aleksym uległa zniszczeniu nową świątynia. Odbudowana po raz trzeci w 1672 r. i następnych, staraniem Jana Piasockiego h. Dołęga, sędziego trockiego, sekretarza J. K. Mści i ssty żyżmorskiego (Żychliński, Zł. ks., I, 128). R. 1719 Kazimierz Pociej, wojewoda witebski, fundował druga altaryę. Nareszcie tę upadającą świątynię z gruntu odbudował z drzewa ówczesny ssta żyżmorski Michał Pociej w r. 1744 (z Aktów dyec. wileń.). Wzniesiona w kształcie krzyża łacińskiego, z kopułą i dwiema wieżami, dotrwała do obecnych czasów lecz w znacznie zmienionej postaci. Kopułę i wieże zniesiono przed pół wiekiem, forma zaś krzyża zatraconą została przy gruntownej odnowie świątyni w r. 1896. Gdy bowiem po włączeniu sąsiedniej parafii Strawienniki, kościół okazał się za szczupły dla 11000 ludności, staraniem miejscowego proboszcza kś. kanonika Eustachego Jeleniewskiego i jego prawie kosztem rozszerzony i podłużony został. Przybyły wtedy dwa ołtarze, przeniesione ze zniesionego kościoła w Strawiennikach. W dzwonnicy, osobno stojącej, są trzy dzwony, z których najmniejszy nosi r. 1680, największy z r. 1737, a średni bez daty. Metryki sięgają 5 czerwca 1665 r., proboszczem ówczesnym był ks. Markiewicz. Parafia katol., dekanatu trockiego, 11000 wiernych. Miała kaplicę w Strawiennikach, fundacyi ks. Ogińskich i Władykiszkach, fundacyi Roemerów. W skład okręgu wiejskiego wchodzi mstko Z., wsi: Antokolce, Juchniany, Kiertowniki, Rzeczany (keczany), Strawienniki i Szyłany, w ogóle w 1865 r. 608 dusz rewiz. Gmina obejmuje 12 okręgów (starostw) wiejskich (Zyämory, Władykiszki, Miżany, Pokirty, Kasperzyszki, Zuchorany, Milejgany, Bejsztroki, Jodkany, Dajnówka, Straszuny i Turlowiszki), 65 miejscowosci, majacych 647 dm., 5715 mk. włośc. (w 1865 r. 1639 dusz rewiz. włościan uwłaszczonych 1 921 b. włośc. skarbowych). Włościanie, w liczbie 2257 dusz rewiz., uwłaszczonych na 9949 dzies.- (5989 roli). Nadto w obrębie gminy znajduje się 10510 dzies. większej posiadłości (4137 roli). O */, w. od mstka znajduje się folw. t. n., mający 19 dm., 138 mk. (9 prawosł., 127 katol., 2 ewang.), gorzelnią i browar piwny. Dobra Ż., własność hr. Tyszkiewicza, w 1850 r. należały do gminy Kronie, obejmowały mstko, 5 folw., 9 wsi, 3 zasc. 1 miały 8222 dzies. \"Nadto w t. r. w gm. Kronie istniały także dobra skarbowe Ź., składające się z 2 wsii 1 zaśc. i obejmujące 682 dzies. Obecnie do dóbr Z. hr. Tyszkiewicza należą folw.: Wandopol, Podumie, Budziszki, Gorkle, Rusany, Jodziszki, Edwardowo, Opuszata, Szukiszki i Kruszany, należały zaś dawniej: Juchmany, Strawienniki, Kiertumniszki, Szyła-Żyż ny, Antokolce, Reczany, Miżany i Etkany. W okolicach Ź. znajdują się miejscowości ciekawe pod względem historycznym i archeologicznym. O 5 w. mstko Strawienniki, niegdyś ks. Ogińskiego, obecnie skarbowe. Ogromny pałac przekształeono na koszary, kościół rozebrano, fabrykę jedwabiu zniszczono, murowane budowle blechu i gorzelni oraz gospodarskie zabudowania i grunta dworskie dostały się starowierom (por. t. XI, 395). Na południe, o mile od Z., w Bujwidańcach sypany kopiec, również jak o milę we wsiach Rakiszki i Wilkieniki (ob. t. XIII, 475) wysokie górki stożkowe, służyły za strażnice pogańskiej Litwie. O 18 w, w majątku Teodorowie (ob. t. XII, 295) o górze wyniosłej istnieje podanie, iż ją usypali Litwini znosząc ziemię czapkami na grobie śwojego wodza; odległa o 12 w. wś Purany posiada wielką liczbę kurhanów, jak wieść niesie z czasów wojny szwedzkiej; w majątku nakoniec Pietryszki, odległem od Ż. o w. 10, znajdują często szable, dzidy, kule i t. p. Pod względem geognostycznym okolice Z. obfitują w tuf wapienny. Zdaniem niektórych d. 2 lutego 1347 r., nad rz. Strebe wedle pruskich źródeł, a Sterawa al. Sternawą u latopisców ruskich, zaszła pamiętna bitwa, pomiędzy wojskami litewskiemi, posiłkowanemi przez zastępy ruskie, prowadzonemi przez Olgierda, Kiejstuta i Narymunta, a krzyżakami, pod wodzą marszałka zakonu Zygfryda Dahenfelda, w. komandora Henryka Kniprode, szatnego zakonu Ludwika Wolkenberga i w. in. dygnitarzy. W bitwie tej po morderczych zapasach zwycięstwo dostało się krzyżakom, z których strony poległo z górą 4000 szeregowych i 50 rycerzy, w obronie wielkiej chorągwi zakonu, w ich liczbie komtur gdański Gerhard von Stregen i wójt biskupa samladzkiego Jan Lonstein. Straty Litwinów i Rusinów w poległych i potopionych w skutek załamania się lodów na Strawie podają od 14 do 18 tysięcy. Niektórzy nawet, jak Karamzin (t. IV, str. 211, nota 340) stratę podnoszą do 40000. Z wielu niejasnych napomknień w kronikach pruskich można wnosić, Że tu poległ ks. Narymunt. Było to najświetniejsze zwycięstwo, jakie zakon kiedykolwiek nad Litwą otrzymał. Obszerny lecz zbyt ubarwiony nieopartemi na Źródłach szczegółami opis tej bitwy podał Narbut (Dzieje Litwy, t. V, 40 — 44). Pamiątką tego pogromu pozostały liczne mogiły na około Z., jak np. na gruntach wsi Terliszki, sąsiadującej prawie z mkiem, i o 4 w. od niego odległych Balcerzyszkach, po lewym brzegu rz. Strawy. Pierwszą atoli pewną wzmiankę o Z., jako własności królewskiej, spotykamy pod koniec XV w., gdy Aleksander Jagiellończyk zabezpieczył na nich posag małżonki swej Heleny, poślubionej w 1495 r. Do końca jej życia (+ w Wilnie 1513 r.) za-Żyż rzadzał Z. najprzód Fedko Januszkiewicz (1495 — 1499) a potem Iwan Sapieha (1500 —1507). Około tego czasu powróciły znów do rozporządzenia królewskiego, skoro starosta żyżmorski Bohusz Bohowitynowicz z rozkazu Zygmunta I buduje tu kościół. Gdy w r. 1534 bojar kn. Semen Fedorowicz Bielski, w obawie przed Telepniewem, umknął do Litwy, tam w sierpniu przysiągł królowi na poddaństwo i otrzymał na uposażenie: Z., Stokliszki i Kormiałów. Nie długo jednak bawił na Litwie, pod pozorem bowiem pielgrzymki do ziemi św. wyjechał do hana krymskiego, a dobra jego powróciły do skarbu. Miasto, będące naówczas główną osadą starostwa, obdarzone podobno za wpływem Heleny I- wanówny, jeszcze w r. 1501, prawem magdebur., leżące przy ożywionym trakcie handlowym między Wilnem a Kownem, musiało wkrótce znacznie się zaludnić. Na bogatem starostwie żyżmorskiem oraz Kownie i wielu innych poblizkich osadach zabezpieczył Zygmunt August w r. 1549 oprawę królowej Barbary (Baliński, Pisma, 315). Najście wojsk cara Aleksego Michajłowicza (1654 r.) na Litwę zniszczyło mstko, przy czem spłonął kościół parafialny. Według inwentarza z r. 1780 miasto posiadało około 100 włók ziemi z lasami, łąkami i pastwiskami, oraz odległy o 3 w. młyn na strumieniu Garkle, do Strawy wpadającym. Powinności mieszkańców stanowiły następujące czynsze: po 5 złp. i 10 gr. z placu rynkowego i po 2 złp. i 20 gr. z placu ulicznego od żydów, po 16 gr. z placu od chrześcian, po 15 gr. z placu pustego i morga łąki i po 10 złp. z włóki ziemi ornej. Opłaty te wnoszone pierwotnie do skarbu starosty, gdy starostwo żyżmorskie na mocy konstytucyi sejmowej z r. 1768 przeszło na własność Pociejów, wpływały do ich prywatnej szkatuły. Dopiero ustawodawstwo sejmu wielkiego (1788 — 92) zniosło ostatecznie te ciężary, ogłaszając Ź. miastem wolnem J. K. Mści. Wsi wehodzące niegdyś w skład starostwa, od Pociejów, przeszły do ks. Józefa Poniatowskiego, w r. zaś 1791 wydzierżawione Wawrzeckiemu, a w r. 1801 sprzedane Wojciechowi Pusłowskiemu. Stanisław August aktem z d. 14 lutego 1792 r. potwierdził wszystkie przywileje poprzedników swoich, nadał miastu herb z wizerunkiem św. Stanisława biskupa, z napisem w otoku: „Wolne miasto J. K. Mści i Rzeczypospolitej Żyżmory* | (rysunek współczesnej pieczęci miejskiej podał Baliński w Staroż. Polsce, t. III, str. 349). Z istniejącego naówczas ratusza dziś śladów nie pozostało. Tutaj odbywały się sejmiki powiatu starodubskiego i sądy ziemskie, które jeszcze w r. 1795 aktykowały dokumenta, czego ślad dochował się dotąd w akcie wydanym przez sste rohaczewskiego i żyżmorskiego Miehała Pocieja Johannowi Litke z d. 27 czerwca 1786 r. na place przy zbiegu ulic Dwornej i Kamieńskiej posiadany. Ukaz z r. 1795 o pierwszym popisie ludności ścieśnił swobodę mieszczan; monopol wódczany, oddany w ręce żydów, również przyczynił sie do zubożenia mka, Wr. 1806 Pusłowski nabył w mieście plac pod nazwą Kiełczewszczyzna i 3 włóki ziemi miejskiej od Aleksandra Pocieja, oboźnego, od tego zaś w r. 1841 Benedykt hr. Tyszkiewicz, w którego posiadaniu dotąd zostaje. W r. 1812 Napoleon dążąc na wielką wyprawę pod Moskwę odpoczywał na cmentarzu przykościelnym. W miesiącu listopadzie t. r., podczas odwrotu armii francuskiej, stoczoną była bitwa pod Z. nad Strawą. Płatow, okrążywszy Wilno od strony rz. Mereczanki, miał zamiar przeciąć drogę ustępującej w nieładzie wielkiej armii z Wilna do Kowna, tymczasem za lewym brzegem Strawy zebrana była piechota, po większej części wojsk niemieckich, która w dniu drugim po wyjściu Francuzów z Wilna, wstrzymała Płatowa, do czasu aż armia przeprawiła się przez Strawę. Bitwa była przeciągłą, bez wielkiej jednak straty z obu stron. Dotąd wśród mieszkańców przechowuje się podanie, iż uciekający Francuzi rozsypywali po rynku złoto, aby nie dostało się w ręce nieprzyjaciół. Żyżmorskie starostwo niegrodowe, położone w wdztwie i powiecie trockim, według aktów podskarbińskich z r. 1569 stanowiło uposażenie stołu królewskiego, pierwotnie zarządzane, wreszcie oddane w zupełne posiadanie starostów. Lustracya z r. 1766 prócz mka Z. podaje jako należące do starostwa wsi: Ejtykany i Rejzany. Posiadał je Leonard Pociej, oboźny w. ks. lit., opłacając zeń kwarty złp. 1436 gr. 8, a hyberny złp. 966. Na prośbe tegoż starosty stany Rplitej na sejmie z r. 1768 pozwoliły mu zamienić dobra jego dziedziezne w wdztwie połockiem, zw. Porzecze, na to starostwo, 1 komisyę z 8 urzędników do tej zamiany sejm wyznaczył (Vol. leg., VII, $ 859). Odtąd starostwo żyżmorskie stało się własnością prywatną Pociejów. Jako najdawniejszych sstów żyżmorskieh podają metryki litewskie (oprócz wymienionych powyżej Fedka Januszkiewicza i Iwana Sapiehy): Bohusza Bohowitynowicza (1508 — 1509), Kopota Wasilewicza (1510 — 1512), Jana Hlebowicza (ustąpił 1519), Jana Zawiszyca (1519 — 1524), Pawła Naruszewicza (od 1524), kn. Semena Bielskiego (1534 — 8), Augustyna Fursowicza (1546 — 1550), Stanisława Komorowskiego (1550 — 3) i ks. Krzysztofa Radziwiłła (1576 — 9). M. R. Witan.",
+        "tom": "14",
+        "strona": 927,
+        "rodzaj": "indywidualne",
+        "ID": "14-08457",
+        "typ": "miasteczko, dobra",
+        "powiat_ocr": "trocki",
+        "gmina": "Żyżmory",
+        "parafia_katolicka": "Żyżmory",
+        "autor": "M. R. Witan."
+    },
+    {
+        "nazwa": "Szłajtyniszki",
+        "text": "Szłajtyniszki al. Słajtyszki, os., pow. maryampolski, gm. Balwierzyszki, par. Gudele, odl. od Maryampola 27 w.; ma] dm., 3 mk.",
+        "tom": "12",
+        "strona": 5,
+        "rodzaj": "indywidualne",
+        "ID": "12-00006",
+        "typ": "osada",
+        "warianty_nazw": [
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Słajtyszki"
+            }
+        ],
+        "powiat_ocr": "maryampolski",
+        "gmina": "Balwierzyszki",
+        "parafia_katolicka": "Gudele"
+    },
+    {
+        "nazwa": "Szmata",
+        "text": "Szmata, leśniczówka, do Przygodzice, pow. odolanowski, o 5 1/2 klm, na wsch.-płd. od Odolanowa (par. i poczta), st. dr. żel. w Przygodzicach o 6 1/2, klm.; 1 dm. i 15 mk.",
+        "tom": "12",
+        "strona": 7,
+        "rodzaj": "indywidualne",
+        "ID": "12-00044",
+        "typ": "leśniczówka",
+        "powiat_ocr": "odolanowski",
+        "parafia_katolicka": "Odolanów"
+    },
+    {
+        "nazwa": "Tonież",
+        "text": "Tonież, wś skarb. z zarządem gminnym, nad rz. Mutwicą, praw. dopł. Stwigi, pow. mozyrski, w 3 okr. pol. turowskim, o 35 w. od Turowa a 125 w. od Mozyrza. Posiada cerkiew pod wez, św. Mikołaja, uposażoną z dawnych zapisów około 4!/, włókami gruntu i łąk; około 600 parafian. Gmina należy do 4 okr. sądowego, składa się z 11 okręgów (starostw) wiejskich, ma 409 osad, 2234 włościan płci męs., uwłaszczonych na 16,228 dzies. 'W obrębie gminy znajduje się 16 wiosek i siół, 3 zaśc., 4 dobra. Szkółka gm. w miejscu. W ostatnich latach okolica została skanalizowana przez rz, Mostwę, A. Jel.",
+        "tom": "12",
+        "strona": 389,
+        "rodzaj": "indywidualne",
+        "ID": "12-03362",
+        "typ": "wieś skarbowa",
+        "powiat_ocr": "mozyrski",
+        "gmina": "Tonież",
+        "parafia_inna": [
+            {
+                "wyznanie": "praw.",
+                "nazwa_parafii": "Tonież"
+            }
+        ],
+        "autor": "A. Jel."
+    },
+    {
+        "nazwa": "Ubieszyn",
+        "text": "Ubieszyn, wś, pow. łańcucki, na lew, brzegu Sanu, naprzeciw Sieniawy (3:8 klm.), w międzyrzeczu Sanu i Wisłoki, Par. rz.-kat. w Gniewczynie a gr.-kat, w Gorzycach. Liczy 117 dm. i 618 mk. (327 męż., 291 kob.), 537 rz.-kat., 65 gr.-kat. i 16 izrael. Kasa poż. gm. ma 1753 złr. Pos. większa (Domic. Kellermanowej) ma 174 mr. roli, 6 mr. łąk, 9 mr. past., 16 mr. lasu, 58 mr. nieuż.; pos. mn. 524 mr. roli, 46 mr. łąk i ogr., 45 mr. past. i 19 mr. lasu, U. graniczy na płn. z Głogowem, na płd. z Wolą Ogryzkową i Gorzycami, na zach. z Trynczą. Nieużytki są wydmami piaszczystemi, które obecnie są zadrzewiane. Mac.",
+        "tom": "12",
+        "strona": 732,
+        "rodzaj": "indywidualne",
+        "ID": "12-05732",
+        "typ": "wieś",
+        "powiat_ocr": "łańcucki",
+        "parafia_katolicka": "Gniewczyna",
+        "parafia_inna": [
+            {
+                "wyznanie": "gr.-kat.",
+                "nazwa_parafii": "Gorzyce"
+            }
+        ],
+        "autor": "Mac."
+    }
+]
