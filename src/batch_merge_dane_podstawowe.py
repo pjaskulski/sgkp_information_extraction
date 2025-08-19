@@ -44,14 +44,14 @@ if __name__ == '__main__':
                 for element in elementy:
                     element_id = element.get("ID", None)
                     if element_id in resp_data:
-                        warianty_nazw = resp_data[element_id].get("warianty_nazw")
-                        typ = resp_data[element_id].get("typ")
-                        powiat = resp_data[element_id].get("powiat")
-                        gmina = resp_data[element_id].get("gmina")
-                        gubernia = resp_data[element_id].get("gubernia")
-                        parafia_katolicka = resp_data[element_id].get("parafia_katolicka")
-                        parafia_inna = resp_data[element_id].get("parafia_inna")
-                        autor = resp_data[element_id].get("autor")
+                        warianty_nazw = resp_data[element_id].get("warianty_nazw", None)
+                        typ = resp_data[element_id].get("typ", None)
+                        powiat = resp_data[element_id].get("powiat", None)
+                        gmina = resp_data[element_id].get("gmina", None)
+                        gubernia = resp_data[element_id].get("gubernia", None)
+                        parafia_katolicka = resp_data[element_id].get("parafia_katolicka", None)
+                        parafia_inna = resp_data[element_id].get("parafia_inna", None)
+                        autor = resp_data[element_id].get("autor", None)
                         if typ:
                             element["typ"] = typ
                         if powiat:

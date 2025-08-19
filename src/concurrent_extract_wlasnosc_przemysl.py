@@ -73,6 +73,7 @@ class EntryModel(BaseModel):
     budownictwo_palacowe: List[str] | None = Field(None, description="obiekty pałacowe, dwory")
     magazyny: List[str] | None = Field(None, description="magazyny, spichlerze")
     wojsko: List[str] | None = Field(None, description="lista obiektów wojskowych np. koszary, fort, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica")
+    obiekty_sakralne: List[str] | None = Field(None, description="np. kościół, meczet, kaplica, synagoga, cerkiew, klasztor, dom modlitwy, sobór, katedra, jeżeli podano to z wezwaniem")
 
 
 # ================================ FUNKCJE =====================================
@@ -120,7 +121,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
                 result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
 
                 if result.wlasciciel and value_test(result.wlasciciel):
-                    element['właściciel'] = result.wlasciciel
+                    entry_data['właściciel'] = result.wlasciciel
                 if result.przemyslowe:
                     element['przemysłowe'] = result.przemyslowe
                 if result.mlyny:
@@ -147,6 +148,8 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
                     element['magazyny'] = result.magazyny
                 if result.wojsko:
                     element['wojsko'] = result.wojsko
+                if result.obiekty_sakralne:
+                    element['obiekty_sakralne'] = result.obiekty_sakralne
 
             except Exception as e:
                 print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
@@ -187,6 +190,8 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
                 entry_data['magazyny'] = result.magazyny
             if result.wojsko:
                 entry_data['wojsko'] = result.wojsko
+            if result.obiekty_sakralne:
+                entry_data['obiekty_sakralne'] = result.obiekty_sakralne
 
         except Exception as e:
             print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
