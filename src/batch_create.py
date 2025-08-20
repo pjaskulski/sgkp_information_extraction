@@ -8,7 +8,14 @@ from openai import OpenAI
 
 
 VOLUME = '15'
-ANALIZA = f'TOM_{VOLUME}_2025_08_12.files'
+
+DANE = 'dane_podstawowe'
+#DANE = 'wlasnosc_przemysl'
+#DANE = 'instytucje_urzedy'
+#DANE = 'statystyka'
+#DANE = 'struktura'
+#DANE = 'wlasnosc_ziemska'
+ANALIZA = f'TOM_{VOLUME}_{DANE}.files'
 BATCH_FILE = ANALIZA.replace('.files', '.batchs')
 
 # API-KEY

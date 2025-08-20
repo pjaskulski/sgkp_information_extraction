@@ -9,7 +9,13 @@ from openai import OpenAI
 
 
 VOLUME = '15'
-ANALIZA = f'TOM_{VOLUME}_2025_08_12.files'
+DANE = 'dane_podstawowe'
+#DANE = 'wlasnosc_przemysl'
+#DANE = 'instytucje_urzedy'
+#DANE = 'statystyka'
+#DANE = 'struktura'
+#DANE = 'wlasnosc_ziemska'
+ANALIZA = f'TOM_{VOLUME}_{DANE}.files'
 
 # API-KEY
 env_path = Path(".") / ".env"
@@ -31,11 +37,11 @@ if __name__ == '__main__':
 
     client = OpenAI()
 
-    output_dir = Path('..') / 'SGKP' / 'JSON' / 'batch'
-    output_files = glob.glob(str(output_dir / f'sgkp_{VOLUME}_batch*.jsonl'))
+    jsonl_dir = Path('..') / 'SGKP' / 'JSON' / f'batch_{DANE}'
+    jsonl_files = glob.glob(str(jsonl_dir / f'sgkp_{VOLUME}_batch*.jsonl'))
 
-    if output_files:
-        for out_f in output_files:
+    if jsonl_files:
+        for out_f in jsonl_files:
             print(out_f)
             batch_input_file = client.files.create(
                 file=open(out_f, "rb"),

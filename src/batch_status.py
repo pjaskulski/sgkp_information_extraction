@@ -8,7 +8,13 @@ from openai import OpenAI
 
 
 VOLUME = '15'
-ANALIZA = f'TOM_{VOLUME}_2025_08_12.files'
+DANE = 'dane_podstawowe'
+#DANE = 'wlasnosc_przemysl'
+#DANE = 'instytucje_urzedy'
+#DANE = 'statystyka'
+#DANE = 'struktura'
+#DANE = 'wlasnosc_ziemska'
+ANALIZA = f'TOM_{VOLUME}_{DANE}.files'
 BATCH_FILE = ANALIZA.replace('.files', '.batchs')
 RESP_FILE = ANALIZA.replace('.files', '.responses')
 
@@ -26,11 +32,13 @@ if __name__ == '__main__':
      # pomiar czasu wykonania
     start_time = time.time()
 
+    # plik z identyfikatorami zadań
     batch_path = Path('..') / 'SGKP' / 'JSON' / BATCH_FILE
     with open(batch_path, 'r', encoding='utf-8') as f:
         batch_id_list = f.readlines()
         batch_id_list = [x.strip() for x in batch_id_list]
 
+    # plik z identyfikatorami plików wynikowych - jeżeli zadanie zostało zakończone
     resp_path = Path('..') / 'SGKP' / 'JSON' / RESP_FILE
     if os.path.exists(resp_path):
         os.remove(resp_path)
