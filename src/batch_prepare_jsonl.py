@@ -1,5 +1,4 @@
 """ przygotowanie danych dla zadań Batch API OpenAI """
-
 import os
 import sys
 import json

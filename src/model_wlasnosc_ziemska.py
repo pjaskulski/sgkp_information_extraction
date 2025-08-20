@@ -17,7 +17,7 @@ class LandOwnershipModel(BaseModel):
     land_name: str = Field(None, description="Czego dotyczą informacje o własności ziemskiej: główna miejscowość, wieś, folwark - gdy w tekście haśle opisane są osobno różne części własności")
     land: List[LandModel] = Field(..., description="Lista gruntów we własności ziemskiej")
 
-class LandOwnershipListModel(BaseModel):
+class EntryModel(BaseModel):
     """ lista własności ziemskich """
     chain_of_thought: List[str] = Field(
         None,
