@@ -3,24 +3,25 @@ import os
 import sys
 import time
 import json
-from pathlib import Path
 from typing import List
+from pathlib import Path
 import concurrent.futures
 import math
 import threading
 from dotenv import load_dotenv
 import openai
 from openai import OpenAI
-from pydantic import BaseModel, Field
 from prompt_dane_podstawowe import prepare_prompt
+from model_dane_podstawowe import EntryModel
 
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 5 # (dla większych danych - 20)
+NUM_THREADS = 5 # (dla testowych danych 5, dla większych danych - 50)
 
 # numer tomu lub 'test'
 VOLUME = 'test' # '16'
+DANE = 'dane_podstawowe'
 
 # API-KEY
 env_path = Path(".") / ".env"
@@ -39,40 +40,6 @@ ekspertem w analizie tekstów haseł Słownika Geograficznego Królestwa Polskie
 """
 
 user_prompt = prepare_prompt()
-
-
-# ================================= MODELE =====================================
-class NameVarModel(BaseModel):
-    lang: str | None = Field(None,
-                             description="język wariantu nazwy, jeżeli podano np. niem., węg., jeżeli brak zapisz nieokr. - nieokreślony")
-    wariant_nazwy: str | None = Field(None,
-                                      description="wariant nazwy hasła (alias, nazwa w innym języku, nazwa występująca w dokumentach itp.)")
-
-class ParafiaInnaModel(BaseModel):
-    wyznanie: str | None = Field(None,
-                             description="nazwa wyznania parafii np. ew., gr.-kat. itp.")
-    nazwa_parafii: str | None = Field(None,
-                                      description="nazwa parafii")
-
-class EntryModel(BaseModel):
-    chain_of_thought: List[str] | None = Field(None,
-                                               description="Kroki wyjaśniające prowadzące do ustalenia danych podstawowych dla hasła")
-    typ: str | None = Field(None,
-                            description="Typ hasła - co hasło opisuje np. wieś, miasto, miasteczko, rzekę, górę, osiedle, krainę itp. ")
-    powiat: str | None = Field(None,
-                               description="Nazwa powiatu w którym położona jest miejscowość")
-    gmina: str | None = Field(None,
-                              description="Nazwa gminy w której położona jest miejscowość")
-    gubernia: str | None = Field(None,
-                                 description="Nazwa guberni, do której należy miejscowość")
-    parafia_katolicka: str | None = Field(None,
-                                          description="Nazwa parafii katolickiej (rzymsko-katolickiej)")
-    parafia_inna: List[ParafiaInnaModel] | None = Field(None,
-                                     description="Lista parafii nie katolickich (np. prawosławnych, greko-katolickich, ewangelickich)")
-    autor: str | None = Field(None,
-                              description="Inicjały lub nazwisko autora hasła, występuje na końcu hasła, część haseł nie ma podanego autora.")
-    warianty_nazw: List[NameVarModel] | None = Field(None,
-                                                     description="Lista wariantów nazw (aliasów) dla hasła.")
 
 
 # ================================ FUNKCJE =====================================
@@ -188,7 +155,7 @@ if __name__ == "__main__":
 
     # ścieżki
     data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
-    output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}'
+    output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
     # Utwórz katalog na pliki częściowe, jeśli nie istnieje
     output_dir.mkdir(exist_ok=True)

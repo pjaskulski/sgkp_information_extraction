@@ -1,6 +1,7 @@
 """ ekstrakcja danych z hasła SGKP, przetwarzanie  wielowątkowe:
-- liczba mieszkańców
+- liczba miekszańców
 - liczba domów
+- struktura wyznaniowa
 """
 import os
 import sys
@@ -14,16 +15,17 @@ import threading
 from dotenv import load_dotenv
 import openai
 from openai import OpenAI
-from pydantic import BaseModel, Field
+from model_statystyka import EntryModel
 from prompt_statystyka import prepare_prompt
 
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 5 # dla dużych zbiorów - 50
+NUM_THREADS = 5 # (dla testowych danych 5, dla większych danych - 50)
 
 # numer tomu
 VOLUME = 'test'
+DANE = 'statystyka'
 
 # API-KEY
 env_path = Path(".") / ".env"
@@ -42,28 +44,6 @@ ekspertem w analizie tekstów haseł Słownika Geograficznego Królestwa Polskie
 
 user_prompt = prepare_prompt()
 
-
-# ================================= MODELE =====================================
-class LiczbaMkModel(BaseModel):
-    data: str | None = Field(None, description="Data dla której podano liczbę mieszkańców, lub sformułowanie 'obecnie'")
-    liczba: str | None = Field(None, description="Liczba mieszkańców")
-
-class LiczbaDmModel(BaseModel):
-    data: str | None = Field(None, description="Data dla której podano liczbę domów, lub sformułowanie 'obecnie'")
-    liczba: str | None = Field(None, description="Liczba domów")
-
-class SettlementMkStatModel(BaseModel):
-    dotyczy: str | None = Field(None, description="czego dotyczą dane: główna miejscowość, inne miejsce opisane w haśle np. folwark, gmina")
-    liczba: List[LiczbaMkModel] | None = Field(None, description="Liczba mieszkańców (wiele, jeżeli ppodano dane dla różnych lat)")
-
-class SettlementDmStatModel(BaseModel):
-    dotyczy: str | None = Field(None, description="czego dotyczą dane: główna miejscowość, inne miejsce opisane w haśle np. folwark, gmina")
-    liczba: List[LiczbaDmModel] | None = Field(None, description="Liczba domów (wiele, jeżeli ppodano dane dla różnych lat)")
-
-class EntryModel(BaseModel):
-    chain_of_thought: List[str] | None = Field(None, description="Kroki wyjaśniające prowadzące do ustalenia poszukiwanych danych dla hasła")
-    l_mk_statystyka: List[SettlementMkStatModel] | None = Field(None, description="Dane o liczbie mieszkańców podane w tekście hasła")
-    l_dm_statystyka: List[SettlementDmStatModel] | None = Field(None, description="Dane o liczbie domów podane w tekście hasła")
 
 # ================================ FUNKCJE =====================================
 def get_data(tekst_hasla:str, client: OpenAI):
@@ -165,7 +145,7 @@ if __name__ == "__main__":
     start_time = time.time()
 
     data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
-    output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}'
+    output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
     # Utwórz katalog na pliki częściowe, jeśli nie istnieje
     output_dir.mkdir(exist_ok=True)

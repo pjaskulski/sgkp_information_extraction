@@ -1,16 +1,28 @@
 """ prompt do ekstrakcji informacji:
 - własność ziemska
 """
+import json
+from pathlib import Path
 
-def prepare_prompt() -> str:
+
+def prepare_prompt(model=None) -> str:
     """ przygotowanie promptu """
 
     # lista skrótów z SGKP
-    with open('prompt_sgkp_skroty.txt', 'r', encoding='utf-8') as f:
+    input_path = Path('..') / 'dictionary' / 'prompt_sgkp_skroty.txt'
+    with open(input_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
         skroty = [x.strip() for x in lines]
 
     lista_skrotow = ', '.join(skroty)
+
+     # jeżeli prompt dla przetwarzania przez Batch API to dodajemy schemat modelu
+    text_schema = ''
+    if model:
+        json_schema = model.model_json_schema()
+        text_schema = f"""Schemat JSON:
+        {json.dumps(json_schema, indent=2, ensure_ascii=False)}
+        """
 
     user_prompt = f"""
     Twoim zadaniem jest precyzyjna ekstrakcja danych z podanego hasła.
@@ -23,7 +35,7 @@ def prepare_prompt() -> str:
     **SZCZEGÓŁOWE REGUŁY EKSTRAKCJI:**
 
     Wyszukaj i zapisz w polach struktury JSON poszukiwane informacje.
-    Uwzględniaj **TYLKO** dane dotyczące XIX wieku, starsze informacje historyczne - pomiń.
+    Uwzględniaj **TYLKO** dane dotyczące XIX wieku, pomiń starsze informacje historyczne.
 
     **Własność ziemska (pole 'własność_ziemska')**
     *  wyszukaj informacje o własności ziemskiej, w znaczeniu gruntów, które znajdują się w opisywanej miejscowości. Uwzględnij ogólną powierzchnię gruntów, oraz (jeżeli podano) dane szczegółowe np. ziemia orna, ogrody, łąki, lasy, pastwiska, nieużytki, zarośla itp. Powierzchnia gruntu może być podana w hektarach (ha) morgach (mr), arach (ar) lub innych jednostkach. Niekiedy podana jets tylko ogólna powierzchnia bez wyszczególnienia rodzaju gruntu, wówczas zapisz ta informację z etykieta 'obszar ogółem'. W treści haseł mogą znajdować się inne informacje np. o liczbie mieszkańców (mk) lub liczbie domów (dm), te informacje pomiń, ważna jest tylko struktura własności ziemskiej. W haśle mogą znajdować się informacje o kilku własnościach ziemskich, np. osobno o wsi i osobno o folwarku, zapisz je wówczas osobno, jako kolejne struktury na liście, w polu 'land_name' zapisz nazwę danej własności np. 'wieś Echtz', 'folwark Marienwalde'.
@@ -32,6 +44,8 @@ def prepare_prompt() -> str:
     *   W tekście mogą występować skróty. Oto lista najczęstszych: {lista_skrotow}.
     *   Uwzględniaj **TYLKO I WYŁĄCZNIE** dane pochodzące z dostarczonego tekstu hasła.
     *   Jeżeli w tekście brak jakiejś informacji, pomiń daną kategorię informacji w wynikowej strukturze.
+
+    {text_schema}
 
     ---
     **PRZYKŁAD:**

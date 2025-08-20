@@ -1,17 +1,30 @@
 """ prompt do ekstrakcji informacji:
 - liczba mieszkańców
 - liczba domów
+- struktura wyznaniowa
 """
+import json
+from pathlib import Path
 
-def prepare_prompt() -> str:
+
+def prepare_prompt(model=None) -> str:
     """ przygotowanie promptu """
 
     # lista skrótów z SGKP
-    with open('prompt_sgkp_skroty.txt', 'r', encoding='utf-8') as f:
+    input_path = Path('..') / 'dictionary' / 'prompt_sgkp_skroty.txt'
+    with open(input_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
         skroty = [x.strip() for x in lines]
 
     lista_skrotow = ', '.join(skroty)
+
+    # jeżeli prompt dla przetwarzania przez Batch API to dodajemy schemat modelu
+    text_schema = ''
+    if model:
+        json_schema = model.model_json_schema()
+        text_schema = f"""Schemat JSON:
+        {json.dumps(json_schema, indent=2, ensure_ascii=False)}
+        """
 
     user_prompt = f"""
     Twoim zadaniem jest precyzyjna ekstrakcja danych z podanego hasła.
@@ -33,12 +46,13 @@ def prepare_prompt() -> str:
     *    wyszukaj dane na temat liczby domów w danej miejscowości. Często hasła zawieraja takie informacje o dodatkowych osadach, folwarkach, ustal czy znalezione dane dotyczą głównej miejscowości np. wsi, czy też właśnie np. folwarku. Zapisuj je wówczas osobno w odrębnych strukturach, każda z nich powinna mieć pole 'dotyczy' z wartością wskazującą czy liczba domów dotyczy głównej miejscowości czy innej osady, miejsca opisanego w treści hasła. Podobnie jeżeli podano dane na temat liczby domów dla całej gminy - zapisz te infromacje osobno. Jeżeli w tekście są dane z różnych lat XIX wieku zapisz je jako osobne informacje, podając rok dla którego podano te informacje, lub określenie "obecnie" jeżeli rok nie jest podany, ale z kontekstu wynika że chodzi o dane aktualne w momencie pisania Słownika. Informacje o roku i liczbie zapisuj w drugim polu struktury, o nazwie 'liczba_domów', powino ono zawierać jedną lub więcej struktur z datą i liczbą np. {{"data": "1827", "liczba": "650" }}.
 
 
-
     **INFORMACJE POMOCNICZE:**
     * W tekście Słownika stosowano skróty: dm. - oznacza dom, domów, mk. - oznacza mieszkańca, mieszkańców, uwzględnij tylko informacje podane w taki sposób.
     *   W tekście mogą występować też inne skróty. Oto lista najczęstszych: {lista_skrotow}.
     *   Uwzględniaj **TYLKO I WYŁĄCZNIE** dane pochodzące z dostarczonego tekstu hasła.
     *   Jeżeli w tekście brak jakiejś informacji, pomiń daną kategorię informacji w wynikowej strukturze.
+
+    {text_schema}
 
     ---
     **PRZYKŁAD:**

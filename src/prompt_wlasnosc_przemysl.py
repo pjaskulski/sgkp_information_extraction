@@ -14,18 +14,29 @@
 - budownictwo pałacowe, dworskie
 - magazynowanie: magazyny, spichlerze
 - wojsko: koszary, fort, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica
-
 """
+import json
+from pathlib import Path
 
-def prepare_prompt() -> str:
+
+def prepare_prompt(model=None) -> str:
     """ przygotowanie promptu """
 
     # lista skrótów z SGKP
-    with open('prompt_sgkp_skroty.txt', 'r', encoding='utf-8') as f:
+    input_path = Path('..') / 'dictionary' / 'prompt_sgkp_skroty.txt'
+    with open(input_path, 'r', encoding='utf-8') as f:
         lines = f.readlines()
         skroty = [x.strip() for x in lines]
 
     lista_skrotow = ', '.join(skroty)
+
+    # jeżeli prompt dla przetwarzania przez Batch API to dodajemy schemat modelu
+    text_schema = ''
+    if model:
+        json_schema = model.model_json_schema()
+        text_schema = f"""Schemat JSON:
+        {json.dumps(json_schema, indent=2, ensure_ascii=False)}
+        """
 
     user_prompt = f"""
     Twoim zadaniem jest precyzyjna ekstrakcja danych z podanego hasła.
@@ -92,6 +103,8 @@ def prepare_prompt() -> str:
     *   Uwzględniaj **TYLKO I WYŁĄCZNIE** dane pochodzące z dostarczonego tekstu hasła.
     *   Nazwy zapisuj w formie mianownika.
     *   Jeżeli w tekście brak jakiejś informacji, pomiń daną kategorię informacji w wynikowej strukturze.
+
+    {text_schema}
 
     ---
     **PRZYKŁAD:**

@@ -6,17 +6,18 @@ import glob
 
 
 # nr tomu
-VOLUME = '16' # 'test'
+VOLUME = 'test' # 'test'
+DANE = 'dane_podstawowe'
 
 # Ścieżki
 # Oryginalny plik, który był źródłem danych
 ORIGINAL_DATA_PATH = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
 
 # Katalog, w którym znajdują się częściowe pliki wynikowe
-PARTS_DIR = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}'
+PARTS_DIR = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
 # Nazwa finalnego, połączonego pliku JSON
-FINAL_OUTPUT_PATH = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}_merged.json'
+FINAL_OUTPUT_PATH = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}_{DANE}_merged.json'
 
 
 # ================================ MAIN ========================================
