@@ -18,12 +18,12 @@ There are two types of scripts in the **SRC** folder, depending on the processin
 
 Due to the large amount of different types of data that need to be searched for in the SGKP entries, the extraction procedure has been divided into 6 separate modules (implemented by separate scripts) so that the excess of expected data does not impair the performance of the language model. Particularly difficult data requiring more analysis, such as population, religious structure, or land ownership structure, are processed separately:
 
-  - basic data: type, county, municipality, province, Catholic parish, other parish, entry author, name variants
-  - industry monuments: property owner, industrial facilities, mills, archaeological finds, monuments, landscape architecture, collecting, museology,   necropolises, crafts, forest lodges, palace construction, warehouses, military
-  - institutions, offices: schools, offices, customs facilities, libraries, catering, healthcare, trade, charity, courts, breeding, bookstores, shipping, dormitories, urban infrastructure, post office, local government, police, financial institutions, health resorts
-  - statistics: number of inhabitants, number of houses
-  - religious structure: number of inhabitants by religion
-  - land ownership: land ownership structure (types and area of land)
+  - **basic data**: type, county, municipality, province, Catholic parish, other parish, entry author, name variants
+  - **industry monuments**: property owner, industrial facilities, mills, archaeological finds, monuments, landscape architecture, collecting, museology,   necropolises, crafts, forest lodges, palace construction, warehouses, military
+  - **institutions, offices**: schools, offices, customs facilities, libraries, catering, healthcare, trade, charity, courts, breeding, bookstores, shipping, dormitories, urban infrastructure, post office, local government, police, financial institutions, health resorts
+  - **statistics**: number of inhabitants, number of houses
+  - **religious structure**: number of inhabitants by religion
+  - **land ownership**: land ownership structure (types and area of land)
 
 In the **TEST** folder - test results for various models on a test series (basic data extraction)
 
