@@ -17,18 +17,20 @@ from model_dane_podstawowe import EntryModel
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 50 # (dla testowych danych 5, dla większych danych - 50)
+NUM_THREADS = 100 # (dla testowych danych 5, dla większych danych - 50 lub więcej)
 
 # numer tomu lub 'test'
-VOLUME = '01'
+VOLUME = '04'
 DANE = 'dane_podstawowe'
 
 # API-KEY
-env_path = Path(".") / ".env"
+env_path = Path(".") / ".env_ihpan" # ".env_ihpan"
 load_dotenv(dotenv_path=env_path)
 OPENAI_ORG_ID = os.environ.get('OPENAI_ORG_ID')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+PROJECT_ID = os.environ.get('PROJECT_ID')
 openai.api_key = OPENAI_API_KEY
+openai.project = PROJECT_ID
 
 # Model
 MODEL = "gpt-4.1-mini"
@@ -87,7 +89,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
             try:
                 result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
 
-                if result.typ and value_test(result.typ): element['typ'] = result.typ
+                if result.typ: element['typ'] = result.typ
                 if result.powiat and value_test(result.powiat):
                     element['powiat_ocr'] = result.powiat
                     prev_powiat = result.powiat
@@ -113,7 +115,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
         try:
             result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
 
-            if result.typ and value_test(result.typ): entry_data['typ'] = result.typ
+            if result.typ: entry_data['typ'] = result.typ
             if result.powiat and value_test(result.powiat): entry_data['powiat_ocr'] = result.powiat
             if result.gmina and value_test(result.gmina): entry_data['gmina'] = result.gmina
             if result.gubernia and value_test(result.gubernia): entry_data['gubernia'] = result.gubernia

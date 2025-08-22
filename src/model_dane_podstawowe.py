@@ -18,8 +18,8 @@ class ParafiaInnaModel(BaseModel):
 class EntryModel(BaseModel):
     chain_of_thought: List[str] | None = Field(None,
                                                description="Kroki wyjaśniające prowadzące do ustalenia danych podstawowych dla hasła")
-    typ: str | None = Field(None,
-                            description="Typ hasła - co hasło opisuje np. wieś, miasto, miasteczko, rzekę, górę, osiedle, krainę itp. ")
+    typ: List[str] | None = Field(None,
+                            description="Lista typów hasła - co hasło opisuje np. wieś, miasto, miasteczko, rzekę, górę, osiedle, krainę itp., dla hasła może występować więcej niż jeden typ")
     powiat: str | None = Field(None,
                                description="Nazwa powiatu w którym położona jest miejscowość")
     gmina: str | None = Field(None,

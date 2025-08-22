@@ -6,7 +6,7 @@ import glob
 
 
 # nr tomu lub 'test'
-VOLUME = '01'
+VOLUME = '04'
 DANE = 'dane_podstawowe'
 #DANE = 'wlasnosc_przemysl'
 # DANE = 'instytucje_urzedy'
