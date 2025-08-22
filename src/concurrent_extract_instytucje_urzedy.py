@@ -37,10 +37,10 @@ from prompt_instytucje_urzedy import prepare_prompt
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 5 # (dla testowych danych 5, dla większych danych - 50)
+NUM_THREADS = 50 # (dla testowych danych 5, dla większych danych - 50)
 
 # numer tomu
-VOLUME = 'test'
+VOLUME = '01'
 DANE = 'instytucje_urzedy'
 
 # API-KEY
@@ -89,6 +89,48 @@ def value_test(value: str) -> bool:
     return value not in ['', '/', 'null']
 
 
+def update_record(entry: dict, result: EntryModel):
+    "uaktualnienie przekazanej struktury o nowe dane z odpowiedzi LLM "
+    if result.szkoly:
+        entry['szkoły'] = result.szkoly
+    if result.urzedy:
+        entry['urzędy'] = result.urzedy
+    if result.celne:
+        entry['celne'] = result.celne
+    if result.biblioteki:
+        entry['biblioteki'] = result.biblioteki
+    if result.gastronomia:
+        entry['gastronomia'] = result.gastronomia
+    if result.opieka_zdrowotna:
+        entry['opieka_zdrowotna'] = result.opieka_zdrowotna
+    if result.handel:
+        entry['handel'] = result.handel
+    if result.dobroczynnosc:
+        entry['dobroczynnosc'] = result.dobroczynnosc
+    if result.sady:
+        entry['sądy'] = result.sady
+    if result.hodowla:
+        entry['hodowla'] = result.hodowla
+    if result.ksiegarnie:
+        entry['księgarnie'] = result.ksiegarnie
+    if result.zegluga:
+        entry['żegluga'] = result.zegluga
+    if result.bursy:
+        entry['bursa'] = result.bursy
+    if result.infrastruktura_miejska:
+        entry['infrastruktura_miejska'] = result.infrastruktura_miejska
+    if result.poczta:
+        entry['poczta'] = result.poczta
+    if result.samorzad:
+        entry['samorzad'] = result.samorzad
+    if result.policja:
+        entry['policja'] = result.policja
+    if result.instytucje_finansowe:
+        entry['instytucje_finansowe'] = result.instytucje_finansowe
+    if result.uzdrowiska:
+        entry['uzdrowiska'] = result.uzdrowiska
+
+
 def process_entry(entry_data: dict, client: OpenAI) -> dict:
     """Przetwarza pojedyncze hasło lub hasło zbiorcze."""
     entry_id = entry_data.get("ID", "")
@@ -104,46 +146,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
 
             try:
                 result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
-
-                if result.szkoly:
-                    element['szkoły'] = result.szkoly
-                if result.urzedy:
-                    element['urzędy'] = result.urzedy
-                if result.celne:
-                    element['celne'] = result.celne
-                if result.biblioteki:
-                    element['biblioteki'] = result.biblioteki
-                if result.gastronomia:
-                    element['gastronomia'] = result.gastronomia
-                if result.opieka_zdrowotna:
-                    element['opieka_zdrowotna'] = result.opieka_zdrowotna
-                if result.handel:
-                    element['handel'] = result.handel
-                if result.dobroczynnosc:
-                    element['dobroczynnosc'] = result.dobroczynnosc
-                if result.sady:
-                    element['sądy'] = result.sady
-                if result.hodowla:
-                    element['hodowla'] = result.hodowla
-                if result.ksiegarnie:
-                    element['księgarnie'] = result.ksiegarnie
-                if result.zegluga:
-                    element['żegluga'] = result.zegluga
-                if result.bursy:
-                    element['bursa'] = result.bursy
-                if result.infrastruktura_miejska:
-                    element['infrastruktura_miejska'] = result.infrastruktura_miejska
-                if result.poczta:
-                    element['poczta'] = result.poczta
-                if result.samorzad:
-                    element['samorzad'] = result.samorzad
-                if result.policja:
-                    element['policja'] = result.policja
-                if result.instytucje_finansowe:
-                    element['instytucje_finansowe'] = result.instytucje_finansowe
-                if result.uzdrowiska:
-                    element['uzdrowiska'] = result.uzdrowiska
-
+                update_record(entry=element, result=result)
 
             except Exception as e:
                 print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
@@ -155,45 +158,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
 
         try:
             result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
-
-            if result.szkoly:
-                entry_data['szkoły'] = result.szkoly
-            if result.urzedy:
-                entry_data['urzędy'] = result.urzedy
-            if result.celne:
-                entry_data['celne'] = result.celne
-            if result.biblioteki:
-                entry_data['biblioteki'] = result.biblioteki
-            if result.gastronomia:
-                entry_data['gastronomia'] = result.gastronomia
-            if result.opieka_zdrowotna:
-                entry_data['opieka_zdrowotna'] = result.opieka_zdrowotna
-            if result.handel:
-                entry_data['handel'] = result.handel
-            if result.dobroczynnosc:
-                entry_data['dobroczynnosc'] = result.dobroczynnosc
-            if result.sady:
-                entry_data['sądy'] = result.sady
-            if result.hodowla:
-                entry_data['hodowla'] = result.hodowla
-            if result.ksiegarnie:
-                entry_data['księgarnie'] = result.ksiegarnie
-            if result.zegluga:
-                entry_data['żegluga'] = result.zegluga
-            if result.bursy:
-                entry_data['bursa'] = result.bursy
-            if result.infrastruktura_miejska:
-                entry_data['infrastruktura_miejska'] = result.infrastruktura_miejska
-            if result.poczta:
-                entry_data['poczta'] = result.poczta
-            if result.samorzad:
-                entry_data['samorzad'] = result.samorzad
-            if result.policja:
-                entry_data['policja'] = result.policja
-            if result.instytucje_finansowe:
-                entry_data['instytucje_finansowe'] = result.instytucje_finansowe
-            if result.uzdrowiska:
-                entry_data['uzdrowiska'] = result.uzdrowiska
+            update_record(entry=entry_data, result=result)
 
         except Exception as e:
             print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
@@ -216,7 +181,7 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
         processed_entry = process_entry(entry, client)
         processed_results.append(processed_entry)
 
-        # Zapis wyników wątku do osobnego pliku
+        # zapis wyników wątku do osobnego pliku (to nie jest optymalne, ale zajmuje mało czasu)
         with open(output_path, 'w', encoding='utf-8') as f_out:
             json.dump(processed_results, f_out, indent=4, ensure_ascii=False)
 
@@ -231,7 +196,7 @@ if __name__ == "__main__":
     data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
     output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
-    # Utwórz katalog na pliki częściowe, jeśli nie istnieje
+    # katalog na pliki częściowe, jeśli nie istnieje
     output_dir.mkdir(exist_ok=True)
 
     print(f"Ładowanie danych z: {data_path}")
@@ -242,7 +207,7 @@ if __name__ == "__main__":
         print("Brak danych do przetworzenia. Zakończono.")
         sys.exit(0)
 
-    # Dzielenie danych na równe części dla każdego wątku
+    # dzielenie danych na równe części dla każdego wątku
     total_entries = len(data_to_process)
     chunk_size = math.ceil(total_entries / NUM_THREADS)
     chunks = [data_to_process[i:i + chunk_size] for i in range(0, total_entries, chunk_size)]
@@ -253,7 +218,7 @@ if __name__ == "__main__":
         # poszczególne partie danych przekazywane do puli wątków
         futures = [executor.submit(process_chunk, chunk, i, output_dir) for i, chunk in enumerate(chunks)]
 
-        # Oczekiwanie na zakończenie wszystkich zadań
+        # oczekiwanie na zakończenie wszystkich zadań
         for future in concurrent.futures.as_completed(futures):
             try:
                 num_processed = future.result()

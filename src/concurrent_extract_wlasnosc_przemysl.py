@@ -33,10 +33,10 @@ from prompt_wlasnosc_przemysl import prepare_prompt
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 5 # (dla testowych danych 5, dla większych danych - 50)
+NUM_THREADS = 50 # (dla testowych danych 5, dla większych danych - 50)
 
-# numer tomu
-VOLUME = 'test' # '16'
+# numer tomu lub 'test'
+VOLUME = '01'
 DANE = 'wlasnosc_przemysl'
 
 # API-KEY
@@ -85,6 +85,40 @@ def value_test(value: str) -> bool:
     return value not in ['', '/', 'null']
 
 
+def update_record(entry: dict, result: EntryModel):
+    "uaktualnienie przekazanej struktury o nowe dane z odpowiedzi LLM "
+    if result.wlasciciel and value_test(result.wlasciciel):
+        entry['właściciel'] = result.wlasciciel
+    if result.przemyslowe:
+        entry['przemysłowe'] = result.przemyslowe
+    if result.mlyny:
+        entry['młyny'] = result.mlyny
+    if result.archeo:
+        entry['archeo'] = result.archeo
+    if result.zabytki:
+        entry['zabytki'] = result.zabytki
+    if result.architektura_krajobrazu:
+        entry['architektura_krajobrazu'] = result.architektura_krajobrazu
+    if result.kolekcjonerstwo:
+        entry['kolekcjonerstwo'] = result.kolekcjonerstwo
+    if result.muzealnictwo:
+        entry['muzealnictwo'] = result.muzealnictwo
+    if result.nekropolie:
+        entry['nekropolie'] = result.nekropolie
+    if result.rzemioslo:
+        entry['rzemioslo'] = result.rzemioslo
+    if result.lesniczowki:
+        entry['lesniczowki'] = result.lesniczowki
+    if result.budownictwo_palacowe:
+        entry['budownictwo_palacowe'] = result.budownictwo_palacowe
+    if result.magazyny:
+        entry['magazyny'] = result.magazyny
+    if result.wojsko:
+        entry['wojsko'] = result.wojsko
+    if result.obiekty_sakralne:
+        entry['obiekty_sakralne'] = result.obiekty_sakralne
+
+
 def process_entry(entry_data: dict, client: OpenAI) -> dict:
     """Przetwarza pojedyncze hasło lub hasło zbiorcze."""
     entry_id = entry_data.get("ID", "")
@@ -100,37 +134,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
 
             try:
                 result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
-
-                if result.wlasciciel and value_test(result.wlasciciel):
-                    entry_data['właściciel'] = result.wlasciciel
-                if result.przemyslowe:
-                    element['przemysłowe'] = result.przemyslowe
-                if result.mlyny:
-                    element['młyny'] = result.mlyny
-                if result.archeo:
-                    element['archeo'] = result.archeo
-                if result.zabytki:
-                    element['zabytki'] = result.zabytki
-                if result.architektura_krajobrazu:
-                    element['architektura_krajobrazu'] = result.architektura_krajobrazu
-                if result.kolekcjonerstwo:
-                    element['kolekcjonerstwo'] = result.kolekcjonerstwo
-                if result.muzealnictwo:
-                    element['muzealnictwo'] = result.muzealnictwo
-                if result.nekropolie:
-                    element['nekropolie'] = result.nekropolie
-                if result.rzemioslo:
-                    element['rzemioslo'] = result.rzemioslo
-                if result.lesniczowki:
-                    element['lesniczowki'] = result.lesniczowki
-                if result.budownictwo_palacowe:
-                    element['budownictwo_palacowe'] = result.budownictwo_palacowe
-                if result.magazyny:
-                    element['magazyny'] = result.magazyny
-                if result.wojsko:
-                    element['wojsko'] = result.wojsko
-                if result.obiekty_sakralne:
-                    element['obiekty_sakralne'] = result.obiekty_sakralne
+                update_record(entry=element, result=result)
 
             except Exception as e:
                 print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
@@ -142,37 +146,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
 
         try:
             result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
-
-            if result.wlasciciel and value_test(result.wlasciciel):
-                entry_data['właściciel'] = result.wlasciciel
-            if result.przemyslowe:
-                entry_data['przemysłowe'] = result.przemyslowe
-            if result.mlyny:
-                entry_data['młyny'] = result.mlyny
-            if result.archeo:
-                entry_data['archeo'] = result.archeo
-            if result.zabytki:
-                entry_data['zabytki'] = result.zabytki
-            if result.architektura_krajobrazu:
-                entry_data['architektura_krajobrazu'] = result.architektura_krajobrazu
-            if result.kolekcjonerstwo:
-                entry_data['kolekcjonerstwo'] = result.kolekcjonerstwo
-            if result.muzealnictwo:
-                entry_data['muzealnictwo'] = result.muzealnictwo
-            if result.nekropolie:
-                entry_data['nekropolie'] = result.nekropolie
-            if result.rzemioslo:
-                entry_data['rzemioslo'] = result.rzemioslo
-            if result.lesniczowki:
-                entry_data['lesniczowki'] = result.lesniczowki
-            if result.budownictwo_palacowe:
-                entry_data['budownictwo_palacowe'] = result.budownictwo_palacowe
-            if result.magazyny:
-                entry_data['magazyny'] = result.magazyny
-            if result.wojsko:
-                entry_data['wojsko'] = result.wojsko
-            if result.obiekty_sakralne:
-                entry_data['obiekty_sakralne'] = result.obiekty_sakralne
+            update_record(entry=entry_data, result=result)
 
         except Exception as e:
             print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
@@ -195,7 +169,7 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
         processed_entry = process_entry(entry, client)
         processed_results.append(processed_entry)
 
-        # Zapis wyników wątku do osobnego pliku
+        # zapis wyników wątku do osobnego pliku (to nie jest optymalne, ale zajmuje mało czasu)
         with open(output_path, 'w', encoding='utf-8') as f_out:
             json.dump(processed_results, f_out, indent=4, ensure_ascii=False)
 
@@ -210,7 +184,7 @@ if __name__ == "__main__":
     data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
     output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
-    # Utwórz katalog na pliki częściowe, jeśli nie istnieje
+    # katalog na pliki częściowe, jeśli nie istnieje
     output_dir.mkdir(exist_ok=True)
 
     print(f"Ładowanie danych z: {data_path}")
@@ -221,7 +195,7 @@ if __name__ == "__main__":
         print("Brak danych do przetworzenia. Zakończono.")
         sys.exit(0)
 
-    # Dzielenie danych na równe części dla każdego wątku
+    # dzielenie danych na równe części dla każdego wątku
     total_entries = len(data_to_process)
     chunk_size = math.ceil(total_entries / NUM_THREADS)
     chunks = [data_to_process[i:i + chunk_size] for i in range(0, total_entries, chunk_size)]
@@ -232,7 +206,7 @@ if __name__ == "__main__":
         # poszczególne partie danych przekazywane do puli wątków
         futures = [executor.submit(process_chunk, chunk, i, output_dir) for i, chunk in enumerate(chunks)]
 
-        # Oczekiwanie na zakończenie wszystkich zadań
+        # oczekiwanie na zakończenie wszystkich zadań
         for future in concurrent.futures.as_completed(futures):
             try:
                 num_processed = future.result()

@@ -5,18 +5,22 @@ from pathlib import Path
 import glob
 
 
-# nr tomu
-VOLUME = 'test' # 'test'
+# nr tomu lub 'test'
+VOLUME = '01'
 DANE = 'dane_podstawowe'
+#DANE = 'wlasnosc_przemysl'
+# DANE = 'instytucje_urzedy'
+# DANE = 'statystyka'
+# DANE = 'struktura'
+# DANE = 'wlasnosc_ziemska'
 
-# Ścieżki
-# Oryginalny plik, który był źródłem danych
+# ścieżka do oryginalnego pliku, który był źródłem danych
 ORIGINAL_DATA_PATH = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
 
-# Katalog, w którym znajdują się częściowe pliki wynikowe
+# katalog, w którym znajdują się częściowe pliki wynikowe
 PARTS_DIR = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
-# Nazwa finalnego, połączonego pliku JSON
+# nazwa finalnego, połączonego pliku JSON
 FINAL_OUTPUT_PATH = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}_{DANE}_merged.json'
 
 
@@ -24,7 +28,7 @@ FINAL_OUTPUT_PATH = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}_{DANE}_merged
 if __name__ == "__main__":
     print("Rozpoczynanie łączenia plików...")
 
-    # Wczytywanie przetworzone dane z plików częściowych do słownika dla szybkiego dostępu
+    # wczytywanie przetworzonych danych z plików częściowych do słownika dla szybkiego dostępu
     processed_data_map = {}
     part_files = glob.glob(str(PARTS_DIR / 'output_part_*.json'))
 
@@ -46,27 +50,27 @@ if __name__ == "__main__":
 
     print(f"Wczytano {len(processed_data_map)} unikalnych, przetworzonych haseł.")
 
-    # Wczytywanie oryginalnego pliku JSON
+    # wczytywanie oryginalnego pliku JSON
     with open(ORIGINAL_DATA_PATH, 'r', encoding='utf-8') as f:
         original_data = json.load(f)
 
     print(f"Wczytano {len(original_data)} haseł z oryginalnego pliku: {ORIGINAL_DATA_PATH}")
 
-    # Finalna lista z uzupełneniem wpisów
+    # finalna lista z uzupełneniem wpisów
     final_data = []
     updated_count = 0
     for original_entry in original_data:
         entry_id = original_entry.get("ID")
 
-        # Jeśli hasło zostało przetworzone, użyj nowej wersji
+        # jeśli hasło zostało przetworzone, użyj nowej wersji
         if entry_id in processed_data_map:
             final_data.append(processed_data_map[entry_id])
             updated_count += 1
-        # W przeciwnym razie, zachowaj oryginalną wersję
+        # w przeciwnym razie, zachowaj oryginalną wersję
         else:
             final_data.append(original_entry)
 
-    # Zapis danych do nowego pliku
+    # zapis danych do nowego pliku
     with open(FINAL_OUTPUT_PATH, 'w', encoding='utf-8') as f:
         json.dump(final_data, f, indent=4, ensure_ascii=False)
 

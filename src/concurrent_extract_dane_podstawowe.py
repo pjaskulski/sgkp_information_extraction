@@ -17,10 +17,10 @@ from model_dane_podstawowe import EntryModel
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 5 # (dla testowych danych 5, dla większych danych - 50)
+NUM_THREADS = 50 # (dla testowych danych 5, dla większych danych - 50)
 
 # numer tomu lub 'test'
-VOLUME = 'test' # '16'
+VOLUME = '01'
 DANE = 'dane_podstawowe'
 
 # API-KEY
@@ -74,6 +74,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
     entry_id = entry_data.get("ID", "")
     rodzaj = entry_data.get("rodzaj")
 
+    # hasło zbiorcze
     if rodzaj == "zbiorcze":
         elements = entry_data.get("elementy", [])
         prev_powiat = None
@@ -99,6 +100,8 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
                     element['parafia_inna'] = [item.model_dump() for item in result.parafia_inna]
                 if result.warianty_nazw:
                     element['warianty_nazw'] = [item.model_dump() for item in result.warianty_nazw]
+                # autor na poziomie hasła głównego
+                if result.autor and value_test(result.autor): entry_data['autor'] = result.autor
             except Exception as e:
                 print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
 
@@ -133,7 +136,7 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
     # ścieżka do zapisu wyników
     output_path = output_dir / f'output_part_{worker_id}.json'
 
-    # oosbny klient da każdego wątku
+    # osobny klient da każdego wątku
     client = OpenAI()
 
     processed_results = []
@@ -141,7 +144,7 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
         processed_entry = process_entry(entry, client)
         processed_results.append(processed_entry)
 
-        # Zapis wyników wątku do osobnego pliku
+        # zapis wyników wątku do osobnego pliku (to nie jest optymalne, ale zajmuje mało czasu)
         with open(output_path, 'w', encoding='utf-8') as f_out:
             json.dump(processed_results, f_out, indent=4, ensure_ascii=False)
 
@@ -157,7 +160,7 @@ if __name__ == "__main__":
     data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
     output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
-    # Utwórz katalog na pliki częściowe, jeśli nie istnieje
+    # katalog na pliki częściowe, jeśli nie istnieje
     output_dir.mkdir(exist_ok=True)
 
     print(f"Ładowanie danych z: {data_path}")
@@ -169,7 +172,7 @@ if __name__ == "__main__":
         print("Brak danych do przetworzenia. Zakończono.")
         sys.exit(0)
 
-    # Dzielenie danych na równe części dla każdego wątku
+    # dzielenie danych na równe części dla każdego wątku
     total_entries = len(data_to_process)
     chunk_size = math.ceil(total_entries / NUM_THREADS)
     chunks = [data_to_process[i:i + chunk_size] for i in range(0, total_entries, chunk_size)]
@@ -180,7 +183,7 @@ if __name__ == "__main__":
         # poszczególne partie danych przekazywane do puli wątków
         futures = [executor.submit(process_chunk, chunk, i, output_dir) for i, chunk in enumerate(chunks)]
 
-        # Oczekiwanie na zakończenie wszystkich zadań
+        # oczekiwanie na zakończenie wszystkich zadań
         for future in concurrent.futures.as_completed(futures):
             try:
                 num_processed = future.result()
