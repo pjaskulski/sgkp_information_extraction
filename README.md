@@ -1,4 +1,42 @@
 # sgkp_information_extraction
+
+Scripts and materials related to the processing of the Geographical Dictionary of the Kingdom of Poland
+
+The texts of individual volumes of the SGKP were divided into entries and sub-entries, then saved in JSON files.
+
+JSON files are processed by scripts (Python) using the LLM model (gpt-4.1-mini) via the OpenAI API. The scripts search for the expected information and return it in the form of structures that supplement the source JSON file.
+
+There are two types of scripts in the **SRC** folder, depending on the processing method:
+
+1. The ‘concurrent*.py’ scripts run immediately, with the JSON files for each volume divided into several to several dozen parts and processed in parallel. The processing time for one volume is approximately 40-50 minutes.
+
+2. 'batch*.py' scripts use the Batch API, i.e., processing tasks are prepared and uploaded to OpenAI servers and processed in a 24-hour cycle (often earlier), after which the results can be downloaded. The advantage of processing in this mode is a 50% lower cost.
+
+3. The auxiliary ‘prompt*.py’ files contain the definition of dynamically created prompts for individual queries/modules.
+
+4. The auxiliary ‘model*.py’ files contain definitions of pydantic classes.
+
+Due to the large amount of different types of data that need to be searched for in the SGKP entries, the extraction procedure has been divided into 6 separate modules (implemented by separate scripts) so that the excess of expected data does not impair the performance of the language model. Particularly difficult data requiring more analysis, such as population, religious structure, or land ownership structure, are processed separately:
+
+  - basic data: type, county, municipality, province, Catholic parish, other parish, entry author, name variants
+  - industry monuments: property owner, industrial facilities, mills, archaeological finds, monuments, landscape architecture, collecting, museology,   necropolises, crafts, forest lodges, palace construction, warehouses, military
+  - institutions, offices: schools, offices, customs facilities, libraries, catering, healthcare, trade, charity, courts, breeding, bookstores, shipping, dormitories, urban infrastructure, post office, local government, police, financial institutions, health resorts
+  - statistics: number of inhabitants, number of houses
+  - religious structure: number of inhabitants by religion
+  - land ownership: land ownership structure (types and area of land)
+
+In the **TEST** folder - test results for various models on a test series (basic data extraction)
+
+In the **EXAMPLES** folder - examples of results for various categories of information (for the test series)
+
+In the **DICTIONARY** folder - additional dictionaries (standardized counties, types of settlement points)
+
+In the **OCR** folder - auxiliary scripts for OCR
+
+In the **PROMPT** folder - an example of SGKP content processing directly in aistudio using Gemini Pro: prompt, data file (content of entries) to be attached, example of the result in JSON format, and in the file ‘przygotowywanie_promptow_wskazowki.docx’ - a guide with tips on how to prepare prompts for data extraction.
+
+---
+
 Skrypty i materiały związane z przetwarzaniem Słownika Geograficznego Królestwa Polskiego
 
 Teksty poszczególnych tomów SGKP zostały podzielone na hasła i pod-hasła, następnie zapisane w plikach JSON.

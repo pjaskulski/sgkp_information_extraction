@@ -46,15 +46,12 @@ def prepare_prompt(model=None) -> str:
 
     **4. Parafie (`parafia_katolicka`, `parafia_inna`):**
     *   Postępuj według następującej logiki:
-        *   **Krok 1:** Szukaj skrótu `par.` (parafia).
+        *   **Krok 1:** Szukaj skrótu `par.` (parafia), uwaga mogą zdarzać się literówki np. `par,`
         *   **Krok 2:** Jeśli znajdziesz `par.` z określeniem wyznania: kat., katol., rz.-kat. lub bez określenia wyznania, przyjmij, że to `parafia_katolicka`.
         *   **Krok 3:** Jeśli znajdziesz `par.` z wyznaniem (np. `par. gr.-kat.`, `par. ewang.`), zapisz nazwę i wyznanie w polu `parafia_inna`.
-        *   **Krok 4:** **JEŚLI NIE ZNAJDZIESZ SKRÓTU `par.`**, sprawdź, czy w tekście jest mowa o "kościele parafialnym" (kościół par.) lub "cerkwi parafialnej" (cerkiew par.).
-                        Jeśli tak, oznacza to, że parafia (odpowiednio katolicka lub inna) znajduje się w opisywanej miejscowości. Zapisz wówczas jako parafię nazwę miejscowości.
-                        Uwaga: Zwykła wzmianka o kościele lub cerkwi (bez słowa "parafialny", "par.") NIE JEST wystarczająca do ustalenia siedziby parafii.
+        *   **Krok 4:** **JEŚLI NIE ZNAJDZIESZ SKRÓTU `par.`**, sprawdź, czy w tekście jest mowa o "kościele parafialnym" (kościół par.) lub "cerkwi parafialnej" (cerkiew par.). Jeśli tak, oznacza to, że parafia (odpowiednio katolicka lub inna) znajduje się w opisywanej miejscowości. Zapisz wówczas jako parafię nazwę miejscowości. Uwaga: Zwykła wzmianka o kościele lub cerkwi (bez słowa "parafialny", "par.") NIE JEST wystarczająca do ustalenia siedziby parafii.
         * Nazwę parafii katolickiej zapisz w polu 'parafia_katolicka', jeżeli w tekście znajdzie się parafia dla
-        innego wyzania zapisz ją w polu 'parafia_inna' jako element listy w formie struktury np. [{{ "wyznanie": "nazwa wyznania", "nazwa_parafii": "nazwa miejscowości" }}] - zob.
-        też przykłady niżej.
+        innego wyzania zapisz ją w polu 'parafia_inna' jako element listy w formie struktury np. [{{ "wyznanie": "nazwa wyznania", "nazwa_parafii": "nazwa miejscowości" }}] - zob. też przykłady niżej.
 
     **5. Autor (`autor`):**
     *   **Kluczowa reguła:** Autor to **TYLKO I WYŁĄCZNIE** inicjały lub nazwisko znajdujące się na **samym końcu** tekstu hasła (np. `Br. Ch.`, `F. S.`, `Sulimierski`).
@@ -73,7 +70,7 @@ def prepare_prompt(model=None) -> str:
     **PRZYKŁAD:**
 
     **Hasło:** Bolkowce
-    **Tekst hasła:** Bolkowce, niem. Bolkowitz, ros. Bolkovicje, mczko, pow. woliński, par. Więcko, par. gr.-kat. w miejscu, gm. Pastwiska w gub. lidzkiej. W 1800 r. był własnością Adama Lankckowskiego sędziego ziemskiego, ma 25 dm., 98 mk. Grunty orne, liczne sady, budynków z drewna 23, bud. mur. 2, na południu wsi staw rybny. Zabytkowy kościół z XVI w. św. Piotra i Pawła w centrum wsi. L. Doz.
+    **Tekst hasła:** Bolkowce, niem. Bolkowitz, ros. Bolkovicje, mczko, pow. woliński, par. i poczta Więcko, par. gr.-kat. w miejscu, gm. Pastwiska w gub. lidzkiej. W 1800 r. był własnością Adama Lankckowskiego sędziego ziemskiego, ma 25 dm., 98 mk. Grunty orne, liczne sady, budynków z drewna 23, bud. mur. 2, na południu wsi staw rybny. Zabytkowy kościół z XVI w. św. Piotra i Pawła w centrum wsi. L. Doz.
 
     **Wynik w formie struktury JSON:**
     ```json
