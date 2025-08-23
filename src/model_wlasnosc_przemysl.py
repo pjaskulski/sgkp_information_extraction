@@ -20,3 +20,4 @@ class EntryModel(BaseModel):
     magazyny: List[str] | None = Field(None, description="magazyny, spichlerze")
     wojsko: List[str] | None = Field(None, description="lista obiektów wojskowych np. koszary, fort, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica")
     obiekty_sakralne: List[str] | None = Field(None, description="np. kościół, meczet, kaplica, synagoga, cerkiew, klasztor, dom modlitwy, sobór, katedra, jeżeli podano to z wezwaniem")
+    zgromadzenia_religijne: List[str] | None = Field(None, description="np. zakon, monaster, klasztor, zgromadzenie, opactwo, zbór innowierców ")

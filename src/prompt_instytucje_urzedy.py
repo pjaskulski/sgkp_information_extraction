@@ -105,13 +105,13 @@ def prepare_prompt(model=None) -> str:
     *   zarządy gmin/powiatów
 
     **17. Policja ('policja')**
-    *   posterunki, zarządy policyjne, biuro policmajstra
+    *   posterunki policji, zarządy policyjne, biuro policmajstra, naczelnik policji, cyrkuł
 
     **18. Instytucje finansowe ('instytucje_finansowe')**
     *   banki, kasy pożyczkowe, kasy zapomogowe itp.
 
     **19. Uzdrowiska ('uzdrowiska')**
-    * obiekty typu: uzdrowisko, zakład kąpielowy, zakład przyrodoleczniczy, kurort, zdrój, dom zdrojowy, zakład wodoleczniczy, pijalnia wód, inhalatorium, zakład borowinowy, kurhaus.
+    * obiekty typu: uzdrowisko, zakład kąpielowy, zakład przyrodoleczniczy, kurort, zdrój, dom zdrojowy, zakład wodoleczniczy, pijalnia wód, inhalatorium, zakład borowinowy, kurhaus, kąpielisko, stacja klimatyczna, źródło wody siarczanej, zakład kąpielowy, zakład kuracyjny, zakład hydropatyczny, kuracja żętycowa, kurhauz
 
 
     **INFORMACJE POMOCNICZE:**

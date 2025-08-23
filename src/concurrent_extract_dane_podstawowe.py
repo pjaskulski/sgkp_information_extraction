@@ -17,10 +17,10 @@ from model_dane_podstawowe import EntryModel
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 100 # (dla testowych danych 5, dla większych danych - 50 lub więcej)
+NUM_THREADS = 150 # (dla testowych danych 5, dla większych danych - 50 lub więcej)
 
 # numer tomu lub 'test'
-VOLUME = '09'
+VOLUME = '16'
 DANE = 'dane_podstawowe'
 
 # API-KEY

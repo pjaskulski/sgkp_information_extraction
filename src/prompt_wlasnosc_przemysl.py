@@ -89,13 +89,16 @@ def prepare_prompt(model=None) -> str:
     *   obiekty pałacowe, dwory.
 
     **13. Magazynowanie ('magazyny')**
-    *   poszukiwane obiekty: magazyn, spichlerz, skład, świren, elewator
+    *   poszukiwane obiekty: magazyn, spichlerz, skład zboża, świren, elewator, spichrz, stodoła, gumno
 
     **14. Wojsko ('wojsko')**
-    *   poszukiwane obiekty: koszary, fort, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica.
+    *   poszukiwane obiekty: koszary, fort, forteca, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica, reduta, arsenał, garnizon
 
     **15. Obiekty sakralne ('obiekty_sakralne')**
     *   obiekty sakralne (budowle): kościół, meczet, kaplica, synagoga, cerkiew, klasztor, dom modlitwy, sobór, katedra (jeżeli podano to cała nazwa, wezwanie itp.).
+
+    **16. Zgromadzenia religijne ('zgromadzenia_religijne')**
+    *    Np. zakon, monaster, klasztor, zgromadzenie, opactwo, zbór innowierców, chodzi o działające zgromadzenia, informacje historyczne, informacje o ruinach klasztorów pomiń.
 
 
     **INFORMACJE POMOCNICZE:**
@@ -130,7 +133,8 @@ def prepare_prompt(model=None) -> str:
         "12. Szukam budynków pałacowych, dworów, znajduję wzmiankę 'wybudował na skraju wsi drewniany dwór', informacja dotyczy XIX wieku (1820), zapisuję w polu wartość 'drewniany dwór'",
         "13. Szukam informacji o magazynowanach i spichlerzach, brak takich danych, pomijam pole w strukturze json",
         "14. Przeszukanie tekstu w zakresie obiektów związanych z wojskowością nie dało żadnych rezultatów, pomijam więc pole w strukturze json",
-        "15. Szukam obiektów sakralnych w tekście, lecz nie dało to żadnych rezultatów, pomijam więc pole w strukturze json"
+        "15. Szukam obiektów sakralnych w tekście, lecz nie dało to żadnych rezultatów, pomijam więc pole w strukturze json",
+        "16. Analizuję tekst w poszukiwaniu informacji o zgromadzeniach religijnych, brak wzmianek o klasztorach czy zakonach w tekście, pomijam ole w strukturze json"
     ],
     "właściciel": "Adam Lankckowski",
     "przemysłowe": ["huta szkła"],
@@ -143,9 +147,7 @@ def prepare_prompt(model=None) -> str:
     **PRZYKŁAD:**
 
     **Hasło:** Wielkowice
-    **Tekst hasła:** Wielkowice albo Wielkowiec, wś i folw., pow. pruski, gm. Hotków. Cerkiew par. i szkoła religijna,
-    parafia kat. w Hotkowie, na skraju wsi kaplica pod wezw. św. Michała. W 1879 r. 115 dm., 456 mk. W 1560 roku król Zygmunt August nadał wieś Janowi Potockiemu za zasługi.
-    We wsi 2 młyny i wiatrak, obszerny drewniany spichlerz. Na płn od wsi znaleziono urny i starożytne siekierki z brązu. Obecnie własność skarbowa. K. Prz.
+    **Tekst hasła:** Wielkowice albo Wielkowiec, wś i folw., pow. pruski, gm. Hotków. Cerkiew par. i szkoła religijna, parafia kat. w Hotkowie, na skraju wsi kaplica pod wezw. św. Michała. W 1879 r. 115 dm., 456 mk. W 1560 roku król Zygmunt August nadał wieś Janowi Potockiemu za zasługi. We wsi 2 młyny i wiatrak, obszerny drewniany spichlerz. Na płn od wsi znaleziono urny i starożytne siekierki z brązu. Obecnie własność skarbowa. K. Prz.
 
     **Wynik w formie struktury JSON:**
     ```json
@@ -166,7 +168,8 @@ def prepare_prompt(model=None) -> str:
         "12. Szukam budynków pałacowych, dworów, zbrak takich danych, pomijam pole w strukturze json",
         "13. Szukam informacji o magazynowanach i spichlerzach, tekst wspomina 'obszerny drewniany spichlerz', zapisuję 'spichlerz'",
         "14. Przeszukanie tekstu w zakresie obiektów związanych z wojskowością nie dało żadnych rezultatów, pomijam więc pole w strukturze json",
-        "15. Szukam obiektów sakralnych, znajduję wzmiankę 'Cerkiew par.' oraz 'kaplica pod wezw. św. Michała', więc zapisuję w polu 'cerkiew parafialna' i 'kaplica św. Michała'"
+        "15. Szukam obiektów sakralnych, znajduję wzmiankę 'Cerkiew par.' oraz 'kaplica pod wezw. św. Michała', więc zapisuję w polu 'cerkiew parafialna' i 'kaplica św. Michała'",
+        "16. Analizuję tekst w poszukiwaniu informacji o zgromadzeniach religijnych, brak wzmianek o klasztorach czy zakonach w tekście, pomijam ole w strukturze json"
     ],
     "właściciel": "własność skarbowa",
     "przemysłowe": null,
