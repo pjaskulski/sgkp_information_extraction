@@ -19,7 +19,7 @@ There are two types of scripts in the **SRC** folder, depending on the processin
 Due to the large amount of different types of data that need to be searched for in the SGKP entries, the extraction procedure has been divided into 6 separate modules (implemented by separate scripts) so that the excess of expected data does not impair the performance of the language model. Particularly difficult data requiring more analysis, such as population, religious structure, or land ownership structure, are processed separately:
 
   - **basic data**: type, county, municipality, province, Catholic parish, other parish, entry author, name variants
-  - **industry monuments**: property owner, industrial facilities, mills, archaeological finds, monuments, landscape architecture, collecting, museology,   necropolises, crafts, forest lodges, palace construction, warehouses, military
+  - **industry monuments**: property owner, industrial facilities, mills, archaeological finds, monuments, landscape architecture, collecting, museology,   necropolises, crafts, forest lodges, palace construction, warehouses, military, sacred buildings, religious congregations
   - **institutions, offices**: schools, offices, customs facilities, libraries, catering, healthcare, trade, charity, courts, breeding, bookstores, shipping, dormitories, urban infrastructure, post office, local government, police, financial institutions, health resorts
   - **statistics**: number of inhabitants, number of houses
   - **religious structure**: number of inhabitants by religion
@@ -57,7 +57,7 @@ W folderze **SRC** znajdują się dwa rodzaje skryptów, zależnie od sposobu pr
 Ze względu na dużą liczbę różnego rodzaju danych, które należy wyszukać w tekstach haseł SGKP, procedurę ekstrakcji podzielono na 6 osobnych modułów (realizowanych przez osobne skrypty), tak by nadmiarem oczekiwanych danych nie pogorszyć wyniku pracy modelu językowego, szczególnie trudniejsze, wymagające większej analizy dane dotyczące liczby ludności, struktury wyznaniowej czy stryktury własności ziemskiej są przetwarzane osobno.:
 
    - **dane podstawowe**: typ, powiat, gmina, gubernia, parafia katolicka, parafia inna, autor hasła, warianty nazw
-   - **przemysł zabytki**: właściciel majątku, obiekty przemysłowe, młyny, znaleziska archeologiczne, zabytki, architektura krajobrazu, kolekcjonerstwo, muzealnictwo, nekropolie, rzemiosło, leśniczowki, budownictwo pałacowe, magazyny, wojsko
+   - **przemysł zabytki**: właściciel majątku, obiekty przemysłowe, młyny, znaleziska archeologiczne, zabytki, architektura krajobrazu, kolekcjonerstwo, muzealnictwo, nekropolie, rzemiosło, leśniczowki, budownictwo pałacowe, magazyny, wojsko, obiekty sakralne, zgromadzenia religijne
    - **instytycje, urzędy**: szkoły, urzędy, obiekty celne, biblioteki, gastronomia, opieka_zdrowotna, handel, dobroczynność, sądy, hodowla, księgarnie, żegluga, bursy, infrastruktura miejska, poczta, samorząd, policja, instytucje finansowe, uzdrowiska 
    - **statystyka**: liczba mieszkańców, liczba domów
    - **struktura wyznaniowa**: liczba mieszkańców według wyznania
