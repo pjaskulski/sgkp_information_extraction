@@ -1,6 +1,6 @@
 # sgkp_information_extraction
 
-Scripts and materials related to the processing of the Geographical Dictionary of the Kingdom of Poland
+## Scripts and materials related to the processing of the Geographical Dictionary of the Kingdom of Poland
 
 The texts of individual volumes of the SGKP were divided into entries and sub-entries, then saved in JSON files.
 
@@ -35,9 +35,22 @@ In the **OCR** folder - auxiliary scripts for OCR
 
 In the **PROMPT** folder - an example of SGKP content processing directly in aistudio using Gemini Pro: prompt, data file (content of entries) to be attached, example of the result in JSON format, and in the file ‘przygotowywanie_promptow_wskazowki.docx’ - a guide with tips on how to prepare prompts for data extraction.
 
+## Data processing sequence:
+
+1. Basic data: names, administrative units, parishes (concurrent_extract_dane_podstawowe.py)
+2. Data completion:
+  - counties (uniform names, data_completion_powiaty_ujednolicone.py)
+  - settlement point types (data_completion_typy_punktow_osadniczych.py)
+  - superior localities for parts of localities (concurrent_extract_miejscowosci_nadrzedne.py)
+3. Categories: ownership, industry, historical monuments (concurrent_extract_wlasnosc_przemysl.py)
+4. Categories: institutions, offices (concurrent_extract_instytucje_urzedy.py)
+5. Statistical data: number of inhabitants, number of houses (concurrent_extract_statystyka.py)
+6. Religious structure (concurrent_extract_struktura.py)
+7. Land ownership: land type structure (concurrent_extract_landownership.py)
+
 ---
 
-Skrypty i materiały związane z przetwarzaniem Słownika Geograficznego Królestwa Polskiego
+## Skrypty i materiały związane z przetwarzaniem Słownika Geograficznego Królestwa Polskiego
 
 Teksty poszczególnych tomów SGKP zostały podzielone na hasła i pod-hasła, następnie zapisane w plikach JSON.
 
@@ -73,3 +86,16 @@ W folderze **DICTIONARY** - dodatkowe słowniki (powiaty ujednolicone, typy punk
 W folderze **OCR** - pomocnicze skrypty do OCR
 
 W folderze **PROMPT** - przykład przetwarzania treści SGKP bezpośrednio w aistudio z użyciem Gemini Pro: prompt, plik z danymi (treścią haseł) do załączenia, przykład wyniku w formacie JSON oraz w pliku 'przygotowywanie_promptow_wskazowki.docx' - **poradnik** ze wskazówkami jak przygotowywać prompty do ekstrakcji danych.
+
+## Kolejność przetwarzania
+
+1. Dane podstawowe: nazwy, jednostki administracyjne, parafie (concurrent_extract_dane_podstawowe.py)
+2. Uzupełnianie danych:
+  - powiaty (nazwy ujendolicone, data_completion_powiaty_ujednolicone.py)
+  - typy punktów osadniczych (data_completion_typy_punktow_osadniczych.py)
+  - miejscowości nadrzędne dla części miejscowości (concurrent_extract_miejscowosci_nadrzedne.py)
+3. Kategorie: własność, przemysł, zabytki (concurrent_extract_wlasnosc_przemysl.py)
+4. Kategorie: instytucje, urzędy (concurrent_extract_instytucje_urzedy.py)
+5. Dane statystyczne: liczba mieszkańców, liczba domów (concurrent_extract_statystyka.py)
+6. Struktura wyznaniowa (concurrent_extract_struktura.py)
+7. Własność ziemska: struktura rodzajów gruntów (concurrent_extract_wlasnosc_ziemska.py) 

@@ -15,14 +15,15 @@ if __name__ == '__main__':
     # pomiar czasu wykonania
     start_time = time.time()
 
-    typy_file = Path('..') / 'dictionary' / 'typy_punktów_osadniczych.csv'
+    typy_file = Path('..') / 'dictionary' / 'typy_punktow_osadniczych_v2.csv'
 
     typy = {}
     with open(typy_file, 'r', encoding='utf-8') as csv_file:
         csv_reader = csv.DictReader(csv_file, delimiter=",", quotechar='"')
         for row in csv_reader:
-            rodzaj = row["rodzaj"].strip()
-            typ = row["typ"].strip()
+            # "typ_model","typ_punktu_osadniczego"
+            rodzaj = row["typ_model"].strip()
+            typ = row["typ_punktu_osadniczego"].strip()
             typy[rodzaj] = typ
 
     typ_nieznany = []
