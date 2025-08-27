@@ -36,7 +36,7 @@ from prompt_wlasnosc_przemysl import prepare_prompt
 NUM_THREADS = 100 # (dla testowych danych 5, dla większych danych - 50 lub więcej)
 
 # numer tomu lub 'test'
-VOLUME = '02'
+VOLUME = '04'
 DANE = 'wlasnosc_przemysl'
 
 # API-KEY
@@ -122,9 +122,10 @@ def update_record(entry: dict, result: EntryModel, thread:int):
         entry['obiekty_sakralne'] = result.obiekty_sakralne
 
     # log
-    if result.chain_of_thought:
-       with open(f'wlasnosc_przemysl_{VOLUME}_{thread}.log', 'a', encoding='utf-8') as f_log:
-           f_log.write(result.chain_of_thought)
+    # if result.chain_of_thought:
+    #     with open(f'../log/wlasnosc_przemysl_{VOLUME}_{thread}.log', 'a', encoding='utf-8') as f_log:
+    #         for chain in result.chain_of_thought:
+    #             f_log.write(chain + '\n')
 
 
 def process_entry(entry_data: dict, client: OpenAI, info:str) -> dict:
@@ -138,26 +139,31 @@ def process_entry(entry_data: dict, client: OpenAI, info:str) -> dict:
             name = element.get("nazwa", "")
             text = element.get("text", "")
             element_id = element.get("ID", "")
-            print(f"  -> [{info}] Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
+            typ_punktu_osadniczego = element.get("typ_punktu_osadniczego", None)
 
-            try:
-                result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
-                update_record(entry=element, result=result, thread= threading.get_ident())
+            if typ_punktu_osadniczego:
+                print(f"  -> [{info}] Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
 
-            except Exception as e:
-                print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
+                try:
+                    result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
+                    update_record(entry=element, result=result, thread= threading.get_ident())
+
+                except Exception as e:
+                    print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
 
     else: # Hasło pojedyncze
         name = entry_data.get("nazwa", "")
         text = entry_data.get("text", "")
-        print(f"-> [{info}] Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
+        typ_punktu_osadniczego = entry_data.get("typ_punktu_osadniczego", None)
+        if typ_punktu_osadniczego:
+            print(f"-> [{info}] Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
 
-        try:
-            result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
-            update_record(entry=entry_data, result=result, thread= threading.get_ident())
+            try:
+                result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
+                update_record(entry=entry_data, result=result, thread= threading.get_ident())
 
-        except Exception as e:
-            print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
+            except Exception as e:
+                print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
 
     return entry_data
 

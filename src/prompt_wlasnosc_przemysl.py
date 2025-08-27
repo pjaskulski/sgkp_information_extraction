@@ -83,7 +83,7 @@ def prepare_prompt(model=None) -> str:
     *    wyszukaj informacje na temat rzemieśników lub zakładów rzemieślniczych funkcjonujących na obszarze opisywanej miejscowości (np. krawiec, kaletnik, stolarz itp.), pomiń obiekty o charaktrze zakładów przemysłowych, fabryk. Uwzględnij tylko informacje współczesne dla autorów Słownika (XIX wiek), informacje historyczne, dotyczące np. XVI wieku - pomiń.
 
     **11. Leśniczówki ('leśniczówki')**
-    *   obiekty typu: leśniczówka, nadleśnictwo, gajówka, försterei, strażnica leśna, jegierówka
+    *   obiekty typu: leśniczówka, nadleśnictwo, gajówka, försterei, strażnica leśna, jegierówka (pomiń nazwy miejscowości zawieraące słowo Leśny, Leśniczówka - to tylko nazwy)
 
     **12. Budownictwo pałacowe, dworskie ('budownictwo_pałacowe')**
     *   obiekty pałacowe, dwory.

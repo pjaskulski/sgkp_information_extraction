@@ -1,4 +1,3 @@
-# sgkp_information_extraction
 
 ## Scripts and materials related to the processing of the Geographical Dictionary of the Kingdom of Poland
 

@@ -172,3 +172,5 @@ cython_debug/
 .pypirc
 # pliki z danymi
 /SGKP
+# logi
+/log

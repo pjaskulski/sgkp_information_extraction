@@ -57,7 +57,7 @@ def prepare_prompt(model=None) -> str:
     Uwzględniaj **TYLKO** obiekty funkcjonujące w czasie powstawania SGKP - w XIX wieku, starsze informacje historyczne - pomiń.
 
     **1. Szkoły (pole `szkoły`):**
-    *   Wyszukaj szkoły i uczelnie w opisywanej miejscowości: szkoła elementarna, 1-oddziałowa, szkoła niezorganizowana, gimnazjum, liceum, uniwersytet, szkoła religijna, szkoła etat. 1-kl., szkoła początkowa, szkoła ludowa itp.).
+    *   Wyszukaj szkoły i uczelnie w opisywanej miejscowości: szkoła elementarna, 1-oddziałowa, etatowa, jednokl., szkoła niezorganizowana, gimnazjum, liceum, uniwersytet, szkoła religijna, szkoła etat. 1-kl., szkoła początkowa, szkoła ludowa itp.).
 
     **2. Urzędy ('urzędy')**
     *   wyszukaj obiekty typu: urząd gminny, urząd miejski, urząd ziemski, landratura, urząd powiatowy, urząd poborowy, urząd katastrowy, rada miejska, rada powiatowa, rząd gubernialny, landrat. Informacje o zarządzie gminnym lub powiatowym pomiń, to inna kategoria informacji (samorząd).
