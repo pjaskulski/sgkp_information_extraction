@@ -18,6 +18,7 @@
 - policja (posterunki, zarządy policyjne, biuro policmajstra)
 - instytucje finansowe
 - uzdrowiska
+- stacje drogi żelaznej
 """
 import json
 from pathlib import Path
@@ -113,6 +114,9 @@ def prepare_prompt(model=None) -> str:
     **19. Uzdrowiska ('uzdrowiska')**
     * obiekty typu: uzdrowisko, zakład kąpielowy, zakład przyrodoleczniczy, kurort, zdrój, dom zdrojowy, zakład wodoleczniczy, pijalnia wód, inhalatorium, zakład borowinowy, kurhaus, kąpielisko, stacja klimatyczna, źródło wody siarczanej, zakład kąpielowy, zakład kuracyjny, zakład hydropatyczny, kuracja żętycowa, kurhauz
 
+    **20. Stacje drogi żelaznej ('stacje_drogi_zelaznej')**
+    * stacje drogi żelaznej położone w miejscowości, lub w pobliżu opisywanej miejscowości (wówczas z nazwą), informacje te często apisane są skrótowo np. st. dr. żel., uwzględnij także przystanki drogi żelaznej, dworce kolejowe, przystanki kolejowe itp.
+
 
     **INFORMACJE POMOCNICZE:**
     *   W tekście mogą występować skróty. Oto lista najczęstszych: {lista_skrotow}.
@@ -127,7 +131,7 @@ def prepare_prompt(model=None) -> str:
     **PRZYKŁAD:**
 
     **Hasło:** Bolkowce
-    **Tekst hasła:** Bolkowce, niem. Bolkowitz, ros. Bolkovicje, mczko, pow. woliński, par. Więcko, par. gr.-kat. w miejscu, gm. Pastwiska w gub. lidzkiej, szkoła w Pustkowiu. W 1800 r. było własnością Adama Lankckowskiego sędziego ziemskiego, ma 25 dm., 98 mk. Grunty orne, liczne sady, budynków z drewna 23, bud. mur. 2, na południu wsi staw rybny oraz wiatrak i karczma. W pobliskiej dolinie mała huta szkła. Zabytkowy kościół z XVI w. św. Piotra i Pawła w centrum wsi. W 1860 r. Lanckowscy założyli tu mały przytułek dla włościan. L. Doz.
+    **Tekst hasła:** Bolkowce, niem. Bolkowitz, ros. Bolkovicje, mczko, pow. woliński, par. Więcko, par. gr.-kat. w miejscu, gm. Pastwiska w gub. lidzkiej, szkoła w Pustkowiu, st. drog. żel. w Kolince (2 w). W 1800 r. było własnością Adama Lankckowskiego sędziego ziemskiego, ma 25 dm., 98 mk. Grunty orne, liczne sady, budynków z drewna 23, bud. mur. 2, na południu wsi staw rybny oraz wiatrak i karczma. W pobliskiej dolinie mała huta szkła. Zabytkowy kościół z XVI w. św. Piotra i Pawła w centrum wsi. W 1860 r. Lanckowscy założyli tu mały przytułek dla włościan. L. Doz.
 
     **Wynik w formie struktury JSON:**
     ```json
@@ -136,6 +140,7 @@ def prepare_prompt(model=None) -> str:
         "Rozpoczynam analizę hasła 'Bolkowce'. Przeczytam tekst zdanie po zdaniu, identyfikując słowa kluczowe pasujące do zdefiniowanych kategorii w modelu Pydantic.",
         "Pierwsze zdanie zawiera informacje o lokalizacji i przynależności administracyjnej: 'mczko, pow. woliński, par. Więcko, par. gr.-kat. w miejscu, gm. Pastwiska w gub. lidzkiej'. Analizuję pod kątem pól 'urzedy' i 'samorzad'. Tekst wskazuje przynależność do gminy Pastwiska, ale nie mówi o istnieniu urzędu gminy na miejscu w Bolkowcach. Dlatego te pola pomijam.",
         "Następnie znajduję frazę: 'szkoła w Pustkowiu'. Słowo kluczowe 'szkoła' pasuje do pola 'szkoly'. Odnotowuję, że szkoła nie znajduje się bezpośrednio w Bolkowcach, ale w pobliskim Pustkowiu. Mimo, że jest to informacja o infrastrukturze edukacyjnej dla mieszkańców, to zgodnie z instrukcją pomijam ją, gdyż uwzględniane mają być tylko i wyłącznie obiekty na terenie opisywanej miejscowości.",
+        "Następna informacja: 'st. drog. żel. w Kolince' oznacza skrótowo zapisaną wiadomość o pobliskiej stacji drogi żelaznej, zgodnie z instrukcją uwzględniam ją w polu 'stacje_drogi_zelaznej'",
         "Kolejne zdania opisują charakter wsi: '25 dm., 98 mk. Grunty orne, liczne sady, budynków z drewna 23, bud. mur. 2'. Nie znajduję tu pasujących słów kluczowych do żadnej z kategorii w modelu.",
         "W opisie pojawia się fraza: 'na południu wsi staw rybny oraz wiatrak i karczma'. Dzielę to na części:",
         " - 'staw rybny': Analizuję, gdzie przypisać ten obiekt. Najbardziej pasującą kategorią jest 'hodowla', ponieważ hodowla ryb jest formą gospodarowania zasobami naturalnymi. Zapisuję 'staw rybny' w polu 'hodowla'.",
@@ -148,7 +153,8 @@ def prepare_prompt(model=None) -> str:
     ],
     "hodowla": ["staw rybny"],
     "gastronomia": ["karczma"],
-    "dobroczynność": ["przytułek dla włościan"]
+    "dobroczynność": ["przytułek dla włościan"],
+    "stacje_drogi_zelaznej": ["stacja drogi żelaznej w Kolince"]
     }}
     ---
     **PRZYKŁAD:**

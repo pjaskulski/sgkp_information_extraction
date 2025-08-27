@@ -24,3 +24,4 @@ class EntryModel(BaseModel):
     policja: List[str] | None = Field(None, description="posterunki, zarządy policyjne, biuro policmajstra")
     instytucje_finansowe: List[str] | None = Field(None, description="banki, kasy pożyczkowe, kasy zapomogowe")
     uzdrowiska: List[str] | None = Field(None, description="uzdrowisko, zakład kąpielowy, zakład przyrodoleczniczy, kurort, zdrój, dom zdrojowy, zakład wodoleczniczy, pijalnia wód, inhalatorium, zakład borowinowy, kurhaus")
+    stacje_drogi_zelaznej: List[str] | None = Field(None, description="stacje drogi żelaznej położone w miejscowości, lub w pobliżu opisywanej miejscowości (wówczas z nazwą), informacje te często apisane są skrótowo np. st. dr. żel., uwzględnij także przystanki drogi żelaznej, dworce kolejowe, przystanki kolejowe")

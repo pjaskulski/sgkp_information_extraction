@@ -37,14 +37,17 @@ from prompt_instytucje_urzedy import prepare_prompt
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 50 # (dla testowych danych 5, dla większych danych - 50)
+NUM_THREADS = 150 # (dla testowych danych 5, dla większych danych - 50 i więcej)
 
 # numer tomu
 VOLUME = '01'
+# etap przetwarzania
+ETAP = '4'
+# kategoria danych
 DANE = 'instytucje_urzedy'
 
 # API-KEY
-env_path = Path(".") / ".env"
+env_path = Path(".") / ".env_ihpan"
 load_dotenv(dotenv_path=env_path)
 OPENAI_ORG_ID = os.environ.get('OPENAI_ORG_ID')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
@@ -129,6 +132,8 @@ def update_record(entry: dict, result: EntryModel):
         entry['instytucje_finansowe'] = result.instytucje_finansowe
     if result.uzdrowiska:
         entry['uzdrowiska'] = result.uzdrowiska
+    if result.stacje_drogi_zelaznej:
+        entry['stacje_drogi_zelaznej'] = result.stacje_drogi_zelaznej
 
 
 def process_entry(entry_data: dict, client: OpenAI) -> dict:
@@ -193,7 +198,7 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
 if __name__ == "__main__":
     start_time = time.time()
 
-    data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
+    data_path = Path('..') / 'SGKP' / 'JSON' / f'dane_etap_{ETAP}' / f'sgkp_{VOLUME}.json'
     output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
     # katalog na pliki częściowe, jeśli nie istnieje

@@ -23,7 +23,7 @@ Due to the large amount of different types of data that need to be searched for 
 
   - **basic data**: type, county, municipality, province, Catholic parish, other parish, entry author, name variants
   - **industry monuments**: property owner, industrial facilities, mills, archaeological finds, monuments, landscape architecture, collecting, museology,   necropolises, crafts, forest lodges, palace construction, warehouses, military, sacred buildings, religious congregations
-  - **institutions, offices**: schools, offices, customs facilities, libraries, catering, healthcare, trade, charity, courts, breeding, bookstores, shipping, dormitories, urban infrastructure, post office, local government, police, financial institutions, health resorts
+  - **institutions, offices**: schools, offices, customs facilities, libraries, catering, healthcare, trade, charity, courts, breeding, bookstores, shipping, dormitories, urban infrastructure, post office, local government, police, financial institutions, health resorts, railway stations
   - **statistics**: number of inhabitants, number of houses
   - **religious structure**: number of inhabitants by religion
   - **land ownership**: land ownership structure (types and area of land)
@@ -150,7 +150,7 @@ Ze względu na dużą liczbę różnego rodzaju danych, które należy wyszukać
 
    - **dane podstawowe**: typ, powiat, gmina, gubernia, parafia katolicka, parafia inna, autor hasła, warianty nazw
    - **przemysł zabytki**: właściciel majątku, obiekty przemysłowe, młyny, znaleziska archeologiczne, zabytki, architektura krajobrazu, kolekcjonerstwo, muzealnictwo, nekropolie, rzemiosło, leśniczowki, budownictwo pałacowe, magazyny, wojsko, obiekty sakralne, zgromadzenia religijne
-   - **instytycje, urzędy**: szkoły, urzędy, obiekty celne, biblioteki, gastronomia, opieka_zdrowotna, handel, dobroczynność, sądy, hodowla, księgarnie, żegluga, bursy, infrastruktura miejska, poczta, samorząd, policja, instytucje finansowe, uzdrowiska 
+   - **instytycje, urzędy**: szkoły, urzędy, obiekty celne, biblioteki, gastronomia, opieka_zdrowotna, handel, dobroczynność, sądy, hodowla, księgarnie, żegluga, bursy, infrastruktura miejska, poczta, samorząd, policja, instytucje finansowe, uzdrowiska, stacje drogi żelaznej (kolejowe) 
    - **statystyka**: liczba mieszkańców, liczba domów
    - **struktura wyznaniowa**: liczba mieszkańców według wyznania
    - **własność ziemska**: struktura własności ziemskiej (rodzaje i powierzchnia gruntów)

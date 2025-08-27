@@ -36,7 +36,8 @@ from prompt_wlasnosc_przemysl import prepare_prompt
 NUM_THREADS = 150 # (dla testowych danych 5, dla większych danych - 50 lub więcej)
 
 # numer tomu lub 'test'
-VOLUME = '06'
+VOLUME = '07'
+ETAP = '3'
 DANE = 'wlasnosc_przemysl'
 
 # API-KEY
@@ -198,7 +199,7 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
 if __name__ == "__main__":
     start_time = time.time()
 
-    data_path = Path('..') / 'SGKP' / 'JSON' / 'dane_etap_3' /f'sgkp_{VOLUME}.json'
+    data_path = Path('..') / 'SGKP' / 'JSON' / f'dane_etap_{ETAP}' /f'sgkp_{VOLUME}.json'
     output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
     # katalog na pliki częściowe, jeśli nie istnieje
