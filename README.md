@@ -118,7 +118,7 @@ Kabarowce (Kabarivci in Russian), a village in Złoczów County, 20 kilometers s
         "manor house"
     ],
         "religious_buildings": [
-            "church"
+            "Orthodox church"
     ]
 }
 ```

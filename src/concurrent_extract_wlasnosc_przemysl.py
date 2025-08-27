@@ -36,7 +36,7 @@ from prompt_wlasnosc_przemysl import prepare_prompt
 NUM_THREADS = 150 # (dla testowych danych 5, dla większych danych - 50 lub więcej)
 
 # numer tomu lub 'test'
-VOLUME = '05'
+VOLUME = '06'
 DANE = 'wlasnosc_przemysl'
 
 # API-KEY
