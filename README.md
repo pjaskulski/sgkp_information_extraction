@@ -1,9 +1,9 @@
 
 ## Scripts and materials related to the processing of the Geographical Dictionary of the Kingdom of Poland
 
-The Geographical Dictionary of the Kingdom of Poland is an encyclopedic publication dating from the second half of the 19th century, describing localities and physiographic features within the territory of the Polish-Lithuanian Commonwealth and selected neighboring lands. The dictionary contains 15 volumes (the last one in two parts) and nearly 15,000 pages. More information: [SGKP](https://pl.wikipedia.org/wiki/S%C5%82ownik_geograficzny_Kr%C3%B3lestwa_Polskiego)
+The Geographical Dictionary of the Kingdom of Poland is an encyclopedic publication dating from the second half of the 19th century, describing localities and physiographic features in the former Polish-Lithuanian Commonwealth and selected neighboring lands. The dictionary contains 15 volumes (the last one in two parts) and nearly 15,000 pages. More information: [SGKP](https://pl.wikipedia.org/wiki/S%C5%82ownik_geograficzny_Kr%C3%B3lestwa_Polskiego)
 
-Work on automatic data extraction from the Dictionary is being carried out as part of the project "Cultural and Intellectual Geography of Former Polish Territories Under Partitions in the Years 1865-1918 - A Digital Vademecum," implemented at the Institute of History of the Polish Academy of Sciences.
+Work on automatic data extraction from the Dictionary is being carried out as part of the project "Cultural and Intellectual Geography of Former Polish Lands Under Partition in the Years 1865-1918 - A Digital Vademecum," conducted at the Institute of History of the Polish Academy of Sciences.
 
 The texts of individual volumes of the SGKP were divided into entries and sub-entries, then saved in JSON files.
 
@@ -127,7 +127,7 @@ Kabarowce (Kabarivci in Russian), a village in Złoczów County, 20 kilometers s
 
 ## Skrypty i materiały związane z przetwarzaniem Słownika Geograficznego Królestwa Polskiego
 
-Słownik geograficzny Królestwa Polskiego jest pochodzącym z 2 połowy XIX wieku wydawnictwem encyklopedycznym opisującym miejscowości i obiekty fizjograficzne z obszaru danej Rzeczyposppolitej Obojga Narodów i wybranych sąsiędnich krain. Słownik ma 15 tomów (ostatni 2 częściowy) i blisko 15 tys stron. Więcej informacji: [SGKP](https://pl.wikipedia.org/wiki/S%C5%82ownik_geograficzny_Kr%C3%B3lestwa_Polskiego) 
+Słownik geograficzny Królestwa Polskiego jest pochodzącym z 2 połowy XIX wieku wydawnictwem encyklopedycznym opisującym miejscowości i obiekty fizjograficzne z obszaru dawnej Rzeczyposppolitej Obojga Narodów i wybranych sąsiędnich krain. Słownik ma 15 tomów (ostatni 2 częściowy) i blisko 15 tys stron. Więcej informacji: [SGKP](https://pl.wikipedia.org/wiki/S%C5%82ownik_geograficzny_Kr%C3%B3lestwa_Polskiego) 
 
 Prace nad automatyczną ekstrakcją danych z treści Słownika odbywają się w ramach projketu "Geografia kulturowo-intelektualna dawnych ziem polskich pod zaborami w latach 1865-1918- cyfrowe vademecum" realizowanego w Instytucie Historii Polskiej Akademii Nauk.
 
