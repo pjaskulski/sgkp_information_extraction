@@ -33,18 +33,21 @@ from prompt_wlasnosc_przemysl import prepare_prompt
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 50 # (dla testowych danych 5, dla większych danych - 50)
+NUM_THREADS = 100 # (dla testowych danych 5, dla większych danych - 50 lub więcej)
 
 # numer tomu lub 'test'
-VOLUME = '01'
+VOLUME = '02'
 DANE = 'wlasnosc_przemysl'
 
 # API-KEY
-env_path = Path(".") / ".env"
+env_path = Path(".") / ".env_ihpan"
 load_dotenv(dotenv_path=env_path)
 OPENAI_ORG_ID = os.environ.get('OPENAI_ORG_ID')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+PROJECT_ID = os.environ.get('PROJECT_ID')
 openai.api_key = OPENAI_API_KEY
+openai.project = PROJECT_ID
+
 
 # Model
 MODEL = "gpt-4.1-mini"
@@ -85,7 +88,7 @@ def value_test(value: str) -> bool:
     return value not in ['', '/', 'null']
 
 
-def update_record(entry: dict, result: EntryModel):
+def update_record(entry: dict, result: EntryModel, thread:int):
     "uaktualnienie przekazanej struktury o nowe dane z odpowiedzi LLM "
     if result.wlasciciel and value_test(result.wlasciciel):
         entry['właściciel'] = result.wlasciciel
@@ -118,8 +121,13 @@ def update_record(entry: dict, result: EntryModel):
     if result.obiekty_sakralne:
         entry['obiekty_sakralne'] = result.obiekty_sakralne
 
+    # log
+    if result.chain_of_thought:
+       with open(f'wlasnosc_przemysl_{VOLUME}_{thread}.log', 'a', encoding='utf-8') as f_log:
+           f_log.write(result.chain_of_thought)
 
-def process_entry(entry_data: dict, client: OpenAI) -> dict:
+
+def process_entry(entry_data: dict, client: OpenAI, info:str) -> dict:
     """Przetwarza pojedyncze hasło lub hasło zbiorcze."""
     entry_id = entry_data.get("ID", "")
     rodzaj = entry_data.get("rodzaj")
@@ -130,11 +138,11 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
             name = element.get("nazwa", "")
             text = element.get("text", "")
             element_id = element.get("ID", "")
-            print(f"  -> Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
+            print(f"  -> [{info}] Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
 
             try:
                 result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
-                update_record(entry=element, result=result)
+                update_record(entry=element, result=result, thread= threading.get_ident())
 
             except Exception as e:
                 print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
@@ -142,11 +150,11 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
     else: # Hasło pojedyncze
         name = entry_data.get("nazwa", "")
         text = entry_data.get("text", "")
-        print(f"-> Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
+        print(f"-> [{info}] Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
 
         try:
             result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
-            update_record(entry=entry_data, result=result)
+            update_record(entry=entry_data, result=result, thread= threading.get_ident())
 
         except Exception as e:
             print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
@@ -164,9 +172,12 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
     # oosbny klient da każdego wątku
     client = OpenAI()
 
+    size_of_chunk = len(chunk)
+    number_of_chunk = 0
     processed_results = []
     for entry in chunk:
-        processed_entry = process_entry(entry, client)
+        number_of_chunk += 1
+        processed_entry = process_entry(entry, client, info=f'{number_of_chunk}/{size_of_chunk}')
         processed_results.append(processed_entry)
 
         # zapis wyników wątku do osobnego pliku (to nie jest optymalne, ale zajmuje mało czasu)
@@ -181,7 +192,7 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
 if __name__ == "__main__":
     start_time = time.time()
 
-    data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
+    data_path = Path('..') / 'SGKP' / 'JSON' / 'dane_etap_3' /f'sgkp_{VOLUME}.json'
     output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
     # katalog na pliki częściowe, jeśli nie istnieje

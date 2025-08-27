@@ -6,23 +6,23 @@ import glob
 
 
 # nr tomu lub 'test'
-VOLUME = '04'
+VOLUME = '02'
 # DANE = 'dane_podstawowe'
-# DANE = 'wlasnosc_przemysl'
+DANE = 'wlasnosc_przemysl'
 # DANE = 'instytucje_urzedy'
 # DANE = 'statystyka'
 # DANE = 'struktura'
 # DANE = 'wlasnosc_ziemska'
-DANE = 'miejscowosci_nadrzedne'
+# DANE = 'miejscowosci_nadrzedne'
 
 # ścieżka do oryginalnego pliku, który był źródłem danych
-ORIGINAL_DATA_PATH = Path('..') / 'SGKP' / 'JSON' / 'merged_dane_podstawowe' / f'sgkp_{VOLUME}_typy_punktow.json'
+ORIGINAL_DATA_PATH = Path('..') / 'SGKP' / 'JSON' / 'dane_etap_3' / f'sgkp_{VOLUME}.json'
 
 # katalog, w którym znajdują się częściowe pliki wynikowe
 PARTS_DIR = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
 
 # nazwa finalnego, połączonego pliku JSON
-FINAL_OUTPUT_PATH = Path('..') / 'SGKP' / 'JSON' / 'merged_dane_podstawowe' / f'sgkp_{VOLUME}_{DANE}_merged.json'
+FINAL_OUTPUT_PATH = Path('..') / 'SGKP' / 'JSON' / 'dane_etap_3' / f'sgkp_{VOLUME}_{DANE}_merged.json'
 
 
 # ================================ MAIN ========================================

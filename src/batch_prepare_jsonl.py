@@ -5,8 +5,8 @@ import json
 import time
 import glob
 from pathlib import Path
-DANE = 'dane_podstawowe'
-#DANE = 'wlasnosc_przemysl'
+#DANE = 'dane_podstawowe'
+DANE = 'wlasnosc_przemysl'
 #DANE = 'instytucje_urzedy'
 #DANE = 'statystyka'
 #DANE = 'struktura'
@@ -36,7 +36,7 @@ else:
 
 
 # --------------------------- STALE i KONFIGURACJA -----------------------------
-VOLUME = '15'
+VOLUME = '01'
 MODEL = "gpt-4.1-mini"
 
 # ------------------------------- PROMPT ---------------------------------------
@@ -53,7 +53,7 @@ if __name__ == '__main__':
      # pomiar czasu wykonania
     start_time = time.time()
 
-    input_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
+    input_path = Path('..') / 'SGKP' / 'JSON' / 'dane_etap_3' / f'sgkp_{VOLUME}.json'
     output_dir = Path('..') / 'SGKP' / 'JSON' / f'batch_{DANE}'
     output_dir.mkdir(exist_ok=True)
 

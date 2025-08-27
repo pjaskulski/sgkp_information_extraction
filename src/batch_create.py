@@ -7,10 +7,10 @@ import openai
 from openai import OpenAI
 
 
-VOLUME = '15'
+VOLUME = '01'
 
-DANE = 'dane_podstawowe'
-#DANE = 'wlasnosc_przemysl'
+#DANE = 'dane_podstawowe'
+DANE = 'wlasnosc_przemysl'
 #DANE = 'instytucje_urzedy'
 #DANE = 'statystyka'
 #DANE = 'struktura'
@@ -19,11 +19,13 @@ ANALIZA = f'TOM_{VOLUME}_{DANE}.files'
 BATCH_FILE = ANALIZA.replace('.files', '.batchs')
 
 # API-KEY
-env_path = Path(".") / ".env"
+env_path = Path(".") / ".env_ihpan"
 load_dotenv(dotenv_path=env_path)
 OPENAI_ORG_ID = os.environ.get('OPENAI_ORG_ID')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+PROJECT_ID = os.environ.get('PROJECT_ID')
 openai.api_key = OPENAI_API_KEY
+openai.project = PROJECT_ID
 
 
 # --------------------------------- MAIN ---------------------------------------

@@ -47,6 +47,7 @@ In the **PROMPT** folder - an example of SGKP content processing directly in ais
 5. Statistical data: number of inhabitants, number of houses (concurrent_extract_statystyka.py)
 6. Religious structure (concurrent_extract_struktura.py)
 7. Land ownership: land type structure (concurrent_extract_landownership.py)
+8. Data verification and corrections
 
 ---
 
@@ -91,11 +92,12 @@ W folderze **PROMPT** - przykład przetwarzania treści SGKP bezpośrednio w ais
 
 1. Dane podstawowe: nazwy, jednostki administracyjne, parafie (concurrent_extract_dane_podstawowe.py)
 2. Uzupełnianie danych:
-  - powiaty (nazwy ujendolicone, data_completion_powiaty_ujednolicone.py)
+  - powiaty (nazwy ujednolicone, data_completion_powiaty_ujednolicone.py)
   - typy punktów osadniczych (data_completion_typy_punktow_osadniczych.py)
   - miejscowości nadrzędne dla części miejscowości (concurrent_extract_miejscowosci_nadrzedne.py)
 3. Kategorie: własność, przemysł, zabytki (concurrent_extract_wlasnosc_przemysl.py)
 4. Kategorie: instytucje, urzędy (concurrent_extract_instytucje_urzedy.py)
 5. Dane statystyczne: liczba mieszkańców, liczba domów (concurrent_extract_statystyka.py)
 6. Struktura wyznaniowa (concurrent_extract_struktura.py)
-7. Własność ziemska: struktura rodzajów gruntów (concurrent_extract_wlasnosc_ziemska.py) 
+7. Własność ziemska: struktura rodzajów gruntów (concurrent_extract_wlasnosc_ziemska.py)
+8. Weryfikacja i poprawki danych 

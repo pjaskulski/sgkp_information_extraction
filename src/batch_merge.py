@@ -7,9 +7,9 @@ import json
 from pathlib import Path
 
 
-VOLUME = "15"
-DANE = "dane_podstawowe"
-# DANE = 'wlasnosc_przemysl'
+VOLUME = "01"
+# DANE = "dane_podstawowe"
+DANE = 'wlasnosc_przemysl'
 # DANE = 'instytucje_urzedy'
 # DANE = 'statystyka'
 # DANE = 'struktura'
@@ -46,10 +46,11 @@ else:
 # -------------------------------- FUNCTIONS -----------------------------------
 def update_record(record: dict, response_content: dict):
     "uaktualnienie przekazanej struktury o nowe dane z odpowiedzi LLM "
-    for key in KEYS_TO_UPDATE:
-        new_value = response_content.get(key)
-        if new_value is not None:
-            record[key] = new_value
+    if isinstance(response_content, dict):
+        for key in KEYS_TO_UPDATE:
+            new_value = response_content.get(key)
+            if new_value is not None:
+                record[key] = new_value
 
 
 # --------------------------------- MAIN ---------------------------------------
@@ -66,9 +67,9 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # ścieżka do aktualnego pliku z wynikami poprzednich analiz
-    input_path = Path("..") / "SGKP" / "JSON" / f"sgkp_{VOLUME}.json"
+    input_path = Path("..") / "SGKP" / "JSON" / 'dane_etap_3' / f"sgkp_{VOLUME}.json"
     # ścieżka do pliku z uzupełnionymy danymi
-    output_path = Path("..") / "SGKP" / "JSON" / f"sgkp_{VOLUME}_{DANE}.json"
+    output_path = Path("..") / "SGKP" / "JSON" / 'dane_etap_3' /f"sgkp_{VOLUME}_{DANE}_batch.json"
 
     resp_data = {}
     for resp_file in response_files:
