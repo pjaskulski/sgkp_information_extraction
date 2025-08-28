@@ -147,26 +147,33 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
             name = element.get("nazwa", "")
             text = element.get("text", "")
             element_id = element.get("ID", "")
-            print(f"  -> Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
+            # przetwarzanie tylko haseł typu miejscowość (czyli posiadających typ punktu osadniczego)
+            typ_punktu_osadniczego = element.get("typ_punktu_osadniczego", None)
 
-            try:
-                result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
-                update_record(entry=element, result=result)
+            if typ_punktu_osadniczego:
+                print(f"  -> Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
 
-            except Exception as e:
-                print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
+                try:
+                    result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
+                    update_record(entry=element, result=result)
+
+                except Exception as e:
+                    print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
 
     else: # Hasło pojedyncze
         name = entry_data.get("nazwa", "")
         text = entry_data.get("text", "")
-        print(f"-> Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
+        # przetwarzanie tylko haseł typu miejscowość (czyli posiadających typ punktu osadniczego)
+        typ_punktu_osadniczego = entry_data.get("typ_punktu_osadniczego", None)
+        if typ_punktu_osadniczego:
+            print(f"-> Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
 
-        try:
-            result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
-            update_record(entry=entry_data, result=result)
+            try:
+                result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
+                update_record(entry=entry_data, result=result)
 
-        except Exception as e:
-            print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
+            except Exception as e:
+                print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
 
     return entry_data
 

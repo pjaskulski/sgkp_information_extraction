@@ -7,7 +7,11 @@ from pathlib import Path
 
 
 VOLUMES = ['01', '02', '03', '04', '05', '06', '07', '08',
-           '09', '10', '11', '12', '13', '14', '15', '16']
+           '09', '10', '11', '12', '13', '14',
+           '15', '16'
+           ]
+
+ETAP = '3'
 
 # -------------------------------- MAIN ----------------------------------------
 if __name__ == '__main__':
@@ -30,8 +34,10 @@ if __name__ == '__main__':
 
     # przetwarzanie całej kolekcji tomów
     for VOLUME in VOLUMES:
-        input_path = Path('..') / 'SGKP' / 'JSON' / 'merged_dane_podstawowe' / f'sgkp_{VOLUME}_powiaty.json'
-        output_path = Path('..') / 'SGKP' / 'JSON' / 'merged_dane_podstawowe' / f'sgkp_{VOLUME}_typy_punktow.json'
+        # input_path = Path('..') / 'SGKP' / 'JSON' / f'dane_etap_{ETAP}' / f'sgkp_{VOLUME}_wlasnosc_przemysl_merged_poprawione.json'
+        # output_path = Path('..') / 'SGKP' / 'JSON' / f'dane_etap_{ETAP}' / f'sgkp_{VOLUME}_wlasnosc_przemysl_merged_poprawione_new.json'
+        input_path = Path('..') / 'SGKP' / 'JSON' / f'dane_etap_{ETAP}' / f'sgkp_{VOLUME}_typy_poprawione.json'
+        output_path = Path('..') / 'SGKP' / 'JSON' / f'dane_etap_{ETAP}' / f'sgkp_{VOLUME}_new.json'
 
         if os.path.exists(output_path):
             os.remove(output_path)
@@ -49,9 +55,9 @@ if __name__ == '__main__':
                     elementy = item_result["elementy"]
                     for element in elementy:
                         element_typy = element.get("typ", [])
-                        if not element_typy:
-                            element_typy = ['miejscowość']
-                            element['typ'] = element_typy
+                        # if not element_typy:
+                        #     element_typy = ['miejscowość']
+                        #     element['typ'] = element_typy
 
                         typy_osadnicze = []
 
@@ -64,11 +70,13 @@ if __name__ == '__main__':
                                     typ_nieznany.append(typ)
                         if typy_osadnicze:
                             element["typ_punktu_osadniczego"] = typy_osadnicze
+                        else:
+                            tmp = element.pop("typ_punktu_osadniczego", None)
                 else:
-                    item_typy = item_result.get("typ", None)
-                    if not item_typy:
-                        item_typy = ['miejscowość']
-                        item_result['typ'] = item_typy
+                    item_typy = item_result.get("typ", [])
+                    # if not item_typy:
+                    #     item_typy = ['miejscowość']
+                    #     item_result['typ'] = item_typy
 
                     typy_osadnicze = []
 
@@ -81,6 +89,8 @@ if __name__ == '__main__':
                                 typ_nieznany.append(typ)
                     if typy_osadnicze:
                         item_result["typ_punktu_osadniczego"] = typy_osadnicze
+                    else:
+                        tmp = item_result.pop("typ_punktu_osadniczego", None)
 
         # zapis
         with open(output_path, 'w', encoding='utf-8') as f_out:

@@ -55,7 +55,7 @@ def prepare_prompt(model=None) -> str:
 
     Wyszukaj i zapisz w polach struktury JSON informacje o poszukiwanych obiektach
     Uwzględniaj **TYLKO I WYŁĄCZNIE** obiekty znajdujące się na terenie opisywanej miejscowości.
-    Uwzględniaj **TYLKO** obiekty funkcjonujące w czasie powstawania SGKP - w XIX wieku, starsze informacje historyczne - pomiń.
+    Uwzględniaj **TYLKO** obiekty funkcjonujące w czasie powstawania SGKP - w XIX wieku, **POMIŃ** starsze informacje historyczne.
 
     **1. Szkoły (pole `szkoły`):**
     *   Wyszukaj szkoły i uczelnie w opisywanej miejscowości: szkoła elementarna, 1-oddziałowa, etatowa, jednokl., szkoła niezorganizowana, gimnazjum, liceum, uniwersytet, szkoła religijna, szkoła etat. 1-kl., szkoła początkowa, szkoła ludowa itp.).
@@ -160,9 +160,7 @@ def prepare_prompt(model=None) -> str:
     **PRZYKŁAD:**
 
     **Hasło:** Wielkowice
-    **Tekst hasła:** Wielkowice albo Wielkowiec, wś i folw., pow. pruski, gm. Hotków. Cerkiew par. i szkoła religijna,
-    parafia kat. w Hotkowie, 115 dm., 456 mk. W 1560 roku król Zygmunt August nadał wieś Janowi Potockiemu za zasługi.
-    We wsi 2 młyny i wiatrak, gospoda przydrożna. Na płn od wsi znaleziono urny i starożytne siekierki z brązu. Przy folwarku stacja hodowli koni. We wsi kasa pożyczkowa z kapitałem 350 rb. Obecnie własność skarbowa. K. Prz.
+    **Tekst hasła:** Wielkowice albo Wielkowiec, wś i folw., pow. pruski, gm. Hotków. Cerkiew par. i szkoła religijna, parafia kat. w Hotkowie, 115 dm., 456 mk. W 1560 roku król Zygmunt August nadał wieś Janowi Potockiemu za zasługi. We wsi 2 młyny i wiatrak, gospoda przydrożna. Na płn od wsi znaleziono urny i starożytne siekierki z brązu. Przy folwarku stacja hodowli koni. We wsi kasa pożyczkowa z kapitałem 350 rb. Obecnie własność skarbowa. K. Prz.
 
     **Wynik w formie struktury JSON:**
     ```json
@@ -179,7 +177,7 @@ def prepare_prompt(model=None) -> str:
         "Kolejne zdanie wspomina o znaleziskach archeologicznych: 'znaleziono urny i starożytne siekierki z brązu'. Model nie posiada kategorii na obiekty historyczne lub archeologiczne, więc pomijam tę informację.",
         "Następnie znajduję frazę: 'Przy folwarku stacja hodowli koni'. Wyrażenie 'stacja hodowli koni' idealnie pasuje do pola 'hodowla'. Ekstrahuję tę informację.",
         "Czytam dalej: 'We wsi kasa pożyczkowa z kapitałem 350 rb.'. Fraza 'kasa pożyczkowa' jest jednoznacznym dopasowaniem do pola 'instytucje_finansowe'. Zapisuję 'kasa pożyczkowa' w odpowiednim polu.",
-        "Finalizuję analizę, sprawdzając, czy w tekście znajdują się informacje pasujące do pozostałych, niewypełnionych pól, takich jak 'celne', 'biblioteki', 'opieka_zdrowotna', 'handel', 'dobroczynnosc', 'sady', 'ksiegarnie', 'zegluga', 'bursy', 'infrastruktura_miejska', 'poczta', 'policja' czy 'uzdrowiska'. Nie znajduję w tekście żadnych dalszych pasujących informacji. Proces ekstrakcji został zakończony."
+        "Finalizuję analizę, sprawdzając, czy w tekście znajdują się informacje pasujące do pozostałych, niewypełnionych pól, takich jak 'celne', 'biblioteki', 'opieka_zdrowotna', 'handel', 'dobroczynnosc', 'sady', 'ksiegarnie', 'zegluga', 'bursy', 'infrastruktura_miejska', 'poczta', 'policja', 'stacje_drogi_zelaznej' czy 'uzdrowiska'. Nie znajduję w tekście żadnych dalszych pasujących informacji. Proces ekstrakcji został zakończony."
     ],
     "szkoły": ["szkoła religijna"],
     "gastronomia": ["gospoda przydrożna"],

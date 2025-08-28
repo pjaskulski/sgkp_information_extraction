@@ -93,9 +93,10 @@ def prepare_prompt(model=None) -> str:
 
     **14. Wojsko ('wojsko')**
     *   poszukiwane obiekty: koszary, fort, forteca, twierdza, żandarmeria, zarząd okręgu wojskowego, strzelnica, reduta, arsenał, garnizon
+        (pomiń obiekty policyjne np. okręgi policyjne)
 
     **15. Obiekty sakralne ('obiekty_sakralne')**
-    *   obiekty sakralne (budowle): kościół, meczet, kaplica, synagoga, cerkiew, klasztor, dom modlitwy, sobór, katedra (jeżeli podano to cała nazwa, wezwanie itp.).
+    *   obiekty sakralne (budowle): kościół, meczet, kaplica, synagoga, cerkiew, klasztor, dom modlitwy, sobór, katedra (jeżeli podano to cała nazwa, wezwanie itp.). Parafia nie jest obiektem sakralnym, chodzi o budowle.
 
     **16. Zgromadzenia religijne ('zgromadzenia_religijne')**
     *    Np. zakon, monaster, klasztor, zgromadzenie, opactwo, zbór innowierców, chodzi o działające zgromadzenia, informacje historyczne, informacje o ruinach klasztorów pomiń.
