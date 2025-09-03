@@ -52,7 +52,7 @@ def prepare_prompt(model=None) -> str:
     Uwzględniaj  **TYLKO I WYŁĄCZNIE** te znajdujące się na terenie opisywanej miejscowości.
 
     **1. Właściciel miejscowości/posiadłości (pole `właściciel`):**
-    *   Zapisz właściciela/właścielkę lub jeżeli istnieje wielu - właścicieli miejscowości, majątku. Użyj tylko informacji wskazujących na posiadanie majątku w XIX wieku, wcześniejsze informacje historyczne zignoruj.
+    *   Zapisz właściciela/właścielkę lub jeżeli istnieje wielu - właścicieli miejscowości, majątku. Użyj tylko informacji wskazujących na posiadanie majątku w XIX wieku, wcześniejsze informacje historyczne zignoruj. Właścicielem może być konkretna osoba, kilka osób, rodzina, fundusz lub firma, a także rząd lub skarb państwa,
 
     **2. Obiekty (`przemysłowe`):**
     *   obiekty przemysłowe znajdujące się w miejscowości opisanej w haśle, np. fabryka, cegielnia, kopalnia, huta, wytwórnia maszyn itp. Uwaga: nie są obiektem przemysłowym młyny i wiatraki - te powinny trafić do innego pola ('młyny')
@@ -86,7 +86,7 @@ def prepare_prompt(model=None) -> str:
     *   obiekty typu: leśniczówka, nadleśnictwo, gajówka, försterei, strażnica leśna, jegierówka (pomiń nazwy miejscowości zawieraące słowo Leśny, Leśniczówka - to tylko nazwy)
 
     **12. Budownictwo pałacowe, dworskie ('budownictwo_pałacowe')**
-    *   obiekty pałacowe, dwory.
+    *   obiekty pałacowe, dwory. Uwaga: pomiń domy dworskie, one nie są dworami.
 
     **13. Magazynowanie ('magazyny')**
     *   poszukiwane obiekty: magazyn, spichlerz, skład zboża, świren, elewator, spichrz, stodoła, gumno

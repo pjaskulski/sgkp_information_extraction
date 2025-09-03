@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 class EntryModel(BaseModel):
     chain_of_thought: List[str] | None = Field(None, description="Kroki wyjaśniające prowadzące do ustalenia poszukiwanych danych dla hasła")
-    szkoly: str | None = Field(None, description="Lista szkół w miejscowości np. szkoła elementarna, gimnazjum itp.")
+    szkoly: List[str] | None = Field(None, description="Lista szkół w miejscowości np. szkoła elementarna, gimnazjum itp.")
     urzedy: List[str] | None = Field(None, description="Lista urzędów: miejski, poborowy itp.")
     celne: List[str] | None = Field(None, description="Lista obiektów celnych: komory celne, urzędy celne, przykomorki, posterunki celne itp.")
     biblioteki: List[str] | None = Field(None, description="Lista: biblioteki, czytelnie")

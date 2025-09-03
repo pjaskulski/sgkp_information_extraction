@@ -51,6 +51,7 @@ In the **PROMPT** folder - an example of SGKP content processing directly in ais
 6. Religious structure (concurrent_extract_struktura.py)
 7. Land ownership: land type structure (concurrent_extract_landownership.py)
 8. Data verification and corrections
+9. Additional processing of large entries (e.g. district towns, towns with parish seats, etc.), data search to reconstruct the parish structure
 
 ## Processing example (Stage 3: owner, industry, monuments, religious buildings, archaeology, etc.), entry Kabarowce from volume 3 of the dictionary. Content:
 
@@ -178,7 +179,8 @@ W folderze **PROMPT** - przykład przetwarzania treści SGKP bezpośrednio w ais
 5. Dane statystyczne: liczba mieszkańców, liczba domów (concurrent_extract_statystyka.py)
 6. Struktura wyznaniowa (concurrent_extract_struktura.py)
 7. Własność ziemska: struktura rodzajów gruntów (concurrent_extract_wlasnosc_ziemska.py)
-8. Weryfikacja i poprawki danych 
+8. Weryfikacja i poprawki danych
+9. Dodatkowe przetwarzanie dużych haseł (np. miasta powiatowe, miejscowości z siedzibą parafii itp.), wyszukiwanie danych do odtworzenia struktury parafialnej
 
 ## Przykład przetwarzania (etap 3: właściciel, przemysł, zabytki, obiekty sakralne, archeologia itd.), hasło Kabarowce z 3 tomu słownika. Treść:
 

@@ -6,14 +6,14 @@ import glob
 
 
 # nr tomu lub 'test'
-VOLUME = '01'
+VOLUME = '11'
 # etap przetwarzania
-ETAP = '4'
+ETAP = '5'
 # DANE = 'dane_podstawowe'
 # DANE = 'miejscowosci'
 # DANE = 'wlasnosc_przemysl'
-DANE = 'instytucje_urzedy'
-# DANE = 'statystyka'
+# DANE = 'instytucje_urzedy'
+DANE = 'statystyka'
 # DANE = 'struktura'
 # DANE = 'wlasnosc_ziemska'
 # DANE = 'miejscowosci_nadrzedne'

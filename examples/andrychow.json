@@ -1,0 +1,54 @@
+{
+        "nazwa": "Andrychów",
+        "text": "Andrychów, Jędrychów, mko i wś, pow. wadowicki, 1343 n. a. morgów rozl., 362 dm., 1675 męż. 1959 kob., razem 3534 mk, y3 żydów, nad rz. Wieprzówką, przy gościńcu rządowym prowadzącym z Biały do Wadowic, pomiędzy wzgórzami; w miejscu sąd powiatowy, notaryat, st. p. i tek, kasa zaliczkowa, targi tygodniowe, browar, dystylarnie spirytusu, cegielnia, pokłady wapna; ludność bardzo przemysłowa, trudni się tkactwem i wyrabia drelichy, znane w całym kraju pod nazwą „andrychowskich“; szkoła 4-ro klasowa, parafia kat. dek. wadowickiego, bardzo starożytna, istniała już przed r. 1440, liczy 7421 wiernych; kość, paraf, poświęcony w r. 1721 przez Jana Tarłę biskupa kijowskiego i czernihowskiego, w kościele wiele pomników familii hr. Bobrowskich, od dłuższego czasu właścicieli Andrychowa, dawnej własności Ankwiczów, gdzie też Bobrowscy zamieszkują obszerny i ozdobny pałac. Przemysł tkacki zaszczepili tu rzemieślnicy z Belgii, Szląska i Saksonii (Niemcy nazywają A. Jendrzichau), których po wyludnieniu Andrychowa w r. 1717 Franciszek z Witowic Czerny kasztelan oświęcimski sprowadził. Stanisław August przywilejem z roku 1767 pozwolił, ażeby Stanisław z Posłowie Ankwicz, kaszt, biecki, jako opiekun swych dzieci, właścicieli Andrychowa, miejsce to na miasto przemienił, gdzie nie bez zaszczytu krajowego i pożytku skarbu kor. manufaktu ry obrusów i drelichów od lat kilkudziesięciu pomnażają się. W A. ur. się muzyk Antoni Kocipiński. Długosz wspomina o A. jako należącym do par. Wieprz: I, 81. M. M.",
+        "tom": "01",
+        "strona": 36,
+        "rodzaj": "indywidualne",
+        "ID": "01-00468",
+        "typ": [
+            "miasteczko",
+            "wieś"
+        ],
+        "powiat_ocr": "wadowicki",
+        "parafia_katolicka": "Andrychów",
+        "warianty_nazw": [
+            {
+                "lang": "nieokr.",
+                "wariant_nazwy": "Jędrychów"
+            }
+        ],
+        "powiat_ujednolicony": "wadowicki",
+        "typ_punktu_osadniczego": [
+            "Miasteczko",
+            "Wieś"
+        ],
+        "właściciel": "hrabiowie Bobrowscy",
+        "przemysłowe": [
+            "browar",
+            "destylarnia spirytusu",
+            "cegielnia"
+        ],
+        "rzemioslo": [
+            "tkacze",
+            "wyrób drelichów"
+        ],
+        "budownictwo_palacowe": [
+            "pałac hrabiów Bobrowskich"
+        ],
+        "obiekty_sakralne": [
+            "kościół parafialny"
+        ],
+        "szkoły": [
+            "szkoła 4-ro klasowa"
+        ],
+        "handel": [
+            "targi tygodniowe"
+        ],
+        "poczta": [
+            "stacja pocztowa",
+            "stacja telegraficzna"
+        ],
+        "instytucje_finansowe": [
+            "kasa zaliczkowa"
+        ]
+}

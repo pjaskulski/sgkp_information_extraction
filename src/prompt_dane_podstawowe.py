@@ -38,7 +38,7 @@ def prepare_prompt(model=None) -> str:
         Wynik zapisz w formie listy np. ['wieś'] lub ['wieś', 'folwark'] w polu 'typ'.
 
     **2. Warianty Nazw (`warianty_nazw`):**
-    *   Wyszukaj alternatywne lub obcojęzyczne nazwy hasła, podane zwykle na samym początku. Niekiedy warianty nazw podane są razem z datą, kiedy występowały. Wariant nazwy musi się różnić od nazwy hasła podanej na początku tekstu hasła.
+    *   Wyszukaj alternatywne lub obcojęzyczne nazwy hasła, podane zwykle na samym początku. Niekiedy warianty nazw podane są razem z datą, kiedy występowały. Wariant nazwy musi się różnić od nazwy hasła podanej na początku tekstu hasła. Czasem warianty haseł podane są po skrócie al. = alias.
     *   Zapisz język (np. `niem.`, `ros.`, `łac.`). Jeśli język nie jest podany, użyj wartości `nieokr.`.
 
     **3. Dane Administracyjne (`powiat`, `gmina`, `gubernia`):**

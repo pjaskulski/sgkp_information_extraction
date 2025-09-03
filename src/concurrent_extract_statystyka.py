@@ -21,14 +21,17 @@ from prompt_statystyka import prepare_prompt
 
 #============================== STAŁE I KONFIGURACJA ===========================
 # LICZBA WĄTKÓW
-NUM_THREADS = 50 # (dla testowych danych 5, dla większych danych - 50)
+NUM_THREADS = 150 # (dla testowych danych 5, dla większych danych - 50)
 
 # numer tomu lub 'test'
-VOLUME = '01'
+VOLUME = '11'
+# etap przetwarzania
+ETAP = '5'
+# kategoria danych
 DANE = 'statystyka'
 
 # API-KEY
-env_path = Path(".") / ".env"
+env_path = Path(".") / ".env_ihpan"
 load_dotenv(dotenv_path=env_path)
 OPENAI_ORG_ID = os.environ.get('OPENAI_ORG_ID')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
@@ -73,7 +76,7 @@ def value_test(value: str) -> bool:
     return value not in ['', '/', 'null']
 
 
-def process_entry(entry_data: dict, client: OpenAI) -> dict:
+def process_entry(entry_data: dict, client: OpenAI, info:str) -> dict:
     """Przetwarza pojedyncze hasło lub hasło zbiorcze."""
     entry_id = entry_data.get("ID", "")
     rodzaj = entry_data.get("rodzaj")
@@ -85,35 +88,42 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
             name = element.get("nazwa", "")
             text = element.get("text", "")
             element_id = element.get("ID", "")
-            print(f"  -> Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
+            # przetwarzanie tylko haseł typu miejscowość (czyli posiadających typ punktu osadniczego)
+            typ_punktu_osadniczego = element.get("typ_punktu_osadniczego", None)
 
-            try:
-                result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
+            if typ_punktu_osadniczego:
+                print(f"  -> [{info}] Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
 
-                if result.l_mk_statystyka:
-                    element['l_mk_statystyka'] = [item.model_dump() for item in result.l_mk_statystyka]
-                if result.l_dm_statystyka:
-                    element['l_dm_statystyka'] = [item.model_dump() for item in result.l_dm_statystyka]
+                try:
+                    result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
 
-            except Exception as e:
-                print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
+                    if result.l_mk_statystyka:
+                        element['l_mk_statystyka'] = [item.model_dump() for item in result.l_mk_statystyka]
+                    if result.l_dm_statystyka:
+                        element['l_dm_statystyka'] = [item.model_dump() for item in result.l_dm_statystyka]
+
+                except Exception as e:
+                    print(f"BŁĄD przetwarzania elementu {element_id} ({name}): {e}", file=sys.stderr)
 
     else: # Hasło pojedyncze
         name = entry_data.get("nazwa", "")
         text = entry_data.get("text", "")
-        print(f"-> Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
+        # przetwarzanie tylko haseł typu miejscowość (czyli posiadających typ punktu osadniczego)
+        typ_punktu_osadniczego = entry_data.get("typ_punktu_osadniczego", None)
 
-        try:
-            result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
+        if typ_punktu_osadniczego:
+            print(f"-> [{info}] Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
 
-            if result.l_mk_statystyka:
-                entry_data['l_mk_statystyka'] = [item.model_dump() for item in result.l_mk_statystyka]
-            if result.l_dm_statystyka:
-                entry_data['l_dm_statystyka'] = [item.model_dump() for item in result.l_dm_statystyka]
+            try:
+                result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
 
+                if result.l_mk_statystyka:
+                    entry_data['l_mk_statystyka'] = [item.model_dump() for item in result.l_mk_statystyka]
+                if result.l_dm_statystyka:
+                    entry_data['l_dm_statystyka'] = [item.model_dump() for item in result.l_dm_statystyka]
 
-        except Exception as e:
-            print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
+            except Exception as e:
+                print(f"BŁĄD przetwarzania hasła {entry_id} ({name}): {e}", file=sys.stderr)
 
     return entry_data
 
@@ -125,12 +135,15 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
     # ścieżka do zapisu wyników
     output_path = output_dir / f'output_part_{worker_id}.json'
 
-    # oosbny klient da każdego wątku
+    # osobny klient da każdego wątku
     client = OpenAI()
 
+    size_of_chunk = len(chunk)
+    number_of_chunk = 0
     processed_results = []
     for entry in chunk:
-        processed_entry = process_entry(entry, client)
+        number_of_chunk += 1
+        processed_entry = process_entry(entry, client, info=f'{number_of_chunk}/{size_of_chunk}')
         processed_results.append(processed_entry)
 
         # zapis wyników wątku do osobnego pliku (to nie jest optymalne, ale zajmuje mało czasu)
@@ -145,8 +158,8 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
 if __name__ == "__main__":
     start_time = time.time()
 
-    data_path = Path('..') / 'SGKP' / 'JSON' / f'sgkp_{VOLUME}.json'
-    output_dir = Path('..') / 'SGKP' / 'JSON' / f'output_parts_{VOLUME}_{DANE}'
+    data_path = Path('..') / 'SGKP' / 'JSON' /  f'dane_etap_{ETAP}' / f'sgkp_{VOLUME}.json'
+    output_dir = Path('..') / 'SGKP' / 'JSON' /  f'output_parts_{VOLUME}_{DANE}'
 
     # katalog na pliki częściowe, jeśli nie istnieje
     output_dir.mkdir(exist_ok=True)

@@ -82,10 +82,10 @@ def prepare_prompt(model=None) -> str:
     *   przytułek, przytulisko, dom sierot, dom opieki, dom schronienia, zakład dla zniedołężniałych, towarzystwo dobroczynności, fundacja dobroczynna
 
     **9. Sądownictwo ('sądy')
-    *   sąd, sąd gminny, sąd pokoju, sąd okręgowy, sąd powiatowy, sąd ziemski, sąd ziemiański, izba sądowa, trybunał itp.
+    *   sąd, sąd gminny, sąd pokoju, sąd okręgowy, sąd powiatowy, sąd ziemski, sąd ziemiański, izba sądowa, trybunał itp. - ale TYLKO sądy znajdujące się w opisywanej miejscowości
 
     **10. Hodowla ('hodowla')**
-    *   TYLKO stajnie/owczarnie i obiekty hodowlane, zakłady stadnicze; bez pastwisk.
+    *   TYLKO stajnie / owczarnie i obiekty hodowlane, zakłady stadnicze; bez pastwisk.
 
     **11. Ksiegarnie, drukarnie ('księgarnie_drukarnie')**
     *   księgarnia, drukarnia, skład nut, skład map, antykwariat, oficyna drukarska, zakład litograficzny.
@@ -103,10 +103,10 @@ def prepare_prompt(model=None) -> str:
     *   st. p. (stacja pocztowa), poczta, poczthalteria, stacja telegrafu, agentura pocztowa - tylko na obszarze opisywanej miejscowości, wzmianki np. o st. p. w innych miejscowościach pomiń, np. sformułowanie st. p. Clunie oznacza stację pocztową w miejcowości Clunie a nie w miejscowości opisywanej w haśle.
 
     **16. Samorząd ('samorząd')**
-    *   zarządy gmin/powiatów
+    *   zarządy gmin / powiatów
 
     **17. Policja ('policja')**
-    *   posterunki policji, zarządy policyjne, biuro policmajstra, naczelnik policji, cyrkuł
+    *   posterunki policji, zarządy policyjne, biuro policmajstra, naczelnik policji, cyrkuł - tylko znajdujące się w opisywanej miejscowości, pomiń informacje że np. wieś należy do 4 zarządu policyjnego.
 
     **18. Instytucje finansowe ('instytucje_finansowe')**
     *   banki, kasy pożyczkowe, kasy zapomogowe itp.

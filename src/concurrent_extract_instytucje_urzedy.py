@@ -40,7 +40,7 @@ from prompt_instytucje_urzedy import prepare_prompt
 NUM_THREADS = 150 # (dla testowych danych 5, dla większych danych - 50 i więcej)
 
 # numer tomu
-VOLUME = '01'
+VOLUME = '16'
 # etap przetwarzania
 ETAP = '4'
 # kategoria danych
@@ -78,7 +78,7 @@ def get_data(tekst_hasla:str, client: OpenAI):
             {"role": "user", "content": u_prompt},
         ],
         response_format=EntryModel,
-        temperature=0
+        temperature=0.0
     )
 
     return completion.choices[0].message.parsed
@@ -136,7 +136,7 @@ def update_record(entry: dict, result: EntryModel):
         entry['stacje_drogi_zelaznej'] = result.stacje_drogi_zelaznej
 
 
-def process_entry(entry_data: dict, client: OpenAI) -> dict:
+def process_entry(entry_data: dict, client: OpenAI, info:str) -> dict:
     """Przetwarza pojedyncze hasło lub hasło zbiorcze."""
     entry_id = entry_data.get("ID", "")
     rodzaj = entry_data.get("rodzaj")
@@ -151,7 +151,7 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
             typ_punktu_osadniczego = element.get("typ_punktu_osadniczego", None)
 
             if typ_punktu_osadniczego:
-                print(f"  -> Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
+                print(f"  -> [{info} ({i})] Przetwarzanie pod-hasła: {name} ({element_id}) w wątku {threading.get_ident()}")
 
                 try:
                     result = get_data(tekst_hasla=f'Hasło: {name}\n Treść hasła: {text}', client=client)
@@ -165,8 +165,9 @@ def process_entry(entry_data: dict, client: OpenAI) -> dict:
         text = entry_data.get("text", "")
         # przetwarzanie tylko haseł typu miejscowość (czyli posiadających typ punktu osadniczego)
         typ_punktu_osadniczego = entry_data.get("typ_punktu_osadniczego", None)
+
         if typ_punktu_osadniczego:
-            print(f"-> Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
+            print(f"-> [{info}] Przetwarzanie hasła: {name} ({entry_id}) w wątku {threading.get_ident()}")
 
             try:
                 result = get_data(tekst_hasla=f'Hasło: {name}\nTreść hasła: {text}', client=client)
@@ -188,9 +189,12 @@ def process_chunk(chunk: List[dict], worker_id: int, output_dir: Path):
     # oosbny klient da każdego wątku
     client = OpenAI()
 
+    size_of_chunk = len(chunk)
+    number_of_chunk = 0
     processed_results = []
     for entry in chunk:
-        processed_entry = process_entry(entry, client)
+        number_of_chunk += 1
+        processed_entry = process_entry(entry, client, info=f'{number_of_chunk}/{size_of_chunk}')
         processed_results.append(processed_entry)
 
         # zapis wyników wątku do osobnego pliku (to nie jest optymalne, ale zajmuje mało czasu)
